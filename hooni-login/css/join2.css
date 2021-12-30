@@ -1,0 +1,111 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+table * {
+    font-size: 13px;
+}
+
+  /* 배경화면 */
+.join_wrap {
+    border: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../imgs/bgimg1.jpg);
+    opacity: 95%;
+    position: relative;
+}
+
+  /* 로고텍스트 */
+.join_text {
+    margin-top: -40px;
+    text-align: center;
+}
+
+  /* 회원가입창 */
+.join_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 800px;
+    background-color: gray;
+    text-align: center;
+    padding: 20px;
+}
+.join_body div {
+    width: 100%;
+}
+
+td {
+    text-align: right;
+}
+
+  /* 회원가입창 - 회원가입 */
+.lb_title {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    font-size: 2.5em;
+    color: white;
+    /* text-align: center; */
+}
+
+  /* 회원가입창 - 창, 중복확인 */
+.lb_join {
+    position: relative;
+}
+
+#DupChekc{
+    text-align: left;
+}
+
+  /* 회원가입창 - 질문 */
+.member_question , #member_question{
+    color: gray;
+    width: 52%;
+}
+
+#border {
+    border-bottom: 1px solid #414952;
+}
+
+#bb2 {
+    border: none;
+}
+
+.al{
+    text-align: center;
+}
+
+#member_question{
+    /* border: none; */
+    margin-left: -170px;
+}
+
+  /* 회원가입창 - 주소 */
+.ab {
+    align-content: center;
+}
+
+#input_address1, #input_address2, #input_email{
+    width: 262px;
+}
+
+  /* 회원가입창 나가기 */
+.lb_exit {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: right;
+}
+.cancle {
+    border: 0;
+    background-color: gray;
+    text-decoration: none;
+    color: black;
+    margin-right: 30px;
+}

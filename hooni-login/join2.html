@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="/css/join2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <form name="join_form" id="join_form">
+        <div class="join_wrap">
+            <div class="join_body">
+                <div class="join_text"><img src="./imgs/logo_text.png" alt=""></div>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th colspan="4" class="lb_title">회원가입</th>
+                        </tr>
+                        <tr>
+                            <th colspan="4">회원 정보</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>아이디</td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="button" value="중복확인" id="DupCheck"></td>
+                            <td>(영문소문자/숫자,4~16자)</td>
+                        </tr>
+                        </tr>
+                        <tr>
+                            <td>비밀번호</td>
+                            <td><input type="password" name="" id=""></td>
+                            <td colspan="2" id="border">(영문 대소문자/숫자 4자~16자)</td>
+                        </tr>
+                        <tr>
+                            <td>비밀번호 확인</td>
+                            <td><input type="password" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>비밀번호 확인 질문</td>
+                            <div class="lb_join">
+                                <td colspan="3" id="border" class="al"> 
+                                    <select name="member_question" id="member_question" class="minimal">
+                                        <option value="place">&nbsp기억에 남는 추억의 장소는?</option>
+                                        <option value="treasure">&nbsp나의 보물 1호는?</option>
+                                        <option value="school">&nbsp나의 출신 초등학교는?</option>
+                                        <option value="hometown">&nbsp나의 출신 고향은?</option>
+                                        <option value="mother">&nbsp어머니 성함은?</option>
+                                        <option value="father">&nbsp아버님 성함은?</option>
+                                        <option value="color">&nbsp가장 좋아하는 색깔은?</option>
+                                        <option value="food">&nbsp가장 좋아하는 음식은?</option>
+                                    </select>
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <td>이름</td>
+                            <td><input type="text" name="" id="" ></td>
+                            <td colspan="2" id="border"></td>
+                        </tr>
+                        <tr>
+                            <td>주소</td>
+                            <td colspan="2"><input type="text" name="" id="input_address1"></td>
+                            <td id="border"></td>
+                        </tr>
+                        <tr>
+                            <td>상세 주소</td>
+                            <td colspan="2"><input type="text" name="" id="input_address2"></td>
+                            <td id="border"></td>
+                        </tr>
+                        <tr>
+                            <td>이메일</td>
+                            <td colspan="2"><input type="email" name="" id="input_email"></td>
+                        </tr>
+                        <tr>
+                            <td>닉네임</td>
+                            <td><input type="text" name="" id=""></td>
+                            <td colspan="2" id="bb"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="4">설문 조사</th>
+                            <th><a href="./join2.html">이동</a></th>
+                        </tr>
+                    </tbody>
+                    
+                </table>  
+                
+                <!-- 아이디, 비밀번호, 비밀번호 확인 / 이름, 주소, 이메일, 닉네임 / 설문조사 / 질문 -->
+                <div class="lb_exit"><a href="./login.html" class="cancle"><img src="./imgs/xbtn.png"> 나가기</a></div>
+            </div> <!-- join_body -->
+        </div> <!-- join_wrap -->
+    </form>
+
+    <script>
+        
+    </script>
+</body>
+</html>
