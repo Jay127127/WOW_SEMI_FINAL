@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+		integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+	<link rel="stylesheet" href="./index.css">
+
+	<style>
+	body {
+		background-image: url(./src/running.png);
+		background-repeat: no-repeat;
+		height: 100vh;
+		background-position: center;
+		background-size: cover;
+	}
+
+	.cover {
+		height: 100vh;
+		position: center;
+	}
+
+	</style>
+</head>
+<body>
+
+
+<!-- === header === -->
+
+<header class="section-header">
+	<div class="loginDiv">
+		<a href="#"><img src="./src/loginBigger.png" alt=""></a>
+	</div>
+</header>
+
+<!-- === navbar === -->
+
+<div class="container-fluid">
+
+	<nav class="navbar navbar-expand-lg navbar-static-top ">
+		<div>
+			<a class="navbar-brand" href="./index.html">
+				<img src="./src/logoWith.png" alt="">
+			</a>
+		</div>
+
+		<button class="navbar-toggler bg-danger navbar-dark " type="button" data-toggle="collapse" data-target="#navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav1">
+			<ul class="wow_custom navbar-nav ml-auto">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown" href="#" data-toggle="dropdown">&emsp;운동 루틴&emsp; </a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#"> 부위별 운동</a></li>
+						<li><a class="dropdown-item" href="#"> 전신 운동 </a></li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link  dropdown" href="#" data-toggle="dropdown">&emsp;칼로리 계산&emsp; </a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#"> 음식별 칼로리</a></li>
+						<li><a class="dropdown-item" href="#"> 운동별 칼로리</a></li>							<li><a class="dropdown-item" href="#"> 일일 권장 칼로리 </a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="#">&emsp;운동 장소&emsp;</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;커뮤니티&emsp;</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#"> 자유게시판</a></li>
+						<li><a class="dropdown-item" href="#"> 갤러리 </a></li>
+						<li><a class="dropdown-item" href="#"> 루틴 공유 </a></li>
+						<li><a class="dropdown-item" href="#"> 문의게시판 </a></li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;마이페이지&emsp; </a>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a class="dropdown-item" href="#"> 회원정보</a></li>
+						<li><a class="dropdown-item" href="#"> 캘린더 </a></li>
+						<li><a class="dropdown-item" href="#"> 나의 글과 댓글 </a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+</div>
+
+<!-- === section === -->
+
+<div class="section">
+
+
+
+<div class="car0">
+
+	<div class="viewAllChall mb-3">
+		<a href="#">
+			<img src="./src/viewAllChall.png" alt="">
+		</a>
+	</div>
+
+	<div id="demo" class="carousel slide" data-ride="carousel">
+
+	<!-- Indicators -->
+	<ul class="carousel-indicators">
+		<li data-target="#demo" data-slide-to="0" class="active"></li>
+		<li data-target="#demo" data-slide-to="1"></li>
+		<li data-target="#demo" data-slide-to="2"></li>
+	</ul>
+
+	<!-- The slideshow -->
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="./src/flower1.PNG" alt="Los Angeles" width="1100" height="500">
+		</div>
+		<div class="carousel-item">
+			<img src="./src/flower2.PNG" alt="Chicago" width="1100" height="500">
+		</div>
+		<div class="carousel-item">
+			<img src="./src/flower3.PNG" alt="New York" width="1100" height="500">
+		</div>
+	</div>
+
+	<!-- Left and right controls -->
+	<a class="carousel-control-prev" href="#demo" data-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	</a>
+	<a class="carousel-control-next" href="#demo" data-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	</a>
+</div>
+</div>
+
+</div>
+
+
+		<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+			crossorigin="anonymous"></script>
+
+</body>
+</html>

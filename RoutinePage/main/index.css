@@ -1,0 +1,145 @@
+
+/* =========== header ============ */
+
+/* ----header---- */
+
+.section-header {
+    padding-top: 10px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: end;
+    /* align-items: center; */
+    /* position: relative;
+			float: right; */
+}
+
+/* ========== navbar ========== */
+
+/* --- navbar --- */
+
+.navbar {
+    padding-top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand img {
+    width: 280px;
+}
+
+.bg-danger {
+    background-color: rgba(121, 3, 29, 0.6) !important;
+    border-color: rgba(121, 3, 29);
+}
+
+.navbar .bg-danger:hover,
+.navbar .bg-danger:focus {
+    background-color: rgb(121, 3, 29) !important;
+}
+
+@media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+    .navbar .nav-item:hover .nav-link {
+        background: rgba(121, 3, 29);
+        color: #fff;
+    }
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+    .navbar .nav-item:hover .dropdown-item {
+        color: #fff;
+    }
+    .navbar .nav-item .dropdown-menu {
+        margin-top: 0;
+        border-radius: 0;
+    }
+    .navbar .nav-item:hover .dropdown-item:hover {
+        color: #fff;
+        text-decoration: none;
+        background-color: rgba(0, 4, 7);
+    }
+}
+
+.nav-link {
+    color: #fff;
+    font-size: 0.9em;
+}
+
+/* .show */
+
+.show .dropdown-menu {
+    margin-top: 0;
+    border-radius: 0;
+}
+
+.show .nav-link:hover {
+    background: rgba(121, 3, 29);
+    color: #fff;
+}
+
+.show .dropdown-item {
+    color: #fff;
+}
+
+.show .dropdown-item:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: rgba(0, 4, 7);
+}
+
+.wow_custom {
+    background: rgba(121, 3, 29, 0.6);
+    border-radius: 2px;
+}
+
+.dropdown-menu {
+    background: rgba(0, 4, 7, 0.6);
+    color: #fff;
+}
+
+/* =========== section ============ */
+
+.section {
+    /* position: relative; */
+    height: 80%;
+    display: flex;
+    /* align-items: end; */
+}
+
+/* --- viewAllChall --- */
+
+.viewAllChall img {
+    width: 50%;
+}
+
+/* --- carousel --- */
+
+/* Make the image fully responsive */
+.carousel-inner img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 100%;
+    /* height: 100%; */
+    /* min-height: 200px; */
+    max-height: 233px;
+    /* height: 100% */
+}
+
+.car0 {
+    /* display: flex; */
+    width: 40vw;
+    min-width: 300px;
+    max-width: 350px;
+    /* height: 27vh; */
+    align-self: end;
+    margin-left: 30px;
+    margin-bottom: 50px;
+    /* position: fixed;*/
+    /* bottom: 50%; */
+    /* left: 30px; */
+    /* top: 5%; */
+}
+
+/* =================================== */
