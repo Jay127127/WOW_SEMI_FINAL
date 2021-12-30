@@ -1,0 +1,91 @@
+/* .navbar-custom {
+    background-color: rgba(10, 10, 10, 0.9);
+    border: 0;
+    border-radius: 0;
+    z-index: 1000;
+    font-family: "Roboto Condensed", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+    transition: background, padding 0.4s ease-in-out 0s;
+}
+
+.navbar a {
+    transition: color 0.125s ease-in-out 0s;
+} */
+
+.navbar-custom {
+    margin-top: 50px;
+    background: rgba(121, 3, 29, .6);
+}
+
+.navbar-custom .dropdown-menu {
+    background: rgba(26, 26, 26, 0.9);
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+.navbar-custom .navbar-brand {
+    letter-spacing: 4px;
+    font-weight: 400;
+    font-size: 22px;
+    color: #fff;
+}
+
+.navbar-custom .nav li > a {
+    position: relative;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar-custom .dropdown-menu > li > a {
+    border-bottom: 1px solid rgba(73, 71, 71, 0.15) !important;
+    padding: 11px 15px;
+    letter-spacing: 2px;
+    color: #999;
+}
+
+.navbar-custom .dropdown-menu .dropdown-menu {
+    border-left: 1px solid rgba(73, 71, 71, 0.15);
+    left: 100%;
+    right: auto;
+    top: 0;
+    margin-top: 0;
+}
+
+.navbar-custom .dropdown-menu.left-side .dropdown-menu {
+    border: 0;
+    border-right: 1px solid rgba(73, 71, 71, 0.15);
+    right: 100%;
+    left: auto;
+}
+
+.navbar-custom .nav > li > a:focus,
+.navbar-custom .nav > li > a:hover,
+.navbar-custom .nav .open > a,
+.navbar-custom .nav .open > a:focus,
+.navbar-custom .nav .open > a:hover,
+.navbar-custom .dropdown-menu > li > a:focus,
+.navbar-custom .dropdown-menu > li > a:hover {
+    background: none;
+    color: #fff;
+}
+
+.navbar-custom .dropdown-menu > li > a:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.navbar-custom .dropdown-toggler:after {
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 50%;
+    margin-top: -6px;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 9px;
+    content: "\f107";
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
