@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/routine/rutin_exer.js"></script>
+    <link rel="stylesheet" href="/routine/rutin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
+    crossorigin="anonymous">
+    <style>
+        h4{
+            font-weight: bolder;
+            color: whitesmoke; 
+        }
+        select{
+            width: 250px;
+        }
+        b{
+            color: whitesmoke;
+        }
+        div{
+            margin: 0;
+        }
+    </style>
+    <title>Arm</title>
+
+</head>
+<body>
+    <div style="width: 700px; height: 300px; background-color: rgb(160, 47, 85);">
+    <form action="" id="exerForm" >
+        <br>
+        <h4>팔 운동 횟수를 설정해주세요</h4>
+        <br>
+        <div>
+        <b><font >전완</font></b>
+        <select id="aP1">
+            <option value="1">1.바벨 팜스 업리스트컬</option>
+            <option value="2">2.바벨 팜스 다운리스트컬</option>
+            <option value="3">3.스탠딩 롤러 리스트컬</option>
+            <option value="4">4.벤치 팜스 업 리스트컬</option>     
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        <b><font >횟수</font></b>
+        <input type="number" min="0" max="50" id="aN1"> 
+        <b><font >회</font></b>
+        &nbsp;&nbsp;&nbsp;
+        <b><font >인터벌</font></b>
+        <input type="number" min="0" max="300" step="5" id="aI1"> 
+        <b><font >초</font></b>
+        </div>
+        <br>
+        <div>
+        <b><font>삼두</font></b>  
+        <select id="aP2">
+            <option value="5">5.덤벨킥백</option>
+            <option value="6">6.트라이셉스 익스텐션</option>
+            <option value="7">7.클로즈그립 벤치프레스</option>
+            <option value="8">8.딥스</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        <b><font >횟수</font></b>
+        <input type="number" min="0" max="50" id="aN2"> 
+        <b><font >회</font></b>
+        &nbsp;&nbsp;&nbsp;
+        <b><font >인터벌</font></b>
+        <input type="number" min="0" max="300" step="5" id="aI2"> 
+        <b><font >초</font></b>
+        </div>
+        <br>
+        <div>
+        <b><font>상완</font></b>
+        <select id="aP3">
+            <option value="9">9.스탠딩 바벨 컬</option>
+            <option value="10">10.스탠딩 이지바 컬</option>
+            <option value="11">11.시티드 바벨 컬</option>
+            <option value="12">12.인클라인 바벨 컬</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        <b><font >횟수</font></b>
+        <input type="number" min="0" max="50" id="aN3"> 
+        <b><font >회</font></b>
+        &nbsp;&nbsp;&nbsp;
+        <b><font >인터벌</font></b>
+        <input type="number" min="0" max="300" step="5" id="aI3"> 
+        <b><font >초</font></b>
+        </div>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" onclick="sAT1();sAT2();sAT3();sAT4();sAT5();sAT6();sAT7();sAT8();sAT9();">저장</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" onclick="window.close();">닫기</button>
+        <br>
+        <br>
+    </form>
+</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

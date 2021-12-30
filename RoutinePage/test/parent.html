@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Parent
+    </title>
+</head>
+<body>
+    <b>부모창</b>
+    <input type="button" value="자식창 열기" onclick="openChild()">
+    전달할 값: <input type="text" id="pInput">
+    <input type="button" value="전달" onclick="setChildText()">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+    let openWin;
+
+    function openChild(){
+        window.name = "parentForm";
+
+        openWin = window.open("Child.html",
+            "childForm","width=570, height=350, resizable = no, scrollbars = no");
+    }
+
+
+
+
+    function setChildText(){
+        openWin.document.getElementById("cInput").value = document.getElementById("pInput").value;
+        }
+ 
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
