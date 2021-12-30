@@ -1,0 +1,159 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+  /* 배경화면 */
+.search_id_wrap {
+    border: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url(./imgs/bgimg1.jpg); */
+    background-image: url(../imgs/bgimg1.jpg);
+    opacity: 95%;
+    position: relative;
+}
+
+  /* 메인로고, 로고텍스트 */
+.search_id_head {
+    position: absolute;
+    box-sizing: content-box;
+    text-align: center;
+    top: -10;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    height: 65vh;
+}
+.search_id_text {
+    margin-top: -220px;
+    text-align: center;
+}
+
+  /* 아이디찾기창 */
+.search_id_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 600px;
+    background-color: white;
+    text-align: center;
+}
+.search_id_body div {
+    width: 100%;
+}
+
+  /* 아이디찾기창 - 아이디찾기 */
+.lb_title {
+    margin-top: 45px;
+    margin-bottom: 15px;
+    font-size: 2.5em;
+    color:black;
+}
+
+  /* 아이디찾기창 - 회원가입시 입력하신 정보를 입력하세요. */
+.lb_text {
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+  /* 이름, 이메일 입력 */
+.lb_search_id {
+    position: relative;
+}
+.lb_search_id input {
+    width: 60%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 4px solid black;
+    outline: none;
+    background: transparent;
+}
+.lb_search_id label {
+    position: absolute;
+    margin-left: 21%;
+    text-align: start;
+    width: 60%;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: gray;
+    pointer-events: none;
+    transition: .5s;
+}
+.lb_search_id input:focus ~ label,
+.lb_search_id input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+
+/* 아이디찾기창 - 인증번호 받기 버튼 */
+.code_btn {
+    position: absolute;
+    top: 8%;
+    width: 86px;
+    height: 30px;
+    transform: translate(-100%, 0%);
+    font-weight: bold;
+    font-size: 11px;
+}
+
+  /* 아이디찾기창 - 찾기 버튼 */
+.lb_btn {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.search_btn {
+    background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+    background-color:#f24337e3;
+    border-radius:42px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:16px;
+    font-weight:bold;
+    padding:12px 140px;
+    text-decoration:none;
+    border: none;
+}
+.search_btn:hover {
+    background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+    background-color:#c62d1f;
+}
+.search_btn:active {
+    position:relative;
+    top:1px;
+}
+
+  /* 아이디찾기창 - 비밀번호찾기 */
+.lb_search_join a {
+    padding: 12px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+  /* 아이디찾기창 나가기 */
+.lb_exit {
+    margin-top: 20px;
+    text-align: right;
+}
+.cancle {
+    border: 0;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    margin-right: 30px;
+}

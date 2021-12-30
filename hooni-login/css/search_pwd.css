@@ -1,0 +1,208 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+  /* 배경화면 */
+.search_pwd_wrap {
+    border: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url(./imgs/bgimg1.jpg); */
+    background-image: url(../imgs/bgimg1.jpg);
+    opacity: 95%;
+    position: relative;
+}
+
+  /* 메인로고, 로고텍스트 */
+.search_pwd_head {
+    position: absolute;
+    box-sizing: content-box;
+    text-align: center;
+    top: -10;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    height: 65vh;
+}
+.search_pwd_text {
+  margin-top: -220px;
+    text-align: center;
+}
+
+  /* 비밀번호찾기창 */
+.search_pwd_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 600px;
+    background-color: white;
+    text-align: center;
+}
+.search_pwd_body div {
+    width: 100%;
+}
+
+  /* 비밀번호찾기창 - 비밀번호찾기 */
+.lb_title {
+    margin-top: 45px;
+    margin-bottom: 15px;
+    font-size: 2.5em;
+    color:black;
+}
+
+  /* 비밀번호찾기창 - 회원가입시 입력하신 정보를 입력하세요. */
+.lb_text {
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+  /* 이름, 이메일 입력 */
+.lb_search_pwd {
+    position: relative;
+}
+.lb_search_pwd input {
+    width: 60%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 4px solid black;
+    outline: none;
+    background: transparent;
+}
+.lb_search_pwd label:not(.member_question) {
+    position: absolute;
+    margin-left: 21%;
+    text-align: start;
+    width: 60%;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: gray;
+    pointer-events: none;
+    transition: .5s;
+}
+.lb_search_pwd input:focus ~ label,
+.lb_search_pwd input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+  /* 비밀번호찾기창 - 질문 */
+.member_question , #member_question{
+    color: gray;
+    width: 50%;
+    padding: 10px 0;
+    margin-top: 2px;
+    margin-bottom: 35px;
+    border-bottom: 4px solid black;
+}
+
+#member_question{
+  border: none;
+}
+
+select {
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, green 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, green 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+  /* 비밀번호찾기창 - 찾기 버튼 */
+.lb_btn {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.search_btn {
+    background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+    background-color:#f24337e3;
+    border-radius:42px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:16px;
+    font-weight:bold;
+    padding:12px 140px;
+    text-decoration:none;
+    border: none;
+}
+.search_btn:hover {
+    background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+    background-color:#c62d1f;
+}
+.search_btn:active {
+    position:relative;
+    top:1px;
+}
+
+  /* 비밀번호찾기창 - 아이디찾기 */
+.lb_search_join a {
+    padding: 12px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+  /* 비밀번호찾기창 나가기 */
+.lb_exit {
+    margin-top: 20px;
+    text-align: right;
+}
+.cancle {
+    border: 0;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    margin-right: 30px;
+}
