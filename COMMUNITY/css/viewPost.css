@@ -1,0 +1,103 @@
+
+    body {
+        background-image : url("../src/community_bg.png");
+        background-repeat: no-repeat;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        box-sizing: border-box;
+    }
+
+    .sub_title{
+    background-color: rgba(144, 8, 8, 0.63);
+    /* border-radius: 10px; */
+    padding: 1%;
+    width: 100vw;
+    /* margin: auto; */
+    /* color: white; */
+    }
+
+    .sub_info{
+    width: 90%;
+    margin-left: 5%;
+    list-style: none;
+    letter-spacing: 0.0em;
+    font-size: 1.2em;
+    color: white;
+    }
+
+    .sub_info :first-child{
+    font-size: 2.5em;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    }
+
+    .body{
+        margin: 25px;
+    }
+
+    .body_space{
+        width: 85%;
+        min-width: 600px;
+        height: 60vh;
+        background-color: rgba(192, 100, 100, 0.411);
+        margin: 25px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .view_head_subject{
+        background-color: rgb(255, 255, 255);
+        border-top: 1px solid rgb(167, 30, 30);
+        border-bottom: 1px solid slategray;
+        height: 8%;
+        line-height: 15%;
+        /* overflow: hidden; */
+    }
+
+    .view_head_left{
+        float: left;
+        margin-left: 3%;
+        font-size: 1em;
+        padding-top: 6px;
+        /* position: relative; */
+    }
+
+    .view_head_right{
+        float:right;
+        margin-right: 3%;
+        font-size: 1em;
+        padding-top: 6px;
+    }
+
+    .view_head_attachment{
+        background-color: rgb(217, 217, 217);
+        border-bottom: 1px solid slategray;
+        height: 8%;
+        line-height: 15%;
+        /* overflow: hidden; */
+    }
+    
+    .view_attachment{
+        /* float: left; */
+    }
+
+    .view_head_attachment > a{
+        text-decoration: none;
+        outline: none;
+        line-height: 8%;
+        margin: auto;
+        color: grey;
+    }
+
+    .view_body_content{
+        text-align: left;
+    }
+
+    .in_att{
+        margin: auto;
+        text-align: center;
+        line-height: 8%;
+    }
