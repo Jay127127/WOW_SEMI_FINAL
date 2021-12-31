@@ -36,10 +36,9 @@ public class AdminDao {
 				String admin_name = rs.getString("admin_name");
 				String admin_nik = rs.getString("admin_nik");
 				String admin_email = rs.getString("admin_email");
-				int admin_talkto_admin_num = rs.getInt("answer_talkto_admin_num");
-				int admin_danger_num = rs.getInt("answer_danger_num");
+				int admin_talkto_admin_num = rs.getInt("admin_talkto_admin_num");
+				int admin_danger_num = rs.getInt("admin_danger_num");
 				
-				System.out.println(rs.getInt("admin_num"));
 				selectedAdmin = new AdminVo();
 				selectedAdmin.setAdmin_num(admin_num);
 				selectedAdmin.setAdmin_power_code(admin_power_code);

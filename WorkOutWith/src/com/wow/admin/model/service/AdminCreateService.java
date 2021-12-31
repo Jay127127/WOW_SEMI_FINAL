@@ -18,7 +18,7 @@ public class AdminCreateService {
 		Connection conn = getConnection();
 		
 		//1-1. admin_id로 그 아이디의 비번 조회
-		AdminVo selectedAdmin = selectAdmin(conn, a);
+		AdminVo selectedAdmin = new AdminDao().selectAdmin(conn, a);
 		
 		close(conn);
 		
@@ -31,9 +31,11 @@ public class AdminCreateService {
 	}
 
 	
-	//1-1. selectAdmin() 갖고오기????????? 유지보수를 위해????
-	private AdminVo selectAdmin(Connection conn, AdminVo a) {
-		return new AdminDao().selectAdmin(conn, a);
-	}
+	
+	//1-1. selectAdmin() 갖고오기?????????
+//	private AdminVo selectAdmin(Connection conn, AdminVo a) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 	
 }
