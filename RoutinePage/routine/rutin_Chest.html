@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./rutin.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
     integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
     crossorigin="anonymous">
@@ -30,57 +31,59 @@
         <br>
         <div>
         <b><font >대흉근 상부</font></b>
-        <select>
-            <option value="">1.인클라인 바벨 벤치프레스</option>
-            <option value="">2.인클라인 덤벨 플라이</option>
+        <select id="cP1">
+            <option value="1">1.인클라인 바벨 벤치프레스</option>
+            <option value="2">2.인클라인 덤벨 플라이</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <b><font >횟수</font></b>
-        <input type="number" min="0" max="50"> 
+        <input type="number" min="0" max="50" value="0" id="cN1"> 
         <b><font >회</font></b>
         &nbsp;&nbsp;&nbsp;
         <b><font >인터벌</font></b>
-        <input type="number" min="0" max="300" step="5"> 
+        <input type="number" min="0" max="300" step="5" value="0" id="cI1"> 
         <b><font >초</font></b>
         </div>
         <br>
         <div>
         <b><font>대흉근 중앙</font></b>  
-        <select>
-            <option value="">3.바벨 벤치프레스</option>
-            <option value="">4.머신 벤치프레스</option>
+        <select id="cP2">
+            <option value="3">3.바벨 벤치프레스</option>
+            <option value="4">4.머신 벤치프레스</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <b><font >횟수</font></b>
-        <input type="number" min="0" max="50"> 
+        <input type="number" min="0" max="50" value="0" id="cN2"> 
         <b><font >회</font></b>
         &nbsp;&nbsp;&nbsp;
         <b><font >인터벌</font></b>
-        <input type="number" min="0" max="300" step="5"> 
+        <input type="number" min="0" max="300" step="5" value="0" id="cI2"> 
         <b><font >초</font></b>
         </div>
         <br>
         <div>
         <b><font>대흉근 하부</font></b>
-        <select>
-            <option value="">5.디클라인 벤치프레스</option>
-            <option value="">6.체스트 딥</option>
+        <select id="cP3">
+            <option value="5">5.디클라인 벤치프레스</option>
+            <option value="6">6.체스트 딥</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <b><font >횟수</font></b>
-        <input type="number" min="0" max="50"> 
+        <input type="number" min="0" max="50" value="0" id="cN3">  
         <b><font >회</font></b>
         &nbsp;&nbsp;&nbsp;
         <b><font >인터벌</font></b>
-        <input type="number" min="0" max="300" step="5"> 
+        <input type="number" min="0" max="300" step="5" value="0" id="cI3"> 
         <b><font >초</font></b>
         </div>
-        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit" class="btn btn-primary" onclick="window.close()">저장</button>
+        <button type="button" class="btn btn-primary" onclick="sCT1();sCT2();sCT3();sCT4();sCT5();sCT6();sCT7();sCT8();sCT9();">저장</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" onclick="window.close();">닫기</button>
         <br>
         <br>
     </form>

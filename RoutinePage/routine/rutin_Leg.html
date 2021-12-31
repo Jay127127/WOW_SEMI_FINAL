@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/routine/rutin_exer.js"></script>
+    <script src="/routine/rutin.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
     integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
     crossorigin="anonymous">
@@ -31,62 +31,64 @@
         <br>
         <div>
         <b><font >대퇴사두근</font></b>
-        <select>
-            <option value="">1.점프 스쿼트</option>
-            <option value="">2.레그 프레스</option>
-            <option value="">3.레그 익스텐션</option>
+        <select id="lP1">
+            <option value="1">1.점프 스쿼트</option>
+            <option value="2">2.레그 프레스</option>
+            <option value="3">3.레그 익스텐션</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <b><font >횟수</font></b>
-        <input type="number" min="0" max="50"> 
+        <input type="number" min="0" max="50" value="0" id="lN1"> 
         <b><font >회</font></b>
         &nbsp;&nbsp;&nbsp;
         <b><font >인터벌</font></b>
-        <input type="number" min="0" max="300" step="5"> 
+        <input type="number" min="0" max="300" step="5" value="0" id="lI1"> 
         <b><font >초</font></b>
         </div>
         <br>
         <div>
         <b><font>대퇴이두근</font></b>  
-        <select>
-            <option value="">4.바벨 런지</option>
-            <option value="">5.덤벨 런지</option>
-            <option value="">6.플러터 킥</option>
-            <option value="">7.루마니안 데드리프트</option>
-            <option value="">8.시티드 레그 컬</option>
+        <select id="lP2">
+            <option value="4">4.바벨 런지</option>
+            <option value="5">5.덤벨 런지</option>
+            <option value="6">6.플러터 킥</option>
+            <option value="7">7.루마니안 데드리프트</option>
+            <option value="8">8.시티드 레그 컬</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <b><font >횟수</font></b>
-        <input type="number" min="0" max="50"> 
+        <input type="number" min="0" max="50" value="0" id="lN2"> 
         <b><font >회</font></b>
         &nbsp;&nbsp;&nbsp;
         <b><font >인터벌</font></b>
-        <input type="number" min="0" max="300" step="5"> 
+        <input type="number" min="0" max="300" step="5" value="0" id="lI2"> 
         <b><font >초</font></b>
         </div>
         <br>
         <div>
         <b><font>종아리전반</font></b>
-        <select>
-            <option value="">9.카프레이즈</option>
-            <option value="">10.체스트 딥</option>
-            <option value="">11.내로우 스쿼트</option>
+        <select id="lP3">
+            <option value="9">9.카프레이즈</option>
+            <option value="10">10.체스트 딥</option>
+            <option value="11">11.내로우 스쿼트</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <b><font >횟수</font></b>
-        <input type="number" min="0" max="50"> 
+        <input type="number" min="0" max="50" value="0" id="lN3"> 
         <b><font >회</font></b>
         &nbsp;&nbsp;&nbsp;
         <b><font >인터벌</font></b>
-        <input type="number" min="0" max="300" step="5"> 
+        <input type="number" min="0" max="300" step="5" value="0" id="lI3"> 
         <b><font >초</font></b>
         </div>
-        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit" class="btn btn-primary" onclick="window.close()">저장</button>
+        <button type="button" class="btn btn-primary" onclick="sLT1();sLT2();sLT3();sLT4();sLT5();sLT6();sLT7();sLT8();sLT9();">저장</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" onclick="window.close();">닫기</button>
         <br>
         <br>
     </form>

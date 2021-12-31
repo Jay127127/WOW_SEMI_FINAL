@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/routine/rutin_exer.js"></script>
+    <script src="/routine/rutin.js"></script>
     <link rel="stylesheet" href="/routine/rutin.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
     integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
@@ -32,60 +32,63 @@
         <br>
         <div>
         <b><font >복직근</font></b>
-        <select>
-            <option value="">1.레그레이즈</option>
-            <option value="">2.크런치</option>
-            <option value="">3.AB롤아웃</option>
+        <select id="abP1">
+            <option value="1">1.레그레이즈</option>
+            <option value="2">2.크런치</option>
+            <option value="3">3.AB롤아웃</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <b><font >횟수</font></b>
-        <input type="number" min="0" max="50"> 
+        <input type="number" min="0" max="50" value="0" id="abN1"> 
         <b><font >회</font></b>
         &nbsp;&nbsp;&nbsp;
         <b><font >인터벌</font></b>
-        <input type="number" min="0" max="300" step="5"> 
+        <input type="number" min="0" max="300" step="5" value="0" id="abI1"> 
         <b><font >초</font></b>
         </div>
         <br>
         <div>
         <b><font>복사근</font></b>  
-        <select>
-            <option value="">4.사이드 밴드</option>
-            <option value="">5.트위스트 크런치</option>
-            <option value="">6.사이드 플랭크</option>
+        <select id="abP2">
+            <option value="4">4.사이드 밴드</option>
+            <option value="5">5.트위스트 크런치</option>
+            <option value="6">6.사이드 플랭크</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <b><font >횟수</font></b>
-        <input type="number" min="0" max="50"> 
+        <input type="number" min="0" max="50" value="0" id="abN2"> 
         <b><font >회</font></b>
         &nbsp;&nbsp;&nbsp;
         <b><font >인터벌</font></b>
-        <input type="number" min="0" max="300" step="5"> 
+        <input type="number" min="0" max="300" step="5" value="0" id="abI2"> 
         <b><font >초</font></b>
         </div>
         <br>
         <div>
         <b><font>복횡근</font></b>
-        <select>
-            <option value="">7.데드 버그</option>
-            <option value="">8.포암 플랭크</option>
-            <option value="">9.버드 도그 크런치</option>
+        <select id="abP3">
+            <option value="7">7.데드 버그</option>
+            <option value="8">8.포암 플랭크</option>
+            <option value="9">9.버드 도그 크런치</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <b><font >횟수</font></b>
-        <input type="number" min="0" max="50"> 
+        <input type="number" min="0" max="50" value="0" id="abN3"> 
         <b><font >회</font></b>
         &nbsp;&nbsp;&nbsp;
         <b><font >인터벌</font></b>
-        <input type="number" min="0" max="300" step="5"> 
+        <input type="number" min="0" max="300" step="5" value="0" id="abI3"> 
         <b><font >초</font></b>
         </div>
         <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit" class="btn btn-primary" onclick="window.close()">저장</button>
+        <button type="button" class="btn btn-primary" onclick="sABT1();sABT2();sABT3();sABT4();sABT5();sABT6();sABT7();sABT8();sABT9();">저장</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" onclick="window.close();">닫기</button>
         <br>
         <br>
     </form>

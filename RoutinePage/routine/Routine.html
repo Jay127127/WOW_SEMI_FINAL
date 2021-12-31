@@ -20,11 +20,10 @@
 		height: 100vh;
 		position: center;
 		}
-		.ruHead{
-			
-			
+		.ruHead{	
 			font-size:19px;
-			color: rgb(33, 214, 247);
+			color: rgb(130, 236, 144);
+					
 		}
 		#testImg{
 			position: relative;
@@ -98,11 +97,13 @@
 		tr td input{
 			width: 80px;
 			height: 30px;
+			text-align: center;
 		}
 		#goMyp{
 			position: absolute;
-			top:340px;
-			right:0px;
+			height: 160px;
+			top:240px;
+			right:-200px;
 		}
 		
 
@@ -174,20 +175,25 @@
 	</nav>
 
 </div>
-<h3></h3>
-<div class="ruHead">
+
+<div>
 	<br>
 	<br>
-	
-	<dl>
-		<dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;부위별 운동 루틴 제작하기</dt>
-		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;-신체 부위를 클릭해서 시작 </dd>
-	</dl>
-</div>
+	<div>
+	</div>
+	<br>
+	<div class="ruHead" style="background-color: rgba(121, 3, 29, 0.6);">
+		<dl>
+			<dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;자신의 루틴을 설정하세요</dt>
+			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;-신체 부위를 클릭하여 시작 </dd>
+		</dl>
+	</div>
+	</div>
+<div>
 	<br>
 	<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -209,6 +215,7 @@
 	
 
 	<div class="tbDiv">
+		<form action="">
 		<table class="table table-striped table-bordered table-hover" id="ExrTb">
 			<thead>
 				<tr>
@@ -223,30 +230,78 @@
 				<tr>
 					
 					<td>팔</td>
-					<td><input type="text" id="aPart1"></td>
-					<td><input type="text" id="aNum1"></td>
-					<td><input type="text" id="aIn1"></td>
+					<td>
+						<input type="text" id="aPart1">
+						<input type="text" id="aPart2">
+						<input type="text" id="aPart3">
+					</td>
+					<td>
+						<input type="text" id="aNum1">
+						<input type="text" id="aNum2">
+						<input type="text" id="aNum3">
+					</td>
+					<td>
+						<input type="text" id="aIn1">
+						<input type="text" id="aIn2">
+						<input type="text" id="aIn3">
+					</td>
 				</tr>
 				<tr>
 					
 					<td>다리</td>
-					<td><input type="text"></td>
-					<td><input type="text"></td>
-					<td><input type="text"></td>
+					<td>
+						<input type="text" id="lPart1">
+						<input type="text" id="lPart2">
+						<input type="text" id="lPart3">
+					</td>
+					<td>
+						<input type="text" id="lNum1">
+						<input type="text" id="lNum2">
+						<input type="text" id="lNum3">
+					</td>
+					<td>
+						<input type="text" id="lIn1">
+						<input type="text" id="lIn2">
+						<input type="text" id="lIn3">
+					</td>
 				</tr>
 				<tr>
 					
 					<td>가슴</td>
-					<td><input type="text"></td>
-					<td><input type="text"></td>
-					<td><input type="text"></td>
+					<td>
+						<input type="text" id="cPart1">
+						<input type="text" id="cPart2">
+						<input type="text" id="cPart3">
+					</td>
+					<td>
+						<input type="text" id="cNum1">
+						<input type="text" id="cNum2">
+						<input type="text" id="cNum3">
+					</td>
+					<td>
+						<input type="text" id="cIn1">
+						<input type="text" id="cIn2">
+						<input type="text" id="cIn3">
+					</td>
 				</tr>
 				<tr>
 					
 					<td> 복근</td>
-					<td><input type="text"></td>
-					<td><input type="text"></td>
-					<td><input type="text"></td>
+					<td>
+						<input type="text" id="abPart1">
+						<input type="text" id="abPart2">
+						<input type="text" id="abPart3">
+					</td>
+					<td>
+						<input type="text" id="abNum1">
+						<input type="text" id="abNum2">
+						<input type="text" id="abNum3">
+					</td>
+					<td>
+						<input type="text" id="abIn1">
+						<input type="text" id="abIn2">
+						<input type="text" id="abIn3">
+					</td>
 				</tr>
 			</tbody>
 			
@@ -254,7 +309,8 @@
 
 
 		</table>
-		<button class="btn btn-success" type="submit" id="goMyp">마이페이지로 전송</button>
+		<button class="btn btn-success" type="submit" id="goMyp">마이캘린더로 전송</button>
+	</form>
 	</div>
 
 </div>

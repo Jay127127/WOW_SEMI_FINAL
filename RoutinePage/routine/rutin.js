@@ -17,7 +17,16 @@ window.open('rutin_Leg.html','Leg','width=720,height=310,resizable=no ');
 //팝업에서 값 가져오기
 
 
+//다르게 생각해봄
+//값이 3개씩 나온다. int값 3개.
+
 //setArmText
+
+
+//opener(부모 html창)의 요소를 자식창의 요소와 일치시킨다.
+
+//set Arm Text
+
 
 function sAT1(){
     opener.document.getElementById("aPart1").value = document.getElementById("aP1").value
@@ -47,7 +56,8 @@ function sAT9(){
     opener.document.getElementById("aIn3").value = document.getElementById("aI3").value
 }
 
-//setLegText
+
+//set Leg Text
 
 function sLT1(){
   opener.document.getElementById("lPart1").value = document.getElementById("lP1").value
@@ -75,4 +85,64 @@ function sLT8(){
 }
 function sLT9(){
   opener.document.getElementById("lIn3").value = document.getElementById("lI3").value
+}
+
+//set Chest Text
+
+function sCT1(){
+  opener.document.getElementById("cPart1").value = document.getElementById("cP1").value
+}
+function sCT2(){
+  opener.document.getElementById("cPart2").value = document.getElementById("cP2").value
+}
+function sCT3(){
+  opener.document.getElementById("cPart3").value = document.getElementById("cP3").value
+}
+function sCT4(){
+  opener.document.getElementById("cNum1").value = document.getElementById("cN1").value
+}
+function sCT5(){
+  opener.document.getElementById("cNum2").value = document.getElementById("cN2").value
+}
+function sCT6(){
+  opener.document.getElementById("cNum3").value = document.getElementById("cN3").value
+}
+function sCT7(){
+  opener.document.getElementById("cIn1").value = document.getElementById("cI1").value
+}
+function sCT8(){
+  opener.document.getElementById("cIn2").value = document.getElementById("cI2").value
+}
+function sCT9(){
+  opener.document.getElementById("cIn3").value = document.getElementById("cI3").value
+}
+
+//set ABS Text
+
+function sABT1(){
+  opener.document.getElementById("abPart1").value = document.getElementById("abP1").value
+}
+function sABT2(){
+  opener.document.getElementById("abPart2").value = document.getElementById("abP2").value
+}
+function sABT3(){
+  opener.document.getElementById("abPart3").value = document.getElementById("abP3").value
+}
+function sABT4(){
+  opener.document.getElementById("abNum1").value = document.getElementById("abN1").value
+}
+function sABT5(){
+  opener.document.getElementById("abNum2").value = document.getElementById("abN2").value
+}
+function sABT6(){
+  opener.document.getElementById("abNum3").value = document.getElementById("abN3").value
+}
+function sABT7(){
+  opener.document.getElementById("abIn1").value = document.getElementById("abI1").value
+}
+function sABT8(){
+  opener.document.getElementById("abIn2").value = document.getElementById("abI2").value
+}
+function sABT9(){
+  opener.document.getElementById("abIn3").value = document.getElementById("abI3").value
 }
