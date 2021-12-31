@@ -4,10 +4,212 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>칼로리 계산 페이지</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+		integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+	<link rel="stylesheet" href="./backCac.css">
+    <style>
+        body{
+            background-image: url(./img/working\ \(1\).jpg);
+            height: 100vh;            
+			max-width: 100%;
+        }
+        .caHead{
+            font-size:19px;
+			color: rgb(130, 236, 144);
+        }
+        #foodTb{
+            position: absolute;
+            top: 300px;
+            left: 500px;
+            width:900px;
+            border-width: 1.5px;
+			background-color: rgb(60, 183, 199);
+			border-color: rgb(188, 255, 133);
+			border-style: solid;
+
+        }
+    </style>
 </head>
 <body>
+ 
+        <div img="">
+        
+     <!-- === header === -->
     
+    <header class="section-header">
+        <div class="loginDiv">
+            <a href="#"><img src="/main/src/loginBigger.png" alt=""></a>
+        </div>
+    </header>
+    
+    <!-- === navbar === -->
+    
+    <div class="container-fluid">
+    
+        <nav class="navbar navbar-expand-lg navbar-static-top ">
+            <div>
+                <a class="navbar-brand" href="/main/index.html">
+                    <img src="/main/src/logoWith.png" alt="">
+                </a>
+            </div>
+    
+            <button class="navbar-toggler bg-danger navbar-dark " type="button" data-toggle="collapse" data-target="#navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav1">
+                <ul class="wow_custom navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="#" data-toggle="dropdown">&emsp;운동 루틴&emsp; </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"> 부위별 운동</a></li>
+                            <li><a class="dropdown-item" href="#"> 전신 운동 </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown" href="#" data-toggle="dropdown">&emsp;칼로리 계산&emsp; </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"> 음식별 칼로리</a></li>
+                            <li><a class="dropdown-item" href="#"> 운동별 칼로리</a></li>							<li><a class="dropdown-item" href="#"> 일일 권장 칼로리 </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">&emsp;운동 장소&emsp;</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;커뮤니티&emsp;</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"> 자유게시판</a></li>
+                            <li><a class="dropdown-item" href="#"> 갤러리 </a></li>
+                            <li><a class="dropdown-item" href="#"> 루틴 공유 </a></li>
+                            <li><a class="dropdown-item" href="#"> 문의게시판 </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;마이페이지&emsp; </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a class="dropdown-item" href="#"> 회원정보</a></li>
+                            <li><a class="dropdown-item" href="#"> 캘린더 </a></li>
+                            <li><a class="dropdown-item" href="#"> 나의 글과 댓글 </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    
+    </div>
+
+
+    <div>
+        <div>
+        </div>
+        <br>
+        <div class="caHead" style="background-color: rgba(121, 3, 29, 0.6);">
+            <dl>
+                <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;음식 칼로리 계산기</dt>
+                <dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;-섭취한 음식의 칼로리를 확인하세요 </dd>
+            </dl>
+        </div>
+    </div>
+    
+
+    <div>
+        <div class="tbDiv">
+            <table class="table table-striped table-bordered table-hover" id="foodTb">
+                <thead>
+                    <tr>
+                        
+                        <th>부위</th>
+                        <th>번호</th>
+                        <th>횟수</th>
+                        <th>인터벌</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                        <td>팔</td>
+                        <td>
+                            <select name="" id="">
+                                <option value="">dwqdwq</option>
+                                <option value="">1dwqdq</option>
+                                <option value="">2dwqdwq</option>
+                            </select>
+                        </td>
+                        <td><input type="text" id="aNum1"></td>
+                        <td><input type="text" id="aIn1"></td>
+                    </tr>
+                    <tr>
+                        
+                        <td>다리</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        
+                        <td>가슴</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        
+                        <td> 복근</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                </tbody>
+                
+    
+    
+    
+            </table>
+
+
+
+
+
+        </fieldset>
+
+
+
+
+
+
+    </form>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
     <script src="./cal.js"></script>
 </body>
 </html>
