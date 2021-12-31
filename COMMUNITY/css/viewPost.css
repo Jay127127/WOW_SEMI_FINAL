@@ -9,7 +9,6 @@
         box-sizing: border-box;
     }
 
-
     .sub_title{
     background-color: rgba(144, 8, 8, 0.63);
     /* border-radius: 10px; */
@@ -34,10 +33,6 @@
     margin-top: 50px;
     margin-bottom: 5px;
     }
-
-
-
-
 
     .body{
         margin: 25px;
@@ -86,13 +81,13 @@
     }
     
     .view_attachment{
-        float: left;
+        /* float: left; */
     }
 
     .view_head_attachment > a{
         text-decoration: none;
         outline: none;
-        line-height: 44px;
+        line-height: 8%;
         margin: auto;
         color: grey;
     }
@@ -104,4 +99,5 @@
     .in_att{
         margin: auto;
         text-align: center;
+        line-height: 8%;
     }

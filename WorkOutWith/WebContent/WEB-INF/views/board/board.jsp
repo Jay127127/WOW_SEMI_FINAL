@@ -87,8 +87,8 @@
 				</tr>
 				<tr class="table-light">
 					<th name="board_no" scope="row">10</th>
-					<td name="board_title"  onclick="location.href=''">2022년에는 진짜 살뺀다..ㅠㅠ</td>
-					<td name="board_writer" onclick="location.href=''">아가리어터</td>
+					<td name="board_title"  onclick="location.href='/wow/viewPost'">2022년에는 진짜 살뺀다..ㅠㅠ</td>
+					<td name="board_writer" onclick="location.href=''">다이어터</td>
 					<td name="board_date"   onclick="location.href=''">2021.12.31</td>
 					<td name="board_view"   onclick="location.href=''">52</td>
 				</tr>
@@ -151,7 +151,7 @@
 				<tr class="table-light">
 					<th name="board_no" scope="row">1</th>
 					<td name="board_title"  onclick="location.href=''">운동 유튜버 추천해주세요 ㅠㅠ</td>
-					<td name="board_writer" onclick="location.href=''">미리미리</td>
+					<td name="board_writer" onclick="location.href=''">mireees</td>
 					<td name="board_view"   onclick="location.href=''">100</td>
 					<td name="board_date"   onclick="location.href=''">2021.12.14</td>
 				</tr>
