@@ -36,9 +36,10 @@ public class AdminDao {
 				String admin_name = rs.getString("admin_name");
 				String admin_nik = rs.getString("admin_nik");
 				String admin_email = rs.getString("admin_email");
-				int admin_talkto_admin_num = rs.getInt("admin_talkto_admin_num");
-				int admin_danger_num = rs.getInt("admin_danger_num");
+				int answer_talkto_admin_num = rs.getInt("answer_talkto_admin_num");
+				int answer_danger_num = rs.getInt("answer_danger_num");
 				
+				System.out.println(rs.getInt("admin_num"));
 				selectedAdmin = new AdminVo();
 				selectedAdmin.setAdmin_num(admin_num);
 				selectedAdmin.setAdmin_power_code(admin_power_code);
@@ -47,8 +48,8 @@ public class AdminDao {
 				selectedAdmin.setAdmin_name(admin_name);
 				selectedAdmin.setAdmin_nik(admin_nik);
 				selectedAdmin.setAdmin_email(admin_email);
-				selectedAdmin.setAnswer_talkto_admin_num(admin_talkto_admin_num);
-				selectedAdmin.setAnswer_danger_num(admin_danger_num);
+				selectedAdmin.setAnswer_talkto_admin_num(answer_talkto_admin_num);
+				selectedAdmin.setAnswer_danger_num(answer_danger_num);
 			}
 			
 		} catch (SQLException e) {
