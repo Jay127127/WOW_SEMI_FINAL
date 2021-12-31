@@ -1,0 +1,156 @@
+@charset "EUC-KR";
+
+body, html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+/* 배경화면 */
+.login_wrap {
+	border: 0;
+	padding: 0;
+	min-height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(../login_img/bgimg1.jpg);
+	opacity: 95%;
+	position: relative;
+}
+
+/* 메인로고, 로고텍스트 */
+.login_head {
+	position: absolute;
+	text-align: center;
+	top: -10%;
+	left: 50%;
+	transform: translate(-50%, 50%);
+	height: 65vh;
+}
+
+.login_text {
+	margin-top: -80px;
+	text-align: center;
+}
+
+/* 로그인창 */
+.login_body {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 650px;
+	height: 500px;
+	background-color: white;
+	text-align: center;
+}
+
+.login_body div {
+	width: 100%;
+}
+
+/* 로그인창 - LOGIN */
+.lb_title {
+	margin-top: 45px;
+	margin-bottom: 15px;
+	font-size: 2.5em;
+	color: rgba(255, 0, 0, 0.527)
+}
+
+/* 로그인창 - 로그인 후 이용하세요. */
+.lb_text {
+	font-size: 1.2em;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* 아이디, 비밀번호 입력 */
+.lb_login {
+	position: relative;
+}
+
+.lb_login input {
+	width: 50%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: gray;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 4px solid black;
+	outline: none;
+	background: transparent;
+}
+
+.lb_login label {
+	position: absolute;
+	margin-left: 26%;
+	text-align: start;
+	width: 60%;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: gray;
+	pointer-events: none;
+	transition: .5s;
+}
+
+.lb_login input:focus ~ label, .lb_login input:valid ~ label {
+	top: -20px;
+	left: 0;
+	color: #03e9f4;
+	font-size: 12px;
+}
+
+/* 로그인창 - 로그인 버튼 */
+.lb_btn {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.login_btn {
+	background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+	background-color: #f24337e3;
+	border-radius: 42px;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 12px 140px;
+	text-decoration: none;
+	border: none;
+}
+
+.login_btn:hover {
+	background: linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+	background-color: #c62d1f;
+}
+
+.login_btn:active {
+	position: relative;
+	top: 1px;
+}
+
+/* 로그인창 - 아이디찾기 / 비밀번호찾기 / 회원가입 */
+.lb_search_join a {
+	padding: 12px;
+	color: black;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+/* 로그인창 나가기 */
+.lb_exit {
+	margin-top: 20px;
+	text-align: right;
+}
+
+.cancle {
+	border: 0;
+	background-color: white;
+	text-decoration: none;
+	color: black;
+	margin-right: 30px;
+}

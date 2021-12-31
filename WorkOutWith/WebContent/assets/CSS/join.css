@@ -1,0 +1,304 @@
+@charset "UTF-8";
+
+body, html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+/* 배경화면 */
+.join_bg {
+	border: 0;
+	padding: 0;
+	min-height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(../login_img/bgimg1.jpg);
+	opacity: 95%;
+	position: relative;
+}
+
+/* 회원가입창 */
+.join_wrap {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 1200px;
+	height: 850px;
+	background-color: white; /* #3F444A */
+	text-align: center;
+	margin: auto;
+}
+
+.join_wrap>div {
+	float: left;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.join_left {
+	width: 50%;
+	border-right: 1px solid gray;
+}
+
+.join_right {
+	width: 50%;
+}
+
+.search_join_body div {
+	width: 100%;
+}
+
+/* 회원가입창 - 텍스트 로고 */
+.logo_text {
+	width: 600px;
+	height: 110px;
+	background-image: url(../login_img/logo_bg.jpg);
+	opacity: 80%;
+	line-height: 100px;
+}
+
+.logo_text img {
+	vertical-align: middle;
+}
+
+/* 회원가입창 - 왼쪽, 오른쪽 - 제목 */
+.join_title {
+	text-align: left;
+	margin: 20px 0 20px 20px;
+	color: #2f2f2f;
+}
+
+.join_text {
+	text-align: left;
+	font-weight: bold;
+	font-size: 14px;
+	color: #9a9a9a;
+	display: block;
+	margin: 0 0 10px 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid gray;
+}
+
+/* 회원가입창 - 설정 */
+.join_wrap div table {
+	border-spacing: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 100%;
+}
+
+.join_wrap .join_left table input {
+	border: 1px solid #ececec;
+	font-size: 14px;
+	color: #4c4c4c;
+	height: 30px;
+	padding: 8px;
+	width: 90%;
+	float: left;
+}
+
+.join_wrap .join_right table input {
+	font-size: 14px;
+	color: #4c4c4c;
+	padding: 8px;
+}
+
+.join_wrap div table th span {
+	color: #404040;
+	font-size: 14px;
+	display: inline-block;
+	position: relative;
+	padding: 0 10px 0 0;
+	text-indent: 20px;
+}
+
+.join_wrap .join_right table th {
+	height: 40px;
+	background: #cfcfcf;
+	font-weight: bold;
+	padding: 14px 10px 0 0;
+	text-align: center;
+	display: block;
+	margin: 0 0 0 20px;
+	border-top: 2px solid gray;
+}
+
+.join_wrap .join_right table td {
+	border-top: 2px solid gray;
+}
+
+.bb_question1, .bb_question2 {
+	border-bottom: 2px solid gray;
+}
+
+.join_wrap div table th {
+	text-align: left;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 회원가입창 - ID, PWD  */
+#login_id, #login_pwd1, #login_pwd2 {
+	width: 40% !important;
+}
+
+.condition {
+	font-size: 12px;
+	color: #4c4c4c;
+	position: relative;
+	top: 10px;
+}
+
+.btn_Dup {
+	width: 80px;
+	height: 35px;
+	border: 1px solid #cfcfcf;
+	background: #dedede;
+	color: #626262;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+/* 회원가입창 - 질문 */
+#join_question {
+	border: 1px solid #ececec;
+	font-size: 14px;
+	color: #4c4c4c;
+	height: 45px;
+	padding: 8px;
+	width: 94.2%;
+	float: left;
+}
+
+select {
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+select.mini {
+	background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+		linear-gradient(135deg, gray 50%, transparent 50%),
+		linear-gradient(to right, #ccc, #ccc);
+	background-position: calc(100% - 20px) calc(1em + 2px),
+		calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+	background-repeat: no-repeat;
+}
+
+select.mini:focus {
+	background-image: linear-gradient(45deg, green 50%, transparent 50%),
+		linear-gradient(135deg, transparent 50%, green 50%),
+		linear-gradient(to right, #ccc, #ccc);
+	background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+		calc(100% - 2.5em) 0.5em;
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+	background-repeat: no-repeat;
+	border-color: green;
+	outline: 0;
+}
+
+select:-moz-focusring {
+	color: transparent;
+	text-shadow: 0 0 0 #000;
+}
+
+/* 회원가입창 - 이메일 - 인증번호 발송 버튼 */
+.join_left table td a.btn_confirm {
+	display: inline-block;
+	float: left;
+	width: 110px;
+	height: 35px;
+	margin: 5px 0 0 0px;
+	border: 1px solid #cfcfcf;
+	background: #dedede;
+	color: #626262;
+	/* vertical-align: top; */
+	line-height: 35px;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+/* 회원가입창 - 필수 */
+.require_txt {
+	padding: 12px 0 19px 0;
+	text-align: right;
+	color: #9a9a9a;
+	font-size: 13px;
+	margin: 3px 0 0 22px;
+}
+
+.require_txt span {
+	display: inline-block;
+	position: relative;
+	padding-left: 10px;
+}
+
+.require_txt span:after {
+	content: '*';
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: #f95427;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.join_left table th span:after {
+	content: '*';
+	font-size: 13px;
+	color: #f95427;
+	position: absolute;
+	top: 0;
+	right: 0px;
+}
+
+/* 회원가입창 - 이메일 - 인증번호 확인 */
+.join_left table input.send_number::placeholder {text-align: right};
+.join_left table input.send_number:-ms-input-placeholder {text-align: right}; /* Edge용 */
+.join_left table input.send_number::-ms-input-placeholder {text-align: right}; /* 익스플로러용 */
+/* -------------------------------------------------------------------------- */
+.join_left table td {
+	padding-left: 6px 0;
+	position: relative;
+}
+
+/* 회원가입창 - 가입 버튼 */
+.btn_wrap a {
+	color: #fff;
+	background-color: #4380ce;
+	font-weight: bold;
+	padding: 10px;
+	height: 30px;
+	line-height: 30px;
+	width: 168px;
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	text-decoration: none;
+}
+
+.btn_wrap {
+	text-align: center;
+	margin: 40px 0 30px;
+	/* overflow: hidden; */
+}
+
+/* 회원가입창 - 나가기 버튼 */
+.lb_exit {
+	margin-top: 20px;
+	text-align: right;
+}
+
+.cancle {
+	border: 0;
+	background-color: white;
+	text-decoration: none;
+	color: black;
+	margin-right: 30px;
+}
