@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,10 +9,18 @@
     <title>new_roll</title>
     
     <!-- css file link -->
-    <link rel="stylesheet" href="../css/newPost.css">
+    <link rel="stylesheet" type="text/css" href="assets/CSS/board_newPost.css">
 
 </head>
 <body>
+
+
+	<!-- -------------- navbar -------------- -->
+
+	<%-- <jsp:include page='headesr_nav.jsp' /> --%>	
+	<%@ include file="../common/header_nav.jsp"%>
+	
+
     <!-- 본문 내용 시작 -->
 <main>
 

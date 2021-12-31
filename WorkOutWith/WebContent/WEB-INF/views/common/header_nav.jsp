@@ -68,7 +68,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;커뮤니티&emsp;</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#"> 자유게시판</a></li>
+							<li><a class="dropdown-item" href="/wow/board"> 자유게시판</a></li>
 							<li><a class="dropdown-item" href="#"> 갤러리 </a></li>
 							<li><a class="dropdown-item" href="#"> 루틴 공유 </a></li>
 							<li><a class="dropdown-item" href="#"> 문의게시판 </a></li>
