@@ -28,9 +28,10 @@ header video {
   transform: translateX(-50%) translateY(-50%);
 }
 
-header .container{
+#sec0{
   position: relative;
   z-index: 2;
+  height:75%
 }
 
 header .overlay {

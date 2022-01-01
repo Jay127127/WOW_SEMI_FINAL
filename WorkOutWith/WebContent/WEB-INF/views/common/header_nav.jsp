@@ -25,7 +25,7 @@
 
 	<!-- -------------- navbar -------------- -->
 
-	<div class="section-header">
+	<div class="section-header s-h-custom">
 		<div class="loginDiv">
 			<a href="#"><img src="assets/img/loginBigger.png" alt=""></a>
 			<a href="#"><img src="assets/img/logoutBigger.png" alt=""></a>
@@ -34,9 +34,9 @@
 
 	<div class="container-fluid">
 
-		<nav class="navbar navbar-expand-lg navbar-static-top ">
+		<nav class="navbar navbar-expand-lg navbar-static-top nb-custom">
 			<div>
-				<a class="navbar-brand" href="home">
+				<a class="navbar-brand n-brand" href="home">
 					<img src="assets/img/logoWith.png" alt="">
 				</a>
 			</div>
@@ -47,39 +47,39 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav1">
 				<ul class="wow_custom navbar-nav ml-auto">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown" href="#" data-toggle="dropdown">&emsp;운동 루틴&emsp; </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#"> 부위별 운동</a></li>
-							<li><a class="dropdown-item" href="#"> 전신 운동 </a></li>
+					<li class="nav-item dropdown nvitem-custom">
+						<a class="nav-link dropdown nv-link-custom" href="#" data-toggle="dropdown">&emsp;운동 루틴&emsp; </a>
+						<ul class="dropdown-menu dp-menu-custom">
+							<li><a class="dropdown-item dd-item" href="#"> 부위별 운동</a></li>
+							<li><a class="dropdown-item dd-item" href="#"> 전신 운동 </a></li>
 						</ul>
 					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link  dropdown" href="#" data-toggle="dropdown">&emsp;칼로리 계산&emsp; </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#"> 음식별 칼로리</a></li>
-							<li><a class="dropdown-item" href="#"> 운동별 칼로리</a></li>
-							<li><a class="dropdown-item" href="#"> 일일 권장 칼로리 </a></li>
+					<li class="nav-item dropdown nvitem-custom">
+						<a class="nav-link dropdown nv-link-custom" href="#" data-toggle="dropdown">&emsp;칼로리 계산&emsp; </a>
+						<ul class="dropdown-menu dp-menu-custom">
+							<li><a class="dropdown-item dd-item" href="#"> 음식별 칼로리</a></li>
+							<li><a class="dropdown-item dd-item" href="#"> 운동별 칼로리</a></li>
+							<li><a class="dropdown-item dd-item" href="#"> 일일 권장 칼로리 </a></li>
 						</ul>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="#">&emsp;운동 장소&emsp;</a>
+					<li class="nav-item nvitem-custom">
+						<a class="nav-link nv-link-custom" aria-current="page" href="#">&emsp;운동 장소&emsp;</a>
 					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;커뮤니티&emsp;</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/wow/board"> 자유게시판</a></li>
-							<li><a class="dropdown-item" href="#"> 갤러리 </a></li>
-							<li><a class="dropdown-item" href="#"> 루틴 공유 </a></li>
-							<li><a class="dropdown-item" href="#"> 문의게시판 </a></li>
+					<li class="nav-item dropdown nvitem-custom">
+						<a class="nav-link dropdown nv-link-custom" href="#" data-toggle="dropdown"> &emsp;커뮤니티&emsp;</a>
+						<ul class="dropdown-menu dp-menu-custom">
+							<li><a class="dropdown-item dd-item" href="/wow/board"> 자유게시판</a></li>
+							<li><a class="dropdown-item dd-item" href="#"> 갤러리 </a></li>
+							<li><a class="dropdown-item dd-item" href="#"> 루틴 공유 </a></li>
+							<li><a class="dropdown-item dd-item" href="#"> 문의게시판 </a></li>
 						</ul>
 					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;마이페이지&emsp; </a>
-						<ul class="dropdown-menu dropdown-menu-right">
-							<li><a class="dropdown-item" href="#"> 회원정보</a></li>
-							<li><a class="dropdown-item" href="#"> 캘린더 </a></li>
-							<li><a class="dropdown-item" href="#"> 나의 글과 댓글 </a></li>
+					<li class="nav-item dropdown nvitem-custom">
+						<a class="nav-link dropdown nv-link-custom" href="#" data-toggle="dropdown"> &emsp;마이페이지&emsp; </a>
+						<ul class="dropdown-menu dropdown-menu-right dp-menu-custom">
+							<li><a class="dropdown-item dd-item" href="#"> 회원정보</a></li>
+							<li><a class="dropdown-item dd-item" href="#"> 캘린더 </a></li>
+							<li><a class="dropdown-item dd-item" href="#"> 나의 글과 댓글 </a></li>
 						</ul>
 					</li>
 				</ul>
