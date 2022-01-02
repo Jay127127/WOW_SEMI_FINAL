@@ -70,13 +70,13 @@
 					<li class="nav-item nvitem-custom">
 						<a class="nav-link nv-link-custom" aria-current="page" href="#">&emsp;운동 장소&emsp;</a>
 					</li>
-					<li class="nav-item dropdown nvitem-custom">
-						<a class="nav-link dropdown nv-link-custom" href="#" data-toggle="dropdown"> &emsp;커뮤니티&emsp;</a>
-						<ul class="dropdown-menu dp-menu-custom">
-							<li><a class="dropdown-item dd-item" href="/wow/board"> 자유게시판</a></li>
-							<li><a class="dropdown-item dd-item" href="#"> 갤러리 </a></li>
-							<li><a class="dropdown-item dd-item" href="#"> 루틴 공유 </a></li>
-							<li><a class="dropdown-item dd-item" href="#"> 문의게시판 </a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;커뮤니티&emsp;</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/wow/board"> 자유게시판</a></li>
+							<li><a class="dropdown-item" href="#"> 갤러리 </a></li>
+							<li><a class="dropdown-item" href="#"> 루틴 공유 </a></li>
+							<li><a class="dropdown-item" href="#"> 문의게시판 </a></li>
 						</ul>
 					</li>
 					<li class="nav-item dropdown nvitem-custom">
