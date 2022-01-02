@@ -1,12 +1,14 @@
 @charset "UTF-8";
+
 /* -----------community page1------------- */
 
+
 body {
-          background-image : url("../board_img/community_bg.png");
-          background-repeat: no-repeat;
-          height: 100vh;
-          background-position: center;
-          background-size: cover;
+        background-image : url("../board_img/community_bg.png");
+        background-repeat: no-repeat;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
 		background-attachment: fixed;
         }
 
