@@ -1,0 +1,335 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Routine Page</title>
+    <link rel="stylesheet" href="assets/css/routine.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="assets/CSS/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: url(assets/img/routineBack.jpg);
+            height: 100vh;            
+			max-width: 100%;
+        }
+        .cover {
+		height: 100vh;
+		position: center;
+		}
+		.ruHead{	
+			font-size:19px;
+			color: rgb(130, 236, 144);
+					
+		}
+		#testImg{
+			position: relative;
+			width: 180px;
+			height: 354px;
+		}
+		button.btn1{
+			position: absolute;
+			width: 30px;
+			top: -90px;
+			left: 11px; 
+			background-color: rgba(0,0,0,0);
+			border: rgba(0,0,0,0);
+		}
+		button.btn2{
+			position: absolute;
+			width: 30px;
+			top: 30px;
+			left: 90px;
+			background-color: rgba(0,0,0,0);
+			border: rgba(0,0,0,0);
+		}
+		button.btn3{
+			position: absolute;
+			width: 80px;
+			top: -97px;
+			left:50px;
+			background-color: rgba(0,0,0,0);
+			border: rgba(0,0,0,0);
+		}
+		button.btn4{
+			position: absolute;
+			width: 40px;
+			top: -37px;
+			left: 67px;
+			background-color: rgba(0,0,0,0);
+			border: rgba(0,0,0,0);
+		}
+		button.btn5{
+			position: absolute;
+			width: 30px;
+			top: -90px;
+			left: 135px;
+			background-color: rgba(0,0,0,0);
+			border: rgba(0,0,0,0);
+		}
+		.tbDiv{
+			position: absolute;
+			top: 300px;
+			left: 500px;
+			width: 500px;
+			height: 300px;
+			opacity: 0.92;
+			
+		}
+		#ExrTb{
+			width: 100%;
+			height: 100%;
+			border-width: 1.5px;
+			background-color: rgb(60, 183, 199);
+			border-color: rgb(188, 255, 133);
+			border-style: solid;
+			text-align: center;
+		}
+		
+		th{
+			width: 80px ;
+			height: 30px;
+		}
+		
+		tr td input{
+			width: 80px;
+			height: 30px;
+			text-align: center;
+		}
+		#goMyp{
+			position: absolute;
+			height: 160px;
+			top:240px;
+			right:-200px;
+		}
+		
+
+    </style>   
+</head>
+<body>
+
+<header>
+<div class="section-header">
+		<div class="loginDiv">
+			<a href="#"><img src="assets/img/loginBigger.png" alt=""></a>
+			<a href="#"><img src="assets/img/logoutBigger.png" alt=""></a>
+		</div>
+	</div>	
+
+	<div class="container-fluid">
+
+		<nav class="navbar navbar-expand-lg navbar-static-top ">
+			<div>
+				<a class="navbar-brand" href="home">
+					<img src="assets/img/logoWith.png" alt="">
+				</a>
+			</div>
+
+			<button class="navbar-toggler bg-custom navbar-dark " type="button" data-toggle="collapse"
+				data-target="#navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav1">
+				<ul class="wow_custom navbar-nav ml-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown" href="#" data-toggle="dropdown">&emsp;운동 루틴&emsp; </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#"> 부위별 운동</a></li>
+							<li><a class="dropdown-item" href="#"> 전신 운동 </a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link  dropdown" href="#" data-toggle="dropdown">&emsp;칼로리 계산&emsp; </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#"> 음식별 칼로리</a></li>
+							<li><a class="dropdown-item" href="#"> 운동별 칼로리</a></li>
+							<li><a class="dropdown-item" href="#"> 일일 권장 칼로리 </a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="#">&emsp;운동 장소&emsp;</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;커뮤니티&emsp;</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#"> 자유게시판</a></li>
+							<li><a class="dropdown-item" href="#"> 갤러리 </a></li>
+							<li><a class="dropdown-item" href="#"> 루틴 공유 </a></li>
+							<li><a class="dropdown-item" href="#"> 문의게시판 </a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;마이페이지&emsp; </a>
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li><a class="dropdown-item" href="#"> 회원정보</a></li>
+							<li><a class="dropdown-item" href="#"> 캘린더 </a></li>
+							<li><a class="dropdown-item" href="#"> 나의 글과 댓글 </a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+	</div>
+
+</header>
+<div>
+	<br>
+	<br>
+	<div>
+	</div>
+	<br>
+	<div class="ruHead" style=>
+		<dl>
+			<dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;자신의 루틴을 설정하세요</dt>
+			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;-신체 부위를 클릭하여 시작 </dd>
+		</dl>
+	</div>
+	</div>
+<div>
+	<br>
+	<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span id="testImg">
+		<img src="assets/img/human.png">
+		<!-- 팔임 -->
+		<button class="btn1" onclick="openArmEdit()">&nbsp;</button>
+		<!-- 다리임 -->
+		<button class="btn2" onclick="openLegEdit()">&nbsp;</button>
+		<!-- 가슴임 -->
+		<button class="btn3" onclick="openChestEdit()">&nbsp;</button>
+		<!-- 복근임 -->
+		<button class="btn4" onclick="openABSEdit()">&nbsp;</button>
+		<!-- 팔2임 -->
+		<button class="btn5" onclick="openArmEdit()">&nbsp;</button>
+	</span>
+	
+
+	<div class="tbDiv">
+		<form action="">
+		<table class="table table-striped table-bordered table-hover" id="ExrTb">
+			<thead>
+				<tr>
+					
+					<th>부위</th>
+					<th>번호</th>
+					<th>횟수</th>
+					<th>인터벌</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					
+					<td>팔</td>
+					<td>
+						<input type="text" id="aPart1">
+						<input type="text" id="aPart2">
+						<input type="text" id="aPart3">
+					</td>
+					<td>
+						<input type="text" id="aNum1">
+						<input type="text" id="aNum2">
+						<input type="text" id="aNum3">
+					</td>
+					<td>
+						<input type="text" id="aIn1">
+						<input type="text" id="aIn2">
+						<input type="text" id="aIn3">
+					</td>
+				</tr>
+				<tr>
+					
+					<td>다리</td>
+					<td>
+						<input type="text" id="lPart1">
+						<input type="text" id="lPart2">
+						<input type="text" id="lPart3">
+					</td>
+					<td>
+						<input type="text" id="lNum1">
+						<input type="text" id="lNum2">
+						<input type="text" id="lNum3">
+					</td>
+					<td>
+						<input type="text" id="lIn1">
+						<input type="text" id="lIn2">
+						<input type="text" id="lIn3">
+					</td>
+				</tr>
+				<tr>
+					
+					<td>가슴</td>
+					<td>
+						<input type="text" id="cPart1">
+						<input type="text" id="cPart2">
+						<input type="text" id="cPart3">
+					</td>
+					<td>
+						<input type="text" id="cNum1">
+						<input type="text" id="cNum2">
+						<input type="text" id="cNum3">
+					</td>
+					<td>
+						<input type="text" id="cIn1">
+						<input type="text" id="cIn2">
+						<input type="text" id="cIn3">
+					</td>
+				</tr>
+				<tr>
+					
+					<td> 복근</td>
+					<td>
+						<input type="text" id="abPart1">
+						<input type="text" id="abPart2">
+						<input type="text" id="abPart3">
+					</td>
+					<td>
+						<input type="text" id="abNum1">
+						<input type="text" id="abNum2">
+						<input type="text" id="abNum3">
+					</td>
+					<td>
+						<input type="text" id="abIn1">
+						<input type="text" id="abIn2">
+						<input type="text" id="abIn3">
+					</td>
+				</tr>
+			</tbody>
+			
+
+
+
+		</table>
+		<button class="btn btn-success" type="submit" id="goMyp" onclick="alert()">마이캘린더로 전송</button>
+	</form>
+	</div>
+
+</div>
+
+
+<!-- ===footer=== -->
+<div class="bottom">
+
+</div>
+
+</div>
+
+	<script src="assets/JS/routine.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 	<script src="http://mattstow.com/experiment/responsive-image-maps/jquery.rwdImageMaps.min.js"></script>
+ 	
+</body>
+</html>
