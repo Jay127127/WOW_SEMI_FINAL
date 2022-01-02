@@ -1,0 +1,72 @@
+<div id="mapwrap" style="overflow:hidden;"><div id="map" style="position:relative; width: 100%; height: 350px;"><p class="btn-init" onclick="setBounds()" style="position: absolute;right: 7px;bottom: 7px;
+color: #666666;z-index: 10;font-size: 12px;font-weight: bold;background: white;box-shadow: 1px 1px 1px 1px #AAAAAA;padding: 0px 7px;border-radius: 4px;cursor: pointer;">초기화면으로</p></div><div style="width: 100%;background-color: #CCCCCC;"><p style="text-align: right;margin-top: 0px;"><a href="https://juahnpop.tistory.com/255" target="_blank" style="color: #751278;font-size: 14px;font-weight: bold;padding-right: 8px;">👉 Get Custom KakaoMap Code -&gt; Click</a></p></div></div>
+<script>
+var inputData = ['지역1', '지역2', '지역3', '지역4', '지역5']
+var mapContainer = document.getElementById('map'),
+mapOption = {
+center: new kakao.maps.LatLng(37.54699, 127.09598),
+level: 3
+};
+var map = new kakao.maps.Map(mapContainer, mapOption);
+var count = 0;
+var ps = new kakao.maps.services.Places();
+var bounds = new kakao.maps.LatLngBounds();
+var mapTypeControl = new kakao.maps.MapTypeControl();
+map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+var imageSrc =
+"https://tistory2.daumcdn.net/tistory/3056305/skin/images/map-marker-red.png",
+imageSize = new kakao.maps.Size(35, 35),
+imageOption = {
+offset: new kakao.maps.Point(17, 40)
+};
+var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+if (inputData != null) {
+kewwordSearch(inputData[count]);
+}
+function kewwordSearch(keword) {
+ps.keywordSearch(keword, placesSearchCB);
+count = count + 1;
+}
+function placesSearchCB(data, status, pagination) {
+if (status === kakao.maps.services.Status.OK) {
+displayMarker(data[0]);
+bounds.extend(new kakao.maps.LatLng(data[0].y, data[0].x));
+if (count < inputData.length) {
+kewwordSearch(inputData[count])
+} else if (count == inputData.length) {
+setBounds();
+applyStyle();
+}
+}
+}
+function displayMarker(place) {
+var marker = new kakao.maps.Marker({
+map: map,
+position: new kakao.maps.LatLng(place.y, place.x),
+image: markerImage
+});
+kakao.maps.event.addListener(marker, 'click', function () {
+var position = this.getPosition();
+var url = 'https://map.kakao.com/link/map/' + place.id;
+window.open(url, '_blank');
+});
+var content =
+'<div class="customoverlay" style="position: relative;bottom: 76px;border-radius: 6px;border: 1px solid #ccc;border-bottom: 2px solid #ddd;float: left;">' +
+' <a href="https://map.kakao.com/link/map/' + place.id + '"' +
+' target="_blank" style="display: block;text-decoration: none;color: #666666;text-align: center;border-radius: 6px;font-size: 14px;font-weight: bold;overflow: hidden;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;">' +
+' <span class="title" style="display: block;text-align: center;background: #fff;margin-right: 35px;padding: 8px 10px;font-size: 13px;font-weight: bold;">' +
+count + '. ' + place.place_name + '</span>' +
+' </a>' +
+'</div>';
+var customOverlay = new kakao.maps.CustomOverlay({
+map: map,
+position: new kakao.maps.LatLng(place.y, place.x),
+content: content,
+yAnchor: 0.11
+});
+}
+function setBounds() {
+map.setBounds(bounds, 90, 30, 10, 30);
+}
+</script>
+
