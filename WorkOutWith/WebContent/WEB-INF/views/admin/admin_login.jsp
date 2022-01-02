@@ -9,11 +9,13 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>AdminLogin</title>
-        <!-- 테이블 -->
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
         <link href="assets/CSS/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="assets/CSS/index.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
 
         .auth-wrapper{
@@ -57,7 +59,9 @@
             <div class="auth-box bg-dark border-top border-secondary">
                 <div id="loginform">
                     <div class="text-center pb-4 pt-4">
-                        <span class="db"><img src="assets/img/logoWith.png" alt="logo" width="60%" /></span>
+                        <span class="db">
+                        <a href="home"><img src="assets/img/logoWith.png" alt="logo" width="60%" /></a>
+                        </span>
                     </div>
                     <!-- Form -->
                     <form class="form-horizontal mt-3" id="loginform" action="admin_login" method="post">
@@ -76,7 +80,7 @@
                                         <span class="input-group-text bg-cus-yellow text-white" id="basic-addon2">
                                             <i class="fas fa-pencil-alt"></i></span>
                                     </div>
-                                    <input type="text" name="admin_pwd" class="form-control form-control-lg" placeholder="Password"
+                                    <input type="password" name="admin_pwd" class="form-control form-control-lg" placeholder="Password"
                                         aria-label="Password" aria-describedby="basic-addon1" required="">
                                 </div>
                             </div>
@@ -98,16 +102,26 @@
 
 	</div>
 
+    <%-- 어드민 id 일치 여부 검사 --%>
+    <script type="text/javascript">
+    $('.btn').on('click', function(){
+        
+    })
+
+
+
+    </script>
+
 
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="JS/scripts.js"></script>
+        <%-- <script src="JS/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="JS/datatables-simple-demo.js"></script>
+        <script src="JS/datatables-simple-demo.js"></script> --%>
 
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
         <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
@@ -115,4 +129,3 @@
             crossorigin="anonymous"></script> -->
 </body>
 </html>
-    

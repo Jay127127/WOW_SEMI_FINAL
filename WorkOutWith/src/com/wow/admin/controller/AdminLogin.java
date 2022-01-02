@@ -44,7 +44,7 @@ public class AdminLogin extends HttpServlet{
 		} else {
 			//error
 			request.setAttribute("msg", "로그인 실패");
-			request.getRequestDispatcher("/WEB-INF/views/common/adLoginError.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/admin/admin_login.jsp").forward(request, response);
 		}
 	}
 }

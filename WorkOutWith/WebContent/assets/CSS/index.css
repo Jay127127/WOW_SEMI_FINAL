@@ -14,7 +14,7 @@ header {
 /* ----header---- */
 
 
-.section-header {
+.s-h-custom {
     padding-top: 10px;
     margin-right: 15px;
     display: flex;
@@ -28,12 +28,12 @@ header {
 
 /* --- navbar --- */
 
-.navbar {
+.nb-custom {
     padding-top: 0;
     z-index: 1000;
 }
 
-.navbar-brand img {
+.n-brand img {
     width: 280px;
 }
 
@@ -42,58 +42,58 @@ header {
     border-color: rgba(121, 3, 29);
 }
 
-.navbar .bg-custom:hover,
-.navbar .bg-custom:focus {
+.nb-custom .bg-custom:hover,
+.nb-custom .bg-custom:focus {
     background-color: rgb(121, 3, 29) !important;
 }
 
 @media all and (min-width: 992px) {
-    .navbar .nav-item .dropdown-menu {
+    .nb-custom .nvitem-custom .dp-menu-custom {
         display: none;
     }
-    .navbar .nav-item:hover .nav-link {
+    .nb-custom .nvitem-custom:hover .nv-link-custom {
         background: rgba(121, 3, 29);
         color: #fff;
     }
-    .navbar .nav-item:hover .dropdown-menu {
+    .nb-custom .nvitem-custom:hover .dp-menu-custom {
         display: block;
     }
-    .navbar .nav-item:hover .dropdown-item {
+    .nb-custom .nvitem-custom:hover .dd-item {
         color: #fff;
     }
-    .navbar .nav-item .dropdown-menu {
+    .nb-custom .nvitem-custom .dp-menu-custom {
         margin-top: 0;
         border-radius: 0;
     }
-    .navbar .nav-item:hover .dropdown-item:hover {
+    .nb-custom .nvitem-custom:hover .dd-item:hover {
         color: #fff;
         text-decoration: none;
         background-color: rgba(0, 4, 7);
     }
 }
 
-.nav-link {
+.nv-link-custom {
     color: #fff;
     font-size: 0.9em;
 }
 
 /* .show */
 
-.show .dropdown-menu {
+.show .dp-menu-custom {
     margin-top: 0;
     border-radius: 0;
 }
 
-.show .nav-link:hover {
+.show .nv-link-custom:hover {
     background: rgba(121, 3, 29);
     color: #fff;
 }
 
-.show .dropdown-item {
+.show .dd-item {
     color: #fff;
 }
 
-.show .dropdown-item:hover {
+.show .dd-item:hover {
     color: #fff;
     text-decoration: none;
     background-color: rgba(0, 4, 7);
@@ -104,68 +104,9 @@ header {
     border-radius: 2px;
 }
 
-.dropdown-menu {
+.dp-menu-custom {
     background: rgba(0, 4, 7, 0.6);
     color: #fff;
 }
 
-/* =========== section ============ */
 
-
-#sec0{
-    height:75%
-}
-
-#sec1{
-    /* justify-content: around !important; */
-}
-
-.section {
-    /* position: relative; */
-    /* height: 80%; */
-    display: flex;
-    /* align-self: flex-end; */
-    /* align-items: end; */
-}
-
-/* --- viewAllChall --- */
-
-.viewAllChall img {
-    width: 50%;
-}
-
-/* --- carousel --- */
-
-/* Make the image fully responsive */
-.carousel-inner img {
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-width: 100%;
-    /* height: 100%; */
-    /* min-height: 200px; */
-    max-height: 233px;
-    /* height: 100% */
-}
-
-.car0 {
-    /* display: flex; */
-    width: 40vw;
-    min-width: 300px;
-    max-width: 350px;
-    /* height: 27vh; */
-    align-self: end;
-    /* margin-left: 30px; */
-    margin-bottom: 50px;
-    /* position: fixed;*/
-    /* bottom: 50%; */
-    /* left: 30px; */
-    /* top: 5%; */
-}
-
-/* =================================== */
-
-
-footer{
-
-}
