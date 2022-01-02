@@ -47,5 +47,6 @@
 			</div> <!-- search_id_body -->
 		</div> <!-- search_id_wrap -->
 	</form>
+	
 </body>
 </html>

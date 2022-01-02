@@ -10,7 +10,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-	<form name="join_form" id="join_form">
+	<form name="join_form" id="join_form" action="join" method="post">
 		<div class="join_bg">
 			<div class="join_wrap">
 				<div class="join_left">
@@ -27,17 +27,17 @@
 						<tbody>
 							<tr>
                                 <th><span>아이디</span></th>
-                                <td><input type="text" id="login_id" placeholder="아이디를 입력하세요.">
+                                <td><input type="text" id="login_id" name="id" placeholder="아이디를 입력하세요.">
                                     <span class="condition"><button class="btn_Dup">중복확인</button> 영문 소문자/숫자, 4~16자</span></td>
                             </tr>
                             <tr>
                                 <th><span>비밀번호</span></th>
-                                <td><input type="password" id="login_pwd1" placeholder="비밀번호를 입력하세요.">
+                                <td><input type="password" id="login_pwd1" name="pwd1"  placeholder="비밀번호를 입력하세요.">
                                     <span class="condition">영문 대소문자/숫자, 4~16자</span></td>
                             </tr>
                             <tr>
                                 <th><span>비밀번호 확인</span></th>
-                                <td><input type="password" id="login_pwd2" placeholder="비밀번호를 입력하세요."></td>
+                                <td><input type="password" id="login_pwd2" name="pwd2"  placeholder="비밀번호를 입력하세요."></td>
                             </tr>
                             <tr>
                                 <th><span>비밀번호 확인 질문</span></th>
@@ -56,20 +56,20 @@
                             </tr>
                             <tr>
                                 <th><span>비밀번호 확인 답변</span></th>
-                                <td><input type="text" placeholder="비밀번호를 입력하세요."></td>
-                            </tr>
+                                <td><input type="text" placeholder="질문 답변을 입력하세요."></td>
+                            </tr> 
                             <tr>
                                 <th><span>이름</span></th>
-                                <td><input type="text" placeholder="이름을 입력하세요."></td>
+                                <td><input type="text" name="name" placeholder="이름을 입력하세요."></td>
                             </tr>
                             <tr>
                                 <th><span>주소</span></th>
-                                <td><input type="text" placeholder="주소를 입력하세요.">
-                                <input type="text" placeholder="상세주소를 입력하세요."></td>
+                                <td><input type="text" name="address"  placeholder="주소를 입력하세요.">
+                                <input type="text" name="detail_address"  placeholder="상세주소를 입력하세요."></td>
                             </tr>
                             <tr>
                                 <th><span>이메일</span></th>
-                                <td><input type="email" placeholder="이메일을 입력하세요.">
+                                <td><input type="email" name="email"  placeholder="이메일을 입력하세요.">
                                 <a href="javascript;;" class="btn_confirm">인증번호 발송</a></td>
                             </tr>
                             <tr>
@@ -78,7 +78,7 @@
                             </tr>
                             <tr>
                                 <th><span>닉네임</span></th>
-                                <td><input type="text" placeholder="닉네임을 입력하세요."></td>
+                                <td><input type="text" name="nickname"  placeholder="닉네임을 입력하세요."></td>
                             </tr>
 						</tbody>
 					</table>
@@ -140,7 +140,7 @@
                         </tr>
 					</table>
 					<div class="btn_wrap">
-						<a href="javascript:;">가입하기</a>
+						<input type="submit" class="submit" value="가입하기">
 					</div>
 					<div class="lb_exit">
 						<a href="./login" class="cancle" id="exit">

@@ -7,11 +7,14 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+<!-- alert 디자인 -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <title>로그인 페이지</title>
 <link rel="stylesheet" href="./assets/CSS/login.css">
 </head>
 <body>
-	<form name="login_form" id="login_form">
+	<form action="login" method="post" name="login_form" id="login_form">
 		<div class="login_wrap" id="login_wrap">
 			<div class="login_head">
 				<div class="login_text">
@@ -22,15 +25,15 @@
 				<div class="lb_title">LOGIN</div>
 				<div class="lb_text">로그인 후 이용하세요.</div>
 				<div class="lb_login">
-					<input type="text" name="member_id" maxlength="20" required="">
+					<input type="text" name="id" maxlength="20" required="">
 					<label>아이디</label>
 				</div>
 				<div class="lb_login">
-					<input type="password" name="member_pwd" maxlength="20" required="">
+					<input type="password" name="pwd1" maxlength="20" required="">
 					<label>비밀번호</label>
 				</div>
 				<div class="lb_btn">
-					<button class="login_btn">로그인</button>
+					<input type="submit" class="login_btn" value="로그인">
 				</div>
 				<div class="lb_search_join">
 					<a href="./search_id" id="search_id">아이디 찾기</a> <span>|</span> 
@@ -44,8 +47,12 @@
 			</div> <!-- login_body -->
 		</div> <!-- login_wrap -->
 	</form>
-
-	<script>
+	
+	<script type = "text/javascript">
+	if(${ok} = 1){
+		var message = "${msg}";
+		swal(message, "아이디, 비밀번호를 다시 입력해주세요", "warning");
+    }
     </script>
 </body>
 </html>
