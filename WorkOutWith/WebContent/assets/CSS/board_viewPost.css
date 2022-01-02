@@ -1,160 +1,159 @@
 @charset "UTF-8";
 
 
- 
-.sub_title{
-   background-color: rgba(144, 8, 8, 0.63);
-   /* border-radius: 10px; */
-   padding: 1%;
-   width: 100vw;
-   /* margin: auto; */
-   /* color: white; */
-}
- 
-.sub_info{
-   width: 90%;
-   margin-left: 5%;
-   list-style: none;
-   letter-spacing: 0.0em;
-   font-size: 1.2em;
-   color: white;
-}
- 
-.sub_info :first-child{
-   font-size: 2.5em;
-   color: white;
-   margin-top: 50px;
-   margin-bottom: 5px;
-}
- 
+    
+    .sub_title{
+    background-color: rgba(144, 8, 8, 0.63);
+    /* border-radius: 10px; */
+    padding: 1%;
+    width: 100vw;
+    /* margin: auto; */
+    /* color: white; */
+    }
+    
+    .sub_info{
+    width: 90%;
+    margin-left: 5%;
+    list-style: none;
+    letter-spacing: 0.0em;
+    font-size: 1.2em;
+    color: white;
+    }
+    
+    .sub_info :first-child{
+    font-size: 2.5em;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    }
+    
 
 
-       body {
-           background-image : url("../board_img/community_bg.png");
-           background-repeat: no-repeat;
-           height: 100vh;
-           background-position: center;
-           background-size: cover;
-           background-attachment: fixed;
-           box-sizing: border-box;
-       }
- 
-       .body{
-           margin: 25px;
-       }
- 
-       .body_space{
-           width: 85%;
-           min-width: 600px;
-           /* height: 60vh; */
-           background-color: rgba(255, 255, 255);
-           margin: 25px;
-           margin: auto;
-           overflow: hidden;
-       }
- 
- 
- 
- 
- 
-       .view_head_subject{
-           background-color: rgb(255, 255, 255);
-           border-top: 1px solid rgb(167, 30, 30);
-           border-bottom: 1px solid slategray;
-           height: 40px;
-           line-height: 15%;
-           /* overflow: hidden; */
-       }
- 
-       .view_head_left{
-           float: left;
-           margin-left: 3%;
-           font-size: 1em;
-           padding-top: 15px;
-           /* position: relative; */
-       }
- 
-       .view_head_right{
-           float:right;
-           margin-right: 3%;
-           font-size: 1em;
-           padding-top: 15px;
-       }
- 
-       p{
-           display: block;
-           margin-block-start: 1em;
-           margin-block-end: 1em;
-           margin-inline-start: 0px;
-           margin-inline-end: 0px;
-       }
- 
- 
-       .view_head_attachment{
-           background-color: rgb(217, 217, 217);
-           border-bottom: 1px solid slategray;
-           height: 40px;
-           line-height: 15%;
-           padding: 0 20px;
-           /* overflow: hidden; */
-       }
-      
-       .view_att_left{
-           float: left;
-           margin-left: 10px;
-           font-size: 1em;
-           padding-top: 15px;
-           /* position: relative; */
-       }
- 
-       .view_attachment{
-           float: left;
-       }
- 
-       .view_head_attachment > a{
-           text-decoration: none;
-           /* outline: none; */
-           line-height: 44px;
-           /* margin: auto; */
-           color: grey;
-       }
- 
-       .view_body_content{
-           text-align: left;
-       }
-      
-       .in_text_space{
-           width: 90%;
-           /* background: white; */
-           margin: auto;
-       }
- 
-       .in_text{
-           width: 90%;
-           margin: 20px 100px 20px 100px;
-           padding: 20px 0 20px 0;
- 
-       }
- 
-       .in_att{
-           margin: auto;
-           text-align: center;
-       }
- 
- 
-       .reply_space{
-           background-color: white;
-           padding: 30px 70px 30px 70px;
-       }
- 
-       .reply_info{
-           background-color: rgb(198, 198, 198);
-       }
- 
-       .reply_text{
-           background-color: rgb(248, 248, 248);
-           padding: 10px;
-           margin-top: -15px;
-       }
- 
- 
+    body {
+        background-image : url("../board_img/community_bg.png");
+        background-repeat: no-repeat;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        box-sizing: border-box;
+    }
+
+    .body{
+        margin: 25px;
+    }
+
+    .body_space{
+        width: 85%;
+        min-width: 600px;
+        /* height: 60vh; */
+        background-color: rgba(255, 255, 255);
+        margin: 25px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+
+
+
+
+    .view_head_subject{
+        background-color: rgb(255, 255, 255);
+        border-top: 1px solid rgb(167, 30, 30);
+        border-bottom: 1px solid slategray;
+        height: 40px;
+        line-height: 15%;
+        /* overflow: hidden; */
+    }
+
+    .view_head_left{
+        float: left;
+        margin-left: 3%;
+        font-size: 1em;
+        padding-top: 15px;
+        /* position: relative; */
+    }
+
+    .view_head_right{
+        float:right;
+        margin-right: 3%;
+        font-size: 1em;
+        padding-top: 15px;
+    }
+
+    p{
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
+
+    .view_head_attachment{
+        background-color: rgb(217, 217, 217);
+        border-bottom: 1px solid slategray;
+        height: 40px;
+        line-height: 15%;
+        padding: 0 20px;
+        /* overflow: hidden; */
+    }
+    
+    .view_att_left{
+        float: left;
+        margin-left: 10px;
+        font-size: 1em;
+        padding-top: 15px;
+        /* position: relative; */
+    }
+
+    .view_attachment{
+        float: left;
+    }
+
+    .view_head_attachment > a{
+        text-decoration: none;
+        /* outline: none; */
+        line-height: 44px;
+        /* margin: auto; */
+        color: grey;
+    }
+
+    .view_body_content{
+        text-align: left;
+    }
+    
+    .in_text_space{
+        width: 90%;
+        /* background: white; */
+        margin: auto;
+    }
+
+    .in_text{
+        width: 90%;
+        margin: 20px 100px 20px 100px;
+        padding: 20px 0 20px 0;
+
+    }
+
+    .in_att{
+        margin: auto;
+        text-align: center;
+    }
+
+
+    .reply_space{
+        background-color: white;
+        padding: 30px 70px 30px 70px;
+    }
+
+    .reply_info{
+        background-color: rgb(198, 198, 198);
+    }
+
+    .reply_text{
+        background-color: rgb(248, 248, 248);
+        padding: 10px;
+        margin-top: -15px;
+    }
+
