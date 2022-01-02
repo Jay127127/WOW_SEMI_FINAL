@@ -10,6 +10,8 @@
     <meta name="author" content="" />
     <title>AdminWOW</title>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <style>
     .form-label{
         font-weight: bold;
@@ -103,12 +105,15 @@
                     </div>
                 </main>
 
+
+    <%-- 유효성 검사 --%>
 	<script type="text/javascript" src="assets/JS/admin_create.js"></script>
 
+    <%-- 어드민 id 중복 검사 --%>
     <script type="text/javascript">
     $('#dupCheck').on('click', function(){
         if($('#idHelp').html() != "유효한 아이디입니다."){
-            alert("유효한 아이디를 입력하세요.")
+            swal("Nope!", "유효한 아이디를 입력하세요.", "error");
             $('#dupHelp').html("");
         } else{
             $.ajax({
@@ -118,21 +123,41 @@
                 data: {
                     id: $('#inputId').val()
                 },
-            }).done(function(data){
-                alert(data);
-                if(data == "사용가능한 계정입니다."){
+            }).done(function(msg){
+                if(msg == "사용가능한 계정입니다."){
+                    swal("Good job!", msg, "success");
                     $('#dupHelp').html("사용가능한 계정입니다.");
                     $('#dupHelp').css('color', '#008d62');
                 } else{
+                    swal("Nope!", msg, "error");
                     $('#dupHelp').html("중복된 계정입니다.");
                     $('#dupHelp').css('color', '#dc143c');
                 }
             }).fail(function(err) {
-                alert("서버에러");
+                swal("Error!", "서버 에러입니다.", "error");
             })
             $('#inputId').focus();
         }
     })
+
+    // 담당 선택해야함
+    // ** 모든 곳을 만족해야 넘어가게
+    function validate() {
+        let powHelp = document.getElementById("powHelp");
+        let check = $(".rqFill").siblings("small").text();
+        if ($("#selectPow option:selected").val() == "") {
+            swal("Nope!", "담당을 선택하세요.", "error");
+            return false;
+        } else {
+            if (
+                check !=
+                "사용가능한 계정입니다.유효한 비밀번호입니다.위의 비밀번호와 일치합니다.유효한 이름입니다.유효한 이름입니다.유효한 이메일입니다."
+                ) {
+                    swal("Nope!", "사용가능한 값을 입력하시오.", "error");
+                    return false;
+                }
+        }
+    }
 
     </script>
 

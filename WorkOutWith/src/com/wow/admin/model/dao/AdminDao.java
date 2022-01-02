@@ -53,6 +53,7 @@ public class AdminDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, a.getAdmin_id());
+//			System.out.println(pstmt);
 			
 			rs = pstmt.executeQuery();
 			

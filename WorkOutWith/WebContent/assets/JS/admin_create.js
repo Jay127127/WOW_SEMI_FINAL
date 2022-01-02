@@ -84,21 +84,4 @@ email.oninput = function () {
     }
 };
 
-// 담당 선택해야함
-// ** 모든 곳을 만족해야 넘어가게
-function validate() {
-    let powHelp = document.getElementById("powHelp");
-    let check = $(".rqFill").siblings("small").text();
-    if ($("#selectPow option:selected").val() == "") {
-        alert("담당을 선택하세요.");
-        return false;
-    } else {
-        if (
-            check !=
-            "사용가능한 계정입니다.유효한 비밀번호입니다.위의 비밀번호와 일치합니다.유효한 이름입니다.유효한 이름입니다.유효한 이메일입니다."
-        ) {
-            alert("사용가능한 값을 입력하시오.");
-            return false;
-        }
-    }
-}
+

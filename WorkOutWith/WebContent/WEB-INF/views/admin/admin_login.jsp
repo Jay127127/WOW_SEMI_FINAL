@@ -57,7 +57,9 @@
             <div class="auth-box bg-dark border-top border-secondary">
                 <div id="loginform">
                     <div class="text-center pb-4 pt-4">
-                        <span class="db"><img src="assets/img/logoWith.png" alt="logo" width="60%" /></span>
+                        <span class="db">
+                        <a href="home"><img src="assets/img/logoWith.png" alt="logo" width="60%" /></a>
+                        </span>
                     </div>
                     <!-- Form -->
                     <form class="form-horizontal mt-3" id="loginform" action="admin_login" method="post">
@@ -76,7 +78,7 @@
                                         <span class="input-group-text bg-cus-yellow text-white" id="basic-addon2">
                                             <i class="fas fa-pencil-alt"></i></span>
                                     </div>
-                                    <input type="text" name="admin_pwd" class="form-control form-control-lg" placeholder="Password"
+                                    <input type="password" name="admin_pwd" class="form-control form-control-lg" placeholder="Password"
                                         aria-label="Password" aria-describedby="basic-addon1" required="">
                                 </div>
                             </div>

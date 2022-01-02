@@ -27,8 +27,13 @@
 
 	<div class="section-header s-h-custom">
 		<div class="loginDiv">
-			<a href="#"><img src="assets/img/loginBigger.png" alt=""></a>
-			<a href="#"><img src="assets/img/logoutBigger.png" alt=""></a>
+			<!-- <a href="#"><img src="assets/img/loginBigger.png" alt=""></a>
+			<a href="#"><img src="assets/img/logoutBigger.png" alt=""></a> -->
+			<% if(request.getSession().getAttribute("loginUser") == null && request.getSession().getAttribute("loginAdmin") == null) { %>
+        	<a href="login"><img src="assets/img/loginBigger.png" alt=""></a>
+    		<%} else{%>
+        	<a href="logout"><img src="assets/img/logoutBigger.png" alt=""></a>
+    		<%} %>
 		</div>
 	</div>	
 

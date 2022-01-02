@@ -133,7 +133,10 @@ header .overlay {
 
 <!-- === section === -->
 
-
+<script type = "text/javascript">
+        var message = "${msg}";
+        swal(message);
+</script>
 
 
 
