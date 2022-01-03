@@ -44,7 +44,7 @@ public class LoginController extends HttpServlet{
 		}else {
 			//error
 			req.setAttribute("msg", "로그인 실패");
-			req.setAttribute("ok", 1);
+			req.setAttribute("ok", "1");
 			req.getRequestDispatcher("WEB-INF/views/login/login.jsp").forward(req, resp);
 		}
 	}

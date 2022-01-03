@@ -48,7 +48,6 @@ public class MemberDao {
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, m.getId());
-			System.out.println(pstmt);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -69,15 +68,75 @@ public class MemberDao {
 				selectedMember.setEmail(email);
 				selectedMember.setNick(nickname);
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-		
 		return selectedMember;
 	}
 
+	public int selectMemberById(Connection conn, String id) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		String sql = "SELECT COUNT(*) FROM MEMBER WHERE MEMBER_ID = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			result = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		return result;
+	}
+
+	public MemberVo selectMember(Connection conn, String name) {
+
+		String query = "SELECT * FROM MEMBER WHERE MEMBER_NAME = ? AND MEMBER_OUT = 'N'";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberVo selectedMember = null;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int memberNum = rs.getInt("MEMBER_NUM");
+				String id = rs.getString("MEMBER_ID");
+				String pwd = rs.getString("MEMBER_PWD");
+				String member_name = rs.getString("MEMBER_NAME");
+				String address = rs.getString("MEMBER_ADDRESS");
+				String email = rs.getString("MEMBER_EMAIL");
+				String nickname = rs.getString("MEMBER_NIK");
+				
+				selectedMember = new MemberVo();
+				selectedMember.setNum(memberNum);
+				selectedMember.setId(id);
+				selectedMember.setPwd(pwd);
+				selectedMember.setName(member_name);
+				selectedMember.setAddress(address);
+				selectedMember.setEmail(email);
+				selectedMember.setNick(nickname);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return selectedMember;
+	}
 }

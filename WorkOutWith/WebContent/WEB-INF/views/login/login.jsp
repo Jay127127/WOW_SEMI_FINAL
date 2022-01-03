@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	
+<title>WOW - 로그인</title>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- alert 디자인 -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <title>로그인 페이지</title>
@@ -18,7 +17,7 @@
 		<div class="login_wrap" id="login_wrap">
 			<div class="login_head">
 				<div class="login_text">
-					<img src="./assets/login_img/logo_text.png" alt="">
+					<a href="home"><img src="./assets/login_img/logo_text.png" alt=""></a>
 				</div>
 			</div>
 			<div class="login_body">
@@ -48,11 +47,14 @@
 		</div> <!-- login_wrap -->
 	</form>
 	
+	<c:set var="ok" value="${ok}"/>
+	<c:if test="${ok eq '1'}">
 	<script type = "text/javascript">
-	if(${ok} = 1){
 		var message = "${msg}";
 		swal(message, "아이디, 비밀번호를 다시 입력해주세요", "warning");
-    }
     </script>
+    <c:set var="ok" value="2"/>
+    </c:if>
+    
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 찾기 페이지</title>
+<title>WOW - 비밀번호 찾기</title>
 <link rel="stylesheet" href="./assets/CSS/search_pwd.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -14,7 +14,7 @@
 		<div class="search_pwd_wrap">
 			<div class="search_pwd_head">
 				<div class="search_pwd_text">
-					<img src="./assets/login_img/logo_text.png" alt="">
+					<a href="home"><img src="./assets/login_img/logo_text.png" alt=""></a>
 				</div>
 			</div>
 			<div class="search_pwd_body">
