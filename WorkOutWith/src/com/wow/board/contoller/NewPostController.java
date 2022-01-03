@@ -43,22 +43,21 @@ public class NewPostController extends HttpServlet{
 		String secret = req.getParameter("secret");
 		String content = req.getParameter("text_area");
 
-
-		Part file = req.getPart("upload_file");
-		if(file != null) {
-			String originalName = file.getSubmittedFileName();
-			InputStream fis = file.getInputStream();
+		//파일 읽을 준비
+		Part part = req.getPart("upload_file");
+		if(part!=null) {
+			String originName = part.getSubmittedFileName();
+			InputStream fis = part.getInputStream();
 			
-			//파일 저장 준비 
+			//파일 저장 준비
 			String changeName = "" + UUID.randomUUID();
-			String ext = originalName.substring(originalName.lastIndexOf("."),originalName.length());
+			String ext = originName.substring(originName.lastIndexOf("."), originName.length());
 			String realPath = req.getServletContext().getRealPath("/upload_photos/");
-			String filePath = realPath + File.separator+changeName + ext;
+			String filePath = realPath + File.separator + changeName + ext;
 			FileOutputStream fos = new FileOutputStream(filePath);
 			
-			System.out.println("origin : " +  originalName);
+			System.out.println("origin : " + originName);
 			System.out.println("changeName : " + changeName);
-	
 			
 			//파일 기록 (업로드 파일 read -> write)
 			byte buf[] = new byte[1024];
@@ -70,36 +69,29 @@ public class NewPostController extends HttpServlet{
 			fis.close();
 			fos.close();
 		}
+				
 		
 		BoardVo b = new BoardVo();
 		b.setTitle(title);
 		b.setCategory_select(category_select);
-		b.setSecret(secret);
+		b.setBoardAvailable(secret);
 		b.setText_area(content);		
 		
 		System.out.println(title);
 		System.out.println(category_select);
 		System.out.println(secret);
 		System.out.println(content);
-		System.out.println(file);
+		System.out.println(part);
 
+		int result = 0;
+		try {
+			result = new NewPostService().post(b);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-//		int result = 0;
-//		try {
-//			result = new NewPostService().post(b);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		if(result>0) {
-//			req.setAttribute("msg","글쓰기 성공");
-//			req.getRequestDispatcher("WEB-INF/views/board/newPost.jsp").forward(req, resp);
-//		}else {
-//			req.setAttribute("msg", "글쓰기 실패");
-//			req.getRequestDispatcher("WEB-INF/views/board/newPost.jsp").forward(req, resp);
-//			
-//		}
+		
 	
 	}
 

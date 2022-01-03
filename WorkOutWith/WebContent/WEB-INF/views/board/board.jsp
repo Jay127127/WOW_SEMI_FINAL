@@ -1,12 +1,14 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	    pageEncoding="UTF-8"%>
+	<%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 	<!DOCTYPE html>
 	<html lang="ko">
 	<head>
 	    <meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>Page1</title>
+	    <title>Main Board</title>
 	    
 		<!-- Bootstap Fluid Container -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -78,6 +80,23 @@
 					</tr>
 				</thead>
 				<tbody>
+					<c:forEach items="${boardList}" var="b">
+	           			<tr>
+			               <td>${b.boardNo}</td>
+			               <td>${b.boardTitle}</td>
+			               <td>${b.}</td>
+			           </tr>
+			       	</c:forEach>
+				</tbody>
+       
+        </table>
+   		
+			
+				
+				
+				
+				
+				<!-- <tbody>S
 					<tr class="table-light" class="attention">
 						<th name="board_no" scope="row"></th>
 						<td name="board_title"  onclick="location.href=''">[전체] 공지사항 입니다.</td>
@@ -155,7 +174,7 @@
 						<td name="board_view"   onclick="location.href=''">100</td>
 						<td name="board_date"   onclick="location.href=''">2021.12.14</td>
 					</tr>
-				</tbody>
+				</tbody> -->
 			</table>
 		</div>
 	
@@ -185,8 +204,4 @@
 	
 	</body>
 	</html>
-	
-	
-	
-	
 	

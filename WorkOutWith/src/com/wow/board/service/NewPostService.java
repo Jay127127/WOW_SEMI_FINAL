@@ -2,6 +2,7 @@ package com.wow.board.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.wow.board.Dao.BoardDao;
 import com.wow.board.model.vo.BoardVo;
@@ -31,6 +32,11 @@ public class NewPostService {
 	private int postBoard(Connection conn, BoardVo b) {
 		int result = new BoardDao().insertPost(conn, b);
 		return result;
+	}
+
+	public List<BoardVo> search(String type, String value, String currentPage) {
+		
+		return null;
 	}
 
 

@@ -6,7 +6,7 @@
 	    <meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>new_roll</title>
+	    <title>newPost</title>
 	    
 	    <!-- css file link -->
 	    <link rel="stylesheet" type="text/css" href="assets/CSS/board_newPost.css">
@@ -60,7 +60,7 @@
 	                    <th>공개여부</th>
 	                    <td style="padding-top: 20px;"> 
 	                        <label>
-	                            <input type="radio" name="secret" id="secret" value="1">
+	                            <input type="checkbox" name="secret" id="secret" value="1">
 	                            비공개로 게시글을 올릴래요.
 	                        </label>
 	                        <p>
