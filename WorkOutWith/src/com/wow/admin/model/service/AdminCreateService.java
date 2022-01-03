@@ -57,6 +57,12 @@ public class AdminCreateService {
 		
 		close(conn);
 		
+		//4. 로그인, 아이디나 비밀번호가 일치하는 값이 없으면 selectedAdmin == null 이므로, 이걸 처리해야 한다.
+		if(selectedAdmin == null) {
+			System.out.println("로그인 실패");
+			return null;
+		}
+		
 		//가져온 pwd와 사용자가 입력한 pwd가 같은지 비교, 같으면
 		if(selectedAdmin.getAdmin_pwd().equals(a.getAdmin_pwd()))
 			//결과 리턴
@@ -72,7 +78,7 @@ public class AdminCreateService {
 	}
 
 	
-	//3. admin아이디 중복 체크
+	//3. admin아이디 중복 체크, 로그인할 때 아이디 일치여부 체크
 	public int dupCheck(String id) {
 		Connection conn = getConnection();
 		int result = selectAdminById(conn, id);
@@ -86,6 +92,58 @@ public class AdminCreateService {
 	private int selectAdminById(Connection conn, String id) {
 		return new AdminDao().selectAdminById(conn, id);
 	}
+	
+	//5. admin 모든 멤버 조회
+	public List<AdminVo> seletAdminAll(Connection conn, String currentPage, int startNo, int endNo) {
+		return new AdminDao().selectAdminAll(conn, startNo, endNo);
+	}
+	
+	public List<AdminVo> search(String type, String value, String currentPage){
+		Connection conn = getConnection();
+		
+		//총 게시글 수 : select count (*)~~
+		int totalBoardCount = countAdminAll(conn);
+		//총 회원 수
+		//countAdminAll();
+		
+		//페이징 목록 최대 개수
+		int pageLimit = 5;
+		//한 페이지 당 게시글 수
+		int boardLimit = 3;
+		//마지막 페이지
+		int maxPage = 0;
+		
+		maxPage = totalBoardCount / boardLimit;
+		if(totalBoardCount % boardLimit != 0) {
+			maxPage++;
+		}
+		System.out.println("maxPage: "+maxPage);
+		
+		int cp = Integer.parseInt(currentPage);
+		
+		//현재 페이지의 마지막 글번호
+		int endNo = cp * boardLimit;
+		//현재 페이지의 첫번째 글번호
+		int startNo = endNo - boardLimit + 1;
+		
+		List<AdminVo> adminList;
+		if(type == null || value == null) {
+			//탐색만 눌렀을 때 null, null이 나오는데, 이땐 전체 멤버 조회로
+			adminList = seletAdminAll(conn, currentPage, startNo, endNo);
+		} else {
+			//type과 value 둘다 값이 있을 경우
+			adminList = selectAd
+		}
+		
+	}
+
+
+	//5-1. countAdminAll() 가져오기
+	private int countAdminAll(Connection conn) {
+		return new AdminDao().countAdminAll(conn);
+	}
+	
+	//5-2. selectAdmin() 가져오기
 	
 
 	

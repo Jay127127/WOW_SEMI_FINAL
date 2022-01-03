@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,22 +15,74 @@
 </head>
 <body class="sb-nav-fixed">
 	<%@ include file="nav_admin.jsp"%>
+
             <div id="layoutSidenav_content">
                 <main>
+
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">관리자 목록</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active"> </li>
                         </ol>
                         <div class="row">
-                        
+
                         </div>
+
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 관리자 목록
                             </div>
                             <div class="card-body">
+
+                        <div class="container-fluid px-4">
+                        <form method="get" action="admin_list">
+                        <select name="searchType" id="">
+                            <option value="admin_id">아이디<option>
+                            <option value="admin_name">이름<option>
+                            <option value="admin_power_name">담당<option>
+                            <option value="admin_nik">닉네임<option>
+                            <option value="admin_email">이메일<option>
+                        </select>
+                        <input type="text" name="searchValue" id="">
+                        <input type="submit" value="검색">
+                        </form><br>
+
+                        <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>아이디</th>
+                            <th>이름</th>
+                            <th>담당</th>
+                            <th>닉네임</th>
+                            <th>이메일</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${adminList}" var="a">
+                            <tr>
+                                <td>행 넘버</td>
+                                <td>${a.admin_id}</td>
+                                <td>${a.admin_name}</td>
+                                <td>${a.admin_power_name}</td>
+                                <td>${a.admin_nick}</td>
+                                <td>${a.admin_email}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                        </table>
+
+                        <%-- ?씩 증가하게 하려면 step="숫자", 디폴트는 step="1"--%>
+                    <div class="page-area" style="text-align:center">
+                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
+                            <c:if test="${i le maxPage}">
+                                <a href="admin_list?currentPage=${i}">${i}</a>
+                            </c:if>
+                        </c:forEach>
+                    </div>
+
+
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
@@ -107,6 +160,6 @@
                     </div>
                 </main>
 
-	<%@ include file="footer_admin.jsp"%>  
+	<%@ include file="footer_admin.jsp"%>
 </body>
 </html>

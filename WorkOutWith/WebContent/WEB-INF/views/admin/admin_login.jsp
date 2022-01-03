@@ -72,7 +72,7 @@
                                         <span class="input-group-text bg-success text-white" id="basic-addon1">
                                             <i class="fas fa-user-circle"></i></span>
                                     </div>
-                                    <input type="text" name="admin_id" class="form-control form-control-lg" placeholder="AdminId"
+                                    <input type="text" id="admin_id" name="admin_id" class="form-control form-control-lg" placeholder="AdminId"
                                         aria-label="Username" aria-describedby="basic-addon1" required="">
                                 </div>
                                 <div class="input-group mb-4">
@@ -80,7 +80,7 @@
                                         <span class="input-group-text bg-cus-yellow text-white" id="basic-addon2">
                                             <i class="fas fa-pencil-alt"></i></span>
                                     </div>
-                                    <input type="password" name="admin_pwd" class="form-control form-control-lg" placeholder="Password"
+                                    <input type="password" id="admin_pwd" name="admin_pwd" class="form-control form-control-lg" placeholder="Password"
                                         aria-label="Password" aria-describedby="basic-addon1" required="">
                                 </div>
                             </div>
@@ -104,8 +104,46 @@
 
     <%-- 어드민 id 일치 여부 검사 --%>
     <script type="text/javascript">
-    $('.btn').on('click', function(){
-        
+    $('.btn').on('click', function(e){
+
+        if($('#admin_id').val() == "" || $('#admin_pwd').val() == ""){
+            e.preventDefault();
+            swal("Notice", "입력을 완료하세요.", "info");
+        }
+        else{
+            let err = false;
+            $.ajax({
+                url: '/wow/admin_login',
+                type: 'post',
+                async: false,
+                traditional: true,
+                data:{
+                    admin_id: $('#admin_id').val(),
+                    admin_pwd: $('#admin_pwd').val(),
+                },
+                success: function(msg){
+                    if(msg == "없는 계정입니다. 다시 입력해주세요."){
+                        console.log(msg);
+                        swal("Nope!", msg, "error");
+                        err = true;
+                    } else if(msg == "비밀번호가 일치하지 않습니다."){
+                        console.log(msg);
+                        swal("Nope!", msg, "error");
+                        err = true;
+                    }
+                    else{
+                        console.log("로그인되냐");
+                        err = false;
+                    }
+                },
+                error: function(err){
+                    swal("Error!", "서버 에러입니다.", "error");
+                }
+            });
+            if(err){
+                return false;
+            }
+        }
     })
 
 

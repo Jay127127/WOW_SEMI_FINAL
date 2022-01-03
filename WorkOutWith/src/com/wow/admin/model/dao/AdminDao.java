@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.wow.admin.model.vo.AdminVo;
 import static com.wow.common.JDBCTemplate.*;
@@ -44,7 +46,11 @@ public class AdminDao {
 	
 	//1. admin 로그인, admin멤버 조회
 	public AdminVo selectAdmin(Connection conn, AdminVo a) {
-		String sql = "SELECT * FROM admin WHERE admin_id = ?";
+//		String sql = "SELECT * FROM admin WHERE admin_id = ?";
+		String sql = "SELECT a.*, ap.admin_power_name "
+				+ "FROM admin a "
+				+ "LEFT JOIN admin_power ap ON(a.admin_power_code = ap.admin_power_code) "
+				+ "WHERE admin_id = ?";
 		
 		PreparedStatement pstmt = null;
 		AdminVo selectedAdmin = null;
@@ -67,6 +73,7 @@ public class AdminDao {
 				String admin_email = rs.getString("admin_email");
 				int answer_talkto_admin_num = rs.getInt("answer_talkto_admin_num");
 				int answer_danger_num = rs.getInt("answer_danger_num");
+				String admin_power_name = rs.getString("admin_power_name");
 				
 				System.out.println(rs.getInt("admin_num"));
 				selectedAdmin = new AdminVo();
@@ -79,6 +86,7 @@ public class AdminDao {
 				selectedAdmin.setAdmin_email(admin_email);
 				selectedAdmin.setAnswer_talkto_admin_num(answer_talkto_admin_num);
 				selectedAdmin.setAnswer_danger_num(answer_danger_num);
+				selectedAdmin.setAdmin_power_name(admin_power_name);
 			}
 			
 		} catch (SQLException e) {
@@ -114,6 +122,117 @@ public class AdminDao {
 		}
 		
 		return result;
+	}
+	
+	
+	//5. 모든 어드민 조회, 모든 어드민을 담은 list 반환
+	public List<AdminVo> selectAdminAll(Connection conn, int startNo, int endNo) {
+		String sql = "SELECT *"
+				+ "FROM "
+				+ "( "
+				+ "SELECT ROWNUM AS RNUM, admin_num, admin_id, admin_name, admin_power_name, admin_nik, admin_email "
+				+ "FROM admin "
+				+ "INNER JOIN admin_power USING(admin_power_code) "
+				+ ") "
+				+ "WHERE RNUM BETWEEN ? AND ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<AdminVo> list = new ArrayList<AdminVo>();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startNo);
+			pstmt.setInt(2, endNo);
+			rs = pstmt.executeQuery();
+			AdminVo selectedAdmin = null;
+			
+			while(rs.next()) {
+				int admin_num = rs.getInt("admin_num");
+				String admin_id = rs.getString("admin_id");
+				String admin_name = rs.getString("admin_name");
+				String admin_power_name = rs.getString("admin_power_name");
+				String admin_nik = rs.getString("admin_nik");
+				String admin_email = rs.getString("admin_email");
+				
+				//만들고
+				selectedAdmin = new AdminVo();
+				selectedAdmin.setAdmin_num(admin_num);
+				selectedAdmin.setAdmin_id(admin_id);
+				selectedAdmin.setAdmin_name(admin_name);
+				selectedAdmin.setAdmin_power_name(admin_power_name);
+				selectedAdmin.setAdmin_nik(admin_nik);
+				selectedAdmin.setAdmin_email(admin_email);
+				
+				//담아주고
+				list.add(selectedAdmin);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return list;
+	}
+
+	//5. 어드민 총 인원 세기
+	public int countAdminAll(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT COUNT (admin_num) FROM admin";
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}		
+		return result;
+	}
+	
+	//5. 타입별조회(예: 아이디, 이름...)
+	public List<AdminVo> selectAdminBySearch(Connection conn, String type, String value){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT a.*, ap.admin_power_name "
+				+ "FROM admin a"
+				+ "LEFT JOIN admin_power ap ON(a.admin_power_code = ap.admin_power_code) "
+				+ "WHERE %s LIKE ?";
+		sql = String.format(sql, type);
+		//%s : 타입
+		
+		List<AdminVo> list = new ArrayList<AdminVo>();
+		
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+value+"%");
+			
+			AdminVo selectedAdmin = null;
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int admin_num = rs.getInt("admin_num");
+				String admin_id = rs.getString("admin_id");
+				String admin_name = rs.getString("admin_name");
+				String admin_nik = rs.getString("admin_nik");
+				String admin_email = rs.getString("admin_email");
+				int answer_talkto_admin_num = rs.getInt("answer_talkto_admin_num");
+				int answer_danger_num = rs.getInt("answer_danger_num");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
