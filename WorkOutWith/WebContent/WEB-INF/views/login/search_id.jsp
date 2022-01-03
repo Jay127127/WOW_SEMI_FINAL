@@ -6,7 +6,7 @@
 <meta charset="EUC-KR">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<title>아이디 찾기 페이지</title>
+<title>WOW - 아이디 찾기</title>
 <link rel="stylesheet" href="./assets/CSS/search_id.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
 		<div class="search_id_wrap">
 			<div class="search_id_head">
 				<div class="search_id_text">
-					<img src="./assets/login_img/logo_text.png" alt="">
+					<a href="home"><img src="./assets/login_img/logo_text.png" alt=""></a>
 				</div>
 			</div>
 			<div class="search_id_body">
@@ -27,7 +27,7 @@
 				<div class="lb_search_id">
 					<input type="email" name="member_email" maxlength="25" required="">
 					<label>이메일</label>
-					<button class="code_btn">인증번호 전송</button>
+					<button type="button" class="code_btn" onclick="location.href='email'">인증번호 전송</button>
 
 				</div>
 				<div class="lb_search_id">
