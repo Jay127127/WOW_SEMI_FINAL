@@ -11,7 +11,9 @@ public class AdminVo {
 	private String admin_email;
 	private int answer_talkto_admin_num;
 	private int answer_danger_num;
+	private String admin_power_name;
 	
+
 	public int getAdmin_num() {
 		return admin_num;
 	}
@@ -66,6 +68,11 @@ public class AdminVo {
 	public void setAnswer_danger_num(int answer_danger_num) {
 		this.answer_danger_num = answer_danger_num;
 	}
-	
+	public String getAdmin_power_name() {
+		return admin_power_name;
+	}
+	public void setAdmin_power_name(String admin_power_name) {
+		this.admin_power_name = admin_power_name;
+	}
 	
 }
