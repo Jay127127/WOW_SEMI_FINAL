@@ -8,15 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/routinePage")
-public class RoutinePageContoller extends HttpServlet {
+@WebServlet("/routineBoard") 
+public class RoutineBoardController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("routinePage 요청완료");
-		req.getRequestDispatcher("WEB-INF/views/board/routinePage.jsp").forward(req, resp);
-	
+		req.getRequestDispatcher("WEB-INF/views/board/routineBoard.jsp").forward(req, resp);
 	}
+	
+	
 }
-
-
-
