@@ -12,6 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 public class RouController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		//커넥션 가
+		
+		
+		
 		request.getRequestDispatcher("/WEB-INF/views/routine/routine.jsp").forward(request, response);
 	}
 }

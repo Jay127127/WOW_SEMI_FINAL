@@ -75,5 +75,24 @@
   }
 
   .other {
-    opacity: .3;
+    opacity: 0.25;
+  }
+
+  .today {
+    position: relative;
+    color: #000000;
+  }
+  
+  .today::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #37c756;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
   }

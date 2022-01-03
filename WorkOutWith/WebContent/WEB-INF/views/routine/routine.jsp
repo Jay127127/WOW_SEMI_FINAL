@@ -113,6 +113,9 @@
 <body>
 
 <header>
+
+
+	<div class="container-fluid">
 <div class="section-header">
 		<div class="loginDiv">
 			<a href="#"><img src="assets/img/loginBigger.png" alt=""></a>
@@ -120,7 +123,6 @@
 		</div>
 	</div>	
 
-	<div class="container-fluid">
 
 		<nav class="navbar navbar-expand-lg navbar-static-top ">
 			<div>
@@ -175,7 +177,6 @@
 		</nav>
 
 	</div>
-
 </header>
 <div>
 	<br>
