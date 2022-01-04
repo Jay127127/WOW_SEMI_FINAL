@@ -100,17 +100,109 @@
 			height: 30px;
 			text-align: center;
 		}
-		#goMyp{
+	
+		.insertF1{
+			background-color: blueviolet;
+			font-weight: bolder;
+			color: white;
+			width: 980px;
 			position: absolute;
-			height: 160px;
-			top:240px;
-			right:-200px;
+			top: 300px;
+			right: 30px;
+			border-radius: 5%;
 		}
-		
+		.insertF2{
+			background-color: blueviolet;
+			font-weight: bolder;
+			color: white;
+			width: 980px;
+			position: absolute;
+			top: 400px;
+			right: 30px;
+			border-radius: 5%;
+		}
+		.insertF3{
+			background-color: blueviolet;
+			font-weight: bolder;
+			color: white;
+			width: 980px;
+			position: absolute;
+			top: 500px;
+			right: 30px;
+			border-radius: 5%;
+		}
+		.insertF4{
+			background-color: blueviolet;
+			font-weight: bolder;
+			color: white;
+			width: 980px;
+			position: absolute;
+			top: 600px;
+			right: 30px;
+			border-radius: 5%;
+		}
 
     </style>   
 </head>
 <body>
+
+<script type="text/javascript">
+	function openArm(){
+		window.open("<%= request.getContextPath()%>/routineArm.jsp","Arm","width=410,height=240")
+	}
+	function openLeg(){
+		window.open("<%= request.getContextPath()%>/routineLeg.jsp","Arm","width=410,height=240")
+	}
+	function openABS(){
+		window.open("<%= request.getContextPath()%>/routineABS.jsp","Arm","width=410,height=240")
+	}
+	function openChest(){
+		window.open("<%= request.getContextPath()%>/routineChest.jsp","Arm","width=410,height=240")
+	}
+	function sAT1(){
+	     opener.document.getElementById("ah1").value = document.getElementById("a1").value
+	   }
+	   function sAT2(){
+	     opener.document.getElementById("ah2").value = document.getElementById("a2").value
+	   }
+	   function sAT3(){
+	     opener.document.getElementById("ah3").value = document.getElementById("a3").value
+	   }
+
+	function sCT1(){
+	     opener.document.getElementById("ch1").value = document.getElementById("c1").value
+	   }
+	   function sCT2(){
+	     opener.document.getElementById("ch2").value = document.getElementById("c2").value
+	   }
+	   function sCT3(){
+	     opener.document.getElementById("ch3").value = document.getElementById("c3").value
+	   }
+
+
+	function sLT1(){
+	     opener.document.getElementById("lh1").value = document.getElementById("l1").value
+	   }
+	   function sLT2(){
+	     opener.document.getElementById("lh2").value = document.getElementById("l2").value
+	   }
+	   function sLT3(){
+	     opener.document.getElementById("lh3").value = document.getElementById("l3").value
+	   }
+
+	function sABT1(){
+	     opener.document.getElementById("abh1").value = document.getElementById("ab1").value
+	   }
+	   function sABT2(){
+	     opener.document.getElementById("abh2").value = document.getElementById("ab2").value
+	   }
+	   function sABT3(){
+	     opener.document.getElementById("abh3").value = document.getElementById("ab3").value
+	   }
+
+	
+
+</script>
 
 <header>
 
@@ -204,124 +296,75 @@
 	<span id="testImg">
 		<img src="assets/img/human.png">
 		<!-- 팔임 -->
-		<button class="btn1" onclick="openArmEdit()">&nbsp;</button>
+		<button class="btn1" onclick="openArm()">&nbsp;</button>
 		<!-- 다리임 -->
-		<button class="btn2" onclick="openLegEdit()">&nbsp;</button>
+		<button class="btn2" onclick="openLeg()">&nbsp;</button>
 		<!-- 가슴임 -->
-		<button class="btn3" onclick="openChestEdit()">&nbsp;</button>
+		<button class="btn3" onclick="openChest()">&nbsp;</button>
 		<!-- 복근임 -->
-		<button class="btn4" onclick="openABSEdit()">&nbsp;</button>
+		<button class="btn4" onclick="openABS()">&nbsp;</button>
 		<!-- 팔2임 -->
-		<button class="btn5" onclick="openArmEdit()">&nbsp;</button>
+		<button class="btn5" onclick="openArm()">&nbsp;</button>
 	</span>
 	
-
-	<div class="tbDiv">
-		<form action="">
-		<table class="table table-striped table-bordered table-hover" id="ExrTb">
-			<thead>
-				<tr>
-					
-					<th>부위</th>
-					<th>번호</th>
-					<th>횟수</th>
-					<th>인터벌</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					
-					<td>팔</td>
-					<td>
-						<input type="text" id="aPart1">
-						<input type="text" id="aPart2">
-						<input type="text" id="aPart3">
-					</td>
-					<td>
-						<input type="text" id="aNum1">
-						<input type="text" id="aNum2">
-						<input type="text" id="aNum3">
-					</td>
-					<td>
-						<input type="text" id="aIn1">
-						<input type="text" id="aIn2">
-						<input type="text" id="aIn3">
-					</td>
-				</tr>
-				<tr>
-					
-					<td>다리</td>
-					<td>
-						<input type="text" id="lPart1">
-						<input type="text" id="lPart2">
-						<input type="text" id="lPart3">
-					</td>
-					<td>
-						<input type="text" id="lNum1">
-						<input type="text" id="lNum2">
-						<input type="text" id="lNum3">
-					</td>
-					<td>
-						<input type="text" id="lIn1">
-						<input type="text" id="lIn2">
-						<input type="text" id="lIn3">
-					</td>
-				</tr>
-				<tr>
-					
-					<td>가슴</td>
-					<td>
-						<input type="text" id="cPart1">
-						<input type="text" id="cPart2">
-						<input type="text" id="cPart3">
-					</td>
-					<td>
-						<input type="text" id="cNum1">
-						<input type="text" id="cNum2">
-						<input type="text" id="cNum3">
-					</td>
-					<td>
-						<input type="text" id="cIn1">
-						<input type="text" id="cIn2">
-						<input type="text" id="cIn3">
-					</td>
-				</tr>
-				<tr>
-					
-					<td> 복근</td>
-					<td>
-						<input type="text" id="abPart1">
-						<input type="text" id="abPart2">
-						<input type="text" id="abPart3">
-					</td>
-					<td>
-						<input type="text" id="abNum1">
-						<input type="text" id="abNum2">
-						<input type="text" id="abNum3">
-					</td>
-					<td>
-						<input type="text" id="abIn1">
-						<input type="text" id="abIn2">
-						<input type="text" id="abIn3">
-					</td>
-				</tr>
-			</tbody>
-			
-
-
-
-		</table>
-		<button class="btn btn-success" type="submit" id="goMyp" onclick="alert()">마이캘린더로 전송</button>
+	<form action="rouInsert.jsp" class="insertF1" method="post">
+		<b style="font-style: italic; font-size: 1.5em; color:rgb(207, 252, 47);" >팔운동 설정하기</b>
+		<br>
+		운동 이름: <input type="text" name="rouName" id="ah1">
+		횟수: <input type="text" name="exerNum" id="ah2">
+		인터벌(초): <input type="text" name="interv" id="ah3">
+		
+		<button class="btn btn-success" type="submit" id="goMyp">마이캘린더에 저장</button>
+		
+	
 	</form>
-	</div>
-
-</div>
 
 
-<!-- ===footer=== -->
-<div class="bottom">
+	<form action="rouInsert.jsp" class="insertF2" method="post">
+		
+		<b style="font-style: italic; font-size: 1.5em; color:rgb(207, 252, 47);" >복근운동 설정하기</b>
+		<br>
+		운동 이름: <input type="text" name="rouName" id="abh1">
+		횟수: <input type="text" name="exerNum" id="abh2">
+		인터벌(초): <input type="text" name="interv" id="abh3">
+		
+		<button class="btn btn-success" type="submit" id="goMyp">마이캘린더에 저장</button>
+		
+	
+	</form>
 
-</div>
+
+	<form action="rouInsert.jsp" class="insertF3" method="post">
+		
+		<b style="font-style: italic; font-size: 1.5em; color:rgb(207, 252, 47);" >가슴운동 설정하기</b>
+		<br>
+		운동 이름: <input type="text" name="rouName" id="ch1">
+		횟수: <input type="text" name="exerNum" id="ch2">
+		인터벌(초): <input type="text" name="interv" id="ch3">
+		
+		<button class="btn btn-success" type="submit" id="goMyp">마이캘린더에 저장</button>
+		
+	
+	</form>
+
+
+	<form action="rouInsert.jsp" class="insertF4" method="post">
+		
+		<b style="font-style: italic; font-size: 1.5em; color:rgb(207, 252, 47);" >다리운동 설정하기</b>
+		<br>
+		운동 이름: <input type="text" name="rouName" id="lh1">
+		횟수: <input type="text" name="exerNum" id="lh2">
+		인터벌(초): <input type="text" name="interv" id="lh3">
+	
+		<button class="btn btn-success" type="submit" id="goMyp">마이캘린더에 저장</button>
+		
+	
+	</form>
+	
+
+
+
+
 
 </div>
 

@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +26,8 @@ public class CalController extends HttpServlet{
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			String sql = "SELECT*FROM ROUTINE";
-			CalVo c = null;
+			List<CalVo> CalList = new ArrayList<CalVo>();
+//			CalVo c = null;
 			
 			//쿼리 날리기
 			try {
@@ -33,17 +36,18 @@ public class CalController extends HttpServlet{
 				
 				while(rs.next()) {
 					
-					int rouNo = rs.getInt("ROU_NO");
+					
 					String rouName = rs.getString("ROU_NAME");
 					int exerNo = rs.getInt("EXER_NO");
 					int interv = rs.getInt("INTERV");	
 					
-					c = new CalVo();
-					c.setRouNo(rouNo);
+					CalVo c = new CalVo();
+					
 					c.setRouName(rouName);
 					c.setExerNo(exerNo);
 					c.setInterv(interv);
 					
+					CalList.add(c);
 					
 				}
 			} catch (SQLException e) {
@@ -55,7 +59,7 @@ public class CalController extends HttpServlet{
 			
 			//조회한 데이터 jsp에 넘겨줌
 			
-			req.setAttribute("data", c);
+			req.setAttribute("data", CalList);
 			req.getRequestDispatcher("/WEB-INF/views/calender/calender.jsp").forward(req, resp);
 		}
 
