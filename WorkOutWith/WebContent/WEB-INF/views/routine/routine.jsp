@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="assets/css/routine.css"/>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="assets/CSS/styles.css" rel="stylesheet" />
+        <link href="assets/CSS/routine.css" rel="stylesheet" />
+        <link href="assets/CSS/index.css" rel="stylesheet" />
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <style>
         body {
             background-image: url(assets/img/routineBack.jpg);
-            height: 100vh;            
-			max-width: 100%;
+            background-repeat : no-repeat;
+            background-attachment : fixed;
+            background-position : center;
+           
         }
         .cover {
 		height: 100vh;
@@ -24,12 +29,17 @@
 		.ruHead{	
 			font-size:19px;
 			color: rgb(130, 236, 144);
+			position:absolute;
+			top:200px;
+			left:11px;
 					
 		}
 		#testImg{
 			position: relative;
 			width: 180px;
 			height: 354px;
+			top:-700px;
+			left:11px;
 		}
 		button.btn1{
 			position: absolute;
@@ -203,23 +213,20 @@
 	
 
 </script>
-
 <header>
-
-
-	<div class="container-fluid">
-<div class="section-header">
+	<div class="section-header">
 		<div class="loginDiv">
-			<a href="#"><img src="assets/img/loginBigger.png" alt=""></a>
+			<a href=""><img src="assets/img/loginBigger.png" alt=""></a>
 			<a href="#"><img src="assets/img/logoutBigger.png" alt=""></a>
 		</div>
 	</div>	
 
+	<div class="container-fluid">
 
 		<nav class="navbar navbar-expand-lg navbar-static-top ">
 			<div>
 				<a class="navbar-brand" href="home">
-					<img src="assets/img/logoWith.png" alt="">
+					<img src="assets/img/logoWith.png" alt="/wow/home">
 				</a>
 			</div>
 
@@ -232,7 +239,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown" href="#" data-toggle="dropdown">&emsp;운동 루틴&emsp; </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#"> 부위별 운동</a></li>
+							<li><a class="dropdown-item" href="/wow/routine"> 부위별 운동</a></li>
 							<li><a class="dropdown-item" href="#"> 전신 운동 </a></li>
 						</ul>
 					</li>
@@ -260,7 +267,7 @@
 						<a class="nav-link  dropdown" href="#" data-toggle="dropdown"> &emsp;마이페이지&emsp; </a>
 						<ul class="dropdown-menu dropdown-menu-right">
 							<li><a class="dropdown-item" href="#"> 회원정보</a></li>
-							<li><a class="dropdown-item" href="#"> 캘린더 </a></li>
+							<li><a class="dropdown-item" href="/wow/calender"> 캘린더 </a></li>
 							<li><a class="dropdown-item" href="#"> 나의 글과 댓글 </a></li>
 						</ul>
 					</li>
@@ -269,7 +276,7 @@
 		</nav>
 
 	</div>
-</header>
+	</header>
 <div>
 	<br>
 	<br>
@@ -367,7 +374,7 @@
 
 
 </div>
-
+</div>
 	<script src="assets/JS/routine.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
