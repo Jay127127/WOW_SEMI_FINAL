@@ -8,7 +8,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>WorkOut With</title>
 
-
 	<style>
 
 
@@ -132,13 +131,6 @@ header .overlay {
 
 
 <!-- === section === -->
-
-<script type = "text/javascript">
-        var message = "${msg}";
-        swal(message);
-</script>
-
-
 
 </body>
 </html>

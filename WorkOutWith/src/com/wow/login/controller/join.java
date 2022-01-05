@@ -24,18 +24,34 @@ public class join extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
 		String pwd = req.getParameter("pwd1");
+		int question = Integer.parseInt(req.getParameter("join_question"));
+		String answer = req.getParameter("join_answer");
 		String name = req.getParameter("name");
+		String gender = req.getParameter("question1");
 		String address = req.getParameter("address");
 		String email = req.getParameter("email");
 		String nickname = req.getParameter("nickname");
+		String qna1 = req.getParameter("question1");
+		String qna2 = req.getParameter("question2");
+		String qna3 = req.getParameter("question3");
+		String qna4 = req.getParameter("question4");
+		String qna5 = req.getParameter("question5");
 		
 		MemberVo m = new MemberVo();
 		m.setId(id);
 		m.setPwd(pwd);
+		m.setQuestion_num(question);
+		m.setQuestion_answer(answer);
 		m.setName(name);
+		m.setGender(gender);
 		m.setAddress(address);
 		m.setEmail(email);
 		m.setNick(nickname);
+		m.setQna1(qna1);
+		m.setQna2(qna2);
+		m.setQna3(qna3);
+		m.setQna4(qna4);
+		m.setQna5(qna5);
 		
 		int result = new MemberService().join(m);
 		

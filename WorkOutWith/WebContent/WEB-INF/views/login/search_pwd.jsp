@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="EUC-KR"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>WOW - ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</title>
+<title>WOW - ºñ¹Ð¹øÈ£ Ã£±â</title>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="./assets/CSS/search_pwd.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-	<form name="search_pwd_form" id="search_pwd_form">
+	<form action="search_pwd" method="post" name="search_pwd_form" id="search_pwd_form">
 		<div class="search_pwd_wrap">
 			<div class="search_pwd_head">
 				<div class="search_pwd_text">
@@ -18,42 +21,55 @@
 				</div>
 			</div>
 			<div class="search_pwd_body">
-				<div class="lb_title">ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°</div>
-				<div class="lb_text">íšŒì›ê°€ìž…ì‹œ ìž…ë ¥í•˜ì‹  ì •ë³´ë¥¼ ìž…ë ¥í•˜ì„¸ìš”.</div>
+				<div class="lb_title">ºñ¹Ð¹øÈ£Ã£±â</div>
+				<div class="lb_text">È¸¿ø°¡ÀÔ½Ã ÀÔ·ÂÇÏ½Å Á¤º¸¸¦ ÀÔ·ÂÇÏ¼¼¿ä.</div>
 				<div class="lb_search_pwd">
 					<input type="eamil" name="member_email" maxlength="25" required="">
-					<label>ì´ë©”ì¼</label>
+					<label>ÀÌ¸ÞÀÏ</label>
 				</div>
 				<div class="lb_search_pwd">
-					<label class="member_question"> &nbsp;ì§ˆë¬¸&nbsp;&nbsp;&nbsp;|
-						<select name="member_question" id="member_question"	class="minimal">
-							<option value="place">ê¸°ì–µì— ë‚¨ëŠ” ì¶”ì–µì˜ ìž¥ì†ŒëŠ”?</option>
-							<option value="treasure">ë‚˜ì˜ ë³´ë¬¼ 1í˜¸ëŠ”?</option>
-							<option value="school">ë‚˜ì˜ ì¶œì‹  ì´ˆë“±í•™êµëŠ”?</option>
-							<option value="hometown">ë‚˜ì˜ ì¶œì‹  ê³ í–¥ì€?</option>
-							<option value="mother">ì–´ë¨¸ë‹ˆ ì„±í•¨ì€?</option>
-							<option value="father">ì•„ë²„ë‹˜ ì„±í•¨ì€?</option>
-							<option value="color">ê°€ìž¥ ì¢‹ì•„í•˜ëŠ” ìƒ‰ê¹”ì€?</option>
-							<option value="food">ê°€ìž¥ ì¢‹ì•„í•˜ëŠ” ìŒì‹ì€?</option>
+					<label class="member_question"> &nbsp;Áú¹®&nbsp;&nbsp;&nbsp;|
+						<select name="join_question" id="member_question"	class="minimal">
+							<option value="1">±â¾ï¿¡ ³²´Â Ãß¾ïÀÇ Àå¼Ò´Â?</option>
+							<option value="2">³ªÀÇ º¸¹° 1È£´Â?</option>
+							<option value="3">³ªÀÇ Ãâ½Å ÃÊµîÇÐ±³´Â?</option>
+							<option value="4">³ªÀÇ Ãâ½Å °íÇâÀº?</option>
+							<option value="5">¾î¸Ó´Ï ¼ºÇÔÀº?</option>
+							<option value="6">¾Æ¹ö´Ô ¼ºÇÔÀº?</option>
+							<option value="7">°¡Àå ÁÁ¾ÆÇÏ´Â »ö±òÀº?</option>
+							<option value="8">°¡Àå ÁÁ¾ÆÇÏ´Â À½½ÄÀº?</option>
 						</select>
 					</label>
 				</div>
 				<div class="lb_search_pwd">
-					<input type="text" name="member_answer" required=""> 
-					<label>ì§ˆë¬¸ ë‹µë³€</label>
+					<input type="text" name="join_answer" required=""> 
+					<label>Áú¹® ´äº¯</label>
 				</div>
 				<div class="lb_btn">
-					<button class="search_btn">ì°¾ê¸°</button>
+					<button type="submit" class="search_btn">Ã£±â</button>
 				</div>
 				<div class="lb_search_join">
-					<a href="./search_id" id="search_id">ì•„ì´ë”” ì°¾ê¸°</a>
+					<a href="./search_id" id="search_id">¾ÆÀÌµð Ã£±â</a>
 				</div>
 				<div class="lb_exit">
 					<a href="./login" class="cancle" id="exit">
-					<img src="./assets/login_img/xbtn.png"> ë‚˜ê°€ê¸°</a>
+					<img src="./assets/login_img/xbtn.png"> ³ª°¡±â</a>
 				</div>
 			</div> <!-- search_pwd_body -->
 		</div> <!-- search_pwd_wrap -->
 	</form>
+	
+	<c:if test="${ok eq '1'}">
+	<script type = "text/javascript">
+		var message = "${pwd}";
+		swal("ºñ¹Ð¹øÈ£Ã£±â¼º°ø", "ºñ¹Ð¹øÈ£ : " + message, "success");
+    </script>
+    </c:if>
+    <c:if test="${ok eq '2'}">
+	<script type = "text/javascript">
+		var message = "${pwd}";
+		swal(message, "´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä", "warning");
+    </script>
+    </c:if>
 </body>
 </html>

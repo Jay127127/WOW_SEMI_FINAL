@@ -32,7 +32,7 @@
 					<label>비밀번호</label>
 				</div>
 				<div class="lb_btn">
-					<input type="submit" class="login_btn" value="로그인">
+					<input type="submit" class="login_btn" id="login" value="로그인">
 				</div>
 				<div class="lb_search_join">
 					<a href="./search_id" id="search_id">아이디 찾기</a> <span>|</span> 
@@ -46,15 +46,35 @@
 			</div> <!-- login_body -->
 		</div> <!-- login_wrap -->
 	</form>
-	
-	<c:set var="ok" value="${ok}"/>
+	 
 	<c:if test="${ok eq '1'}">
 	<script type = "text/javascript">
 		var message = "${msg}";
-		swal(message, "아이디, 비밀번호를 다시 입력해주세요", "warning");
+		swal(message, "비밀번호를 다시 입력해주세요", "warning");
     </script>
-    <c:set var="ok" value="2"/>
+    </c:if>
+    <c:if test="${ok eq '2'}">
+	<script type = "text/javascript">
+		var message = "${msg}";
+		swal(message, "아이디를 다시 입력해주세요", "warning");
+    </script>
     </c:if>
     
+  	<!-- 
+  	<script>
+  	$('#login').on('click', function(){
+		$.ajax({
+			url : '/wow/login',
+			type : 'get',
+			success : function(data){
+				swal(data, "아이디, 비밀번호를 다시 입력해주세요", "warning");
+			},
+			error : function(err){
+				swal("로그인 오류", "버튼 오류", "warning");
+			}
+		})
+	})
+  	</script>
+  	 -->
 </body>
 </html>
