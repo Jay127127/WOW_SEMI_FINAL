@@ -16,6 +16,7 @@ body {
     background-color: rgba(144, 8, 8, 0.63);
     /* border-radius: 10px; */
     padding: 1%;
+    margin-top: 20px;
     width: 100vw;
     /* margin: auto; */
     /* color: white; */
@@ -102,6 +103,7 @@ body {
 .board_number{
     text-align: center;
     margin-top: 25px;
+    display: inline-block;
 }
 
 .board_number :hover {

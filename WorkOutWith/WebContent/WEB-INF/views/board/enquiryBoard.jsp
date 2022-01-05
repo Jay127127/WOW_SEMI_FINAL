@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %>
-<%@ page import="com.wow.board.Dao.EnquiryBoardDao" %>
-<%@ page import="com.wow.board.model.vo.EnquiryBoardVo" %>
-<%@ page import="java.util.ArrayList" %>
-
+<%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -28,87 +24,114 @@
 
     <!-- css file link -->
     <link rel="stylesheet" type="text/css" href="assets/CSS/board_basic.css">
-    
+
+    <style>
+        .board_number{
+        	display: inline-block;
+        }
+    </style>
 </head>
+
 <body>
 
-	<%
-		//String userID = null;
-		//if(session.getAttibute("userID")!=null){
-		//	userID=(String)session.getAttribute("userID");
-		//}
-		//int pageNumber =1;
-		//if(request.getParameter("pageNumber")!=null){
-		//	pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-		//}
-	%>
-	
-	<!-- -------------- navbar -------------- -->
-	<%@ include file="../common/header_nav.jsp"%>
-	
-	<!-- -------------- 본문 시작 -------------- -->
-	<div class="container">
-		<div class="row">
-			<table class="table table-striped" style="text-align: canter; border: 1px solid grey;">
-				<thead>
-					<tr>
-						<th style="background-color: #eeeeee; text-align: center;">No.</th>
-						<th style="background-color: #eeeeee; text-align: center;">제목</th>
-						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-						<th style="background-color: #eeeeee; text-align: center;">날짜</th>
-						<th style="background-color: #eeeeee; text-align: center;">조회수</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-					
-					<%
-/* 						int pageNumber = 0; */
-						EnquiryBoardDao ebdao = new EnquiryBoardDao();
-						ArrayList<EnquiryBoardVo> list = ebdao.getList(pageNumber);
-						for(int i = 0; i < list.size(); i++){
-					%>
-						<td><%= list.get(i).getE_boardNO() %></td>
-						<td><a href = "view.jsp?E_boardId=<%=list.get(i).getE_userId() %>"><%=list.get(i).getE_boardTitle() %></a></td>
-						<td><%= list.get(i).getE_userId() %></td>
-						<td><%= list.get(i).getE_boardDate().substring(0, 11) + list.get(i).getE_boardDate().substring(11,13)+":"+ list.get(i).getE_boardDate().substring(14, 16) %></td>
-						<td>0</td>
-					</tr>
-					<% 
-						}
-					%>
-				</tbody>
-			</table>
-			
-			<%-- <%
-				if(pageNumber != 1){
-			%>
-				<a href="enquiryBoaard.jsp?pageNumber=<%=pageNumber-1 %>" class="btn btn-arrow-left">이전</a>
-			<%
-				}if(ebdao.nextPage(pageNumber+1)){
-			%>
-				<a href="enquiryBoaard.jsp?pageNumber=<%=pageNumber+1 %>" class="btn btn-arrow-left">다음</a>
-			<%		
-				}
-			%>
-			
-			<%
-				if(userID == null){
-			%>
-				<button alert="로그인을 해주세요.">글쓰기</button>
-			<%
-				}else {
-			%>
-				<a href="/wow/enquiry_newPost.jsp">글쓰기</a>
-			<%
-				}
-			%> --%>
-			
+
+<!-- -------------- navbar -------------- -->
+
+<%@ include file="../common/header_nav.jsp"%>
+
+
+
+<!-- -------------본문 내용 시작---------------- -->
+<main>
+<!-- -------------header---------------- -->
+	<div>
+		<div class="sub_title">
+			<ul class="sub_info">
+				<li>문의 게시판</li>
+				<li>w.o.w의 관리자에게 의견을 나누어 주세요.</li>
+			</ul>
 		</div>
 	</div>
+<!-- -------------boardSelection---------------- -->
+	<!-- <div>
+		<div class="board_select">
+			<form action="board" method="get">
+				<select id="select" name="selectType">
+					<option value="boardDate" selected >최신순</option>
+					<option value="bs_view">조회수순</option>
+					<option value="bs_like">좋아요순</option>
+					<option value="boardTitle">z-a순</option>
+				</select>
+				<input type="submit" value="찾기">
+			</form>
+		</div>
+	</div> -->
+	
+	<div style="margin: 20px;">
+	</div>
+	
+<!-- -------------BoardList---------------- -->
+	<div id="table_board">
+		<table class="table table-hover" style="text-align: center;">
+			<thead style="color: black;">
+				<tr>
+					<th name="board_no" scope="col" style="width: 8%;">No.</th>
+					<th name="board_title" scope="col">Title</th>
+					<th name="board_writer" scope="col" style="width: 15%;">Writer</th>
+					<th name="board_date" scope="col" style="width: 15%;">Date</th>
+					<th name="board_view" scope="col" style="width: 8%;">View</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${E_BoardList}" var="b">
+           			<tr class="table-light">
+		               <td>${b.boardNo}</td>
+		               <td>${b.boardTitle}</td>
+		               <td>${b.userId}</td>
+		               <td>${b.boardDate}</td>
+		               <td>${b.viewCount}</td>
+		           </tr>
+		       	</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
+
+<!-- -------------글 쓰기---------------- -->
+	<% 
+		String userID = null;
+		if(session.getAttribute("userID")!=null){
+			userID = (String)session.getAttribute("userID");
+		}
+		if(userID != null){
+	%>
+		<div class="new_roll_space">
+			<a href="newPost" class="new_roll">글 쓰기</a>
+		</div>
+	<%		
+		}
+	%>
+	
+<!-- -------------페이징---------------- -->
+    <div style="text-align:center;">
+		<c:forEach var="i" begin="${startPage}" end="${endPage}">
+	        <div class="board_number">
+	            <c:if test="${i le maxPage}">
+	                <a href="search?currentPage=${i}">${i}</a>
+	            </c:if>
+	        </div>
+	    </c:forEach>
+    </div>
+</main>
+<!-- 본문 내용 끝 -->
+
+
+<!-- 푸터 작업? -->
+<footer>
+	<div class="nothing" style="height: 150px;">
+
+	</div>
+</footer>
+
 </body>
 </html>
-
-
-a
-

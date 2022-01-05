@@ -74,9 +74,9 @@
 						<a class="nav-link dropdown nv-link-custom" href="#" data-toggle="dropdown"> &emsp;커뮤니티&emsp;</a>
 						<ul class="dropdown-menu dp-menu-custom">
 							<li><a class="dropdown-item dd-item" href="/wow/board"> 자유게시판</a></li>
-							<li><a class="dropdown-item dd-item" href="/wow/gallery"> 갤러리 </a></li>
-							<li><a class="dropdown-item dd-item" href="/wow/routinePage"> 루틴 공유 </a></li>
-							<li><a class="dropdown-item dd-item" href="/wow/enquiry"> 문의게시판 </a></li>
+							<li><a class="dropdown-item dd-item" href="/wow/galleryBoard"> 갤러리 </a></li>
+							<li><a class="dropdown-item dd-item" href="/wow/routineBoard"> 루틴 공유 </a></li>
+							<li><a class="dropdown-item dd-item" href="/wow/enquiryBoard"> 문의게시판 </a></li>
 						</ul>
 					</li>
 					<li class="nav-item dropdown nvitem-custom">

@@ -1,23 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>view_post</title>
- 
-    <!-- css file link -->
-    <link rel="stylesheet" type="text/css" href="assets/CSS/board_viewPost.css">
- 
-   <style>
+	    pageEncoding="UTF-8"%>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 
-   </style>
-   
-   
-   
-</head>
+	<!DOCTYPE html>
+	<html lang="ko">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	    <title>View Post</title>
+	    
+	    <!-- css file link -->
+	    <link rel="stylesheet" type="text/css" href="assets/CSS/board_viewPost.css">	
+	</head>
 <body>
 
 
@@ -37,30 +33,35 @@
        <div class="body">
            <div class="body_space">
                <div class="view_head_subject">
-                   <p class="view_head_left">[자유게시판] 2022년에는 진짜 살뺀다..ㅠㅠ</p>
-                   <p class="view_head_right">다이어터  |  2021.12.31</p>
+               <c:forEach items="${boardList}" var="b">
+                   <p class="view_head_left">${b.boardTitle}</p>
+                   <p class="view_head_right">${b.boardDate}</p>
+               </c:forEach>
                </div>
  
                <div class="view_head_attachment">
-                   <p class="view_att_left">첨부파일</p>
-                   <a href="#" class="view_attachment">
-                       <span class="attachment">&nbsp;</span>
-                       <img alt="" src="../board_img/2022.jpeg">
-                   </a>
+	               <c:forEach items="${boardList}" var="b">
+	                   <p class="view_att_left">${b.userId}</p>
+	                   <a href="#" class="view_attachment">
+	                       <span class="attachment">&nbsp;</span>
+	                       <img alt="" src="../board_img/2022.jpeg">
+	                   </a>
+                   </c:forEach>
                </div>
               
                <div class="view_body_content" style="padding : 40px 0 40px 0">
+                   
                    <p class="in_att">
-                       <!-- <img src="../assets/board_img/2022.jpeg" alt="새해 복 많이 받으세요.">-->
+                       
                    </p>
-                  
                    <div class="in_text_space">
-                       <p class="in_text">  벌써 2022년 이라니.... 말도 안돼....</p>
+	                   <c:forEach items="${boardList}" var="b">
+	                       <p class="in_text">${b.boardContent}</p>
+                       </c:forEach>
                    </div>
                </div>
               
                <div class="reply_space">
-                   <!-- <div>댓글</div> -->
                    <div class="reply_info">
                        <p class="re_left">
                            <b>문인수</b>
