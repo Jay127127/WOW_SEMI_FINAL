@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -117,7 +118,9 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="admin_create">관리자 생성</a>
+                                <c:if test="${'admin1' eq loginAdmin.admin_id}">
+                                    <a class="nav-link" href="admin_create">관리자 생성</a>                          
+                                </c:if>
                                     <a class="nav-link" href="admin_list">관리자 목록</a>
                                 </nav>
                             </div>

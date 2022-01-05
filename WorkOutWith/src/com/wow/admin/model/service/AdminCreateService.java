@@ -10,6 +10,10 @@ import static com.wow.common.JDBCTemplate.*;
 
 public class AdminCreateService {
 	
+	private int maxPage = 0;
+	private int prevPage = 0;
+	private int nextPage = 0;
+	
 	//2. admin 계정 생성
 	public int create(AdminVo a) {
 			
@@ -93,58 +97,119 @@ public class AdminCreateService {
 		return new AdminDao().selectAdminById(conn, id);
 	}
 	
-	//5. admin 모든 멤버 조회
-	public List<AdminVo> seletAdminAll(Connection conn, String currentPage, int startNo, int endNo) {
-		return new AdminDao().selectAdminAll(conn, startNo, endNo);
-	}
-	
+
+	//5-0. 페이징 결합, 탐색 결과?를 list로 담아서 보여줌 
 	public List<AdminVo> search(String type, String value, String currentPage){
 		Connection conn = getConnection();
 		
-		//총 게시글 수 : select count (*)~~
-		int totalBoardCount = countAdminAll(conn);
-		//총 회원 수
-		//countAdminAll();
 		
-		//페이징 목록 최대 개수
-		int pageLimit = 5;
+		
 		//한 페이지 당 게시글 수
-		int boardLimit = 3;
-		//마지막 페이지
-		int maxPage = 0;
+		int boardLimit = 5;
 		
+		//마지막 페이지 maxPage
+		// maxPage를 담을 함수 (5-4)
 		maxPage = totalBoardCount / boardLimit;
 		if(totalBoardCount % boardLimit != 0) {
 			maxPage++;
 		}
 		System.out.println("maxPage: "+maxPage);
 		
-		int cp = Integer.parseInt(currentPage);
+		int cPage = Integer.parseInt(currentPage);
+		System.out.println("cPage: "+cPage);
+		
+		//이전 페이지 prevPage 설정
+		prevPage = (cPage == 1)? cPage : cPage-1;
+		System.out.println("prevPage: "+prevPage);
+		
+		//다음페이지 nextPage 설정
+		nextPage = (cPage == maxPage)? cPage : cPage+1;
+		System.out.println("nextPage: "+nextPage);
 		
 		//현재 페이지의 마지막 글번호
-		int endNo = cp * boardLimit;
+		int endNo = cPage * boardLimit;
 		//현재 페이지의 첫번째 글번호
 		int startNo = endNo - boardLimit + 1;
 		
 		List<AdminVo> adminList;
-		if(type == null || value == null) {
-			//탐색만 눌렀을 때 null, null이 나오는데, 이땐 전체 멤버 조회로
+		if(type == null && value == null) {
+			//총 게시글 수 : select count (*)~~ (5-1)
+			int totalBoardCount = countAdminAll(conn);
+			
+			//탐색만 눌렀을 때 null, null이 나오는데, 이땐 전체 멤버 조회로 (5-3)
 			adminList = seletAdminAll(conn, currentPage, startNo, endNo);
 		} else {
-			//type과 value 둘다 값이 있을 경우
-			adminList = selectAd
+			//type과 value 둘다 값이 있을 경우, 즉 타입적용 (5-2)
+			adminList = selectAdminBySearch(conn, type, value, currentPage, startNo, endNo);
 		}
+		close(conn);
 		
+		return adminList;
+	}
+
+	//5-2. selectAdminBySearch() 가져오기, 어드민 타입별 검색 결과
+	private List<AdminVo> selectAdminBySearch(Connection conn, String type, String value, String currentPage, int startNo, int endNo) {
+		return new AdminDao().selectAdminBySearch(conn, type, value, startNo, endNo);
 	}
 
 
-	//5-1. countAdminAll() 가져오기
+	//5-1. countAdminAll() 가져오기, 어드민 개수
 	private int countAdminAll(Connection conn) {
 		return new AdminDao().countAdminAll(conn);
 	}
 	
-	//5-2. selectAdmin() 가져오기
+	//5-3. seletAdminAll() 가져오기, 어드민 모든 멤버 조회
+	public List<AdminVo> seletAdminAll(Connection conn, String currentPage, int startNo, int endNo) {
+		return new AdminDao().selectAdminAll(conn, startNo, endNo);
+	}
 	
 
+	//5-4. maxPage를 담을 함수
+	public int getMaxPage() {
+		return maxPage;
+	}
+	
+	//5-5. prevPage를 담을 함수
+	public int getPrevPage() {
+		return prevPage;
+	}
+	
+	//5-5. nextPage를 담을 함수
+	public int getNextPage() {
+		return nextPage;
+	}
+	
+	
+	//6-1. 어드민 계정 삭제
+	public int deleteAdmin(String admin_id){
+		Connection conn = getConnection();
+		int result = new AdminDao().deleteAdmin(conn, admin_id);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		System.out.println("===service result==:"+result);		
+		return result;
+	}
+	
+	
+	//7-1. 유지보수를 위해.. AdminDao().updateAdmin() 을 오버로딩
+	public int updateAdmin(AdminVo a) {
+		//dao 불러서 쿼리 실행
+		//dao한테 쿼리 실행 결과 받기
+		//throws로 캐치블럭 없음
+		Connection conn = getConnection();
+		int result = new AdminDao().updateAdmin(conn, a);
+		//데이터 처리 : result == 1 수정완료, 0 비번불일치, -1 아이디없음
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
 	
 }

@@ -10,7 +10,46 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>AdminWOW</title>
-        <!-- 테이블 -->
+<style type="text/css">
+.form-select{
+	display: inline !important;
+}
+
+.pagination *{
+	color: #333 !important;
+}
+
+.pagination *:hover{
+	color: #fff !important;
+	background-color: rgba(121, 3, 29, 0.8) !important;
+}
+.pagination> .active *{
+    background-color: rgba(121, 3, 29, 0.8) !important;
+    border-color: rgba(121, 3, 29, 0.8) !important;
+    color: #fff !important;
+}
+
+.bg-custom {
+    background-color: rgba(121, 3, 29, 0.8) !important;
+    border-color: rgba(121, 3, 29, 0.8);
+    color: #fff;
+}
+
+.bg-custom:hover,
+.navbar .bg-custom:focus,
+.pagination> .active *:hover
+{
+    background-color: rgb(121, 3, 29) !important;
+    color: #fff;
+}
+.ud>.btn-sm, .btn-group-sm > .btn {
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875rem;
+  border-radius: 0.1rem;
+}
+
+
+</style>
 
 </head>
 <body class="sb-nav-fixed">
@@ -35,131 +74,109 @@
                             </div>
                             <div class="card-body">
 
-                        <div class="container-fluid px-4">
-                        <form method="get" action="admin_list">
-                        <select name="searchType" id="">
-                            <option value="admin_id">아이디<option>
-                            <option value="admin_name">이름<option>
-                            <option value="admin_power_name">담당<option>
-                            <option value="admin_nik">닉네임<option>
-                            <option value="admin_email">이메일<option>
-                        </select>
-                        <input type="text" name="searchValue" id="">
-                        <input type="submit" value="검색">
-                        </form><br>
+		                        <div class="container-fluid px-4"><br>
 
-                        <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>번호</th>
-                            <th>아이디</th>
-                            <th>이름</th>
-                            <th>담당</th>
-                            <th>닉네임</th>
-                            <th>이메일</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${adminList}" var="a">
-                            <tr>
-                                <td>행 넘버</td>
-                                <td>${a.admin_id}</td>
-                                <td>${a.admin_name}</td>
-                                <td>${a.admin_power_name}</td>
-                                <td>${a.admin_nick}</td>
-                                <td>${a.admin_email}</td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                        </table>
+			                        <form method="get" action="admin_list">
+			                        <div class="selForm">
+			                        <select class="form-select" name="searchType" style="width:150px">
+			                            <option value="admin_id">아이디</option>
+			                            <option value="admin_name">이름</option>
+			                            <option value="admin_power_name">담당</option>
+			                            <option value="admin_nik">닉네임</option>
+			                            <option value="admin_email">이메일</option>
+			                        </select>
 
-                        <%-- ?씩 증가하게 하려면 step="숫자", 디폴트는 step="1"--%>
-                    <div class="page-area" style="text-align:center">
-                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
-                            <c:if test="${i le maxPage}">
-                                <a href="admin_list?currentPage=${i}">${i}</a>
-                            </c:if>
-                        </c:forEach>
-                    </div>
+			                        <input type="text" name="searchValue" id="">
+			                        <input type="submit" class="btn bg-custom btn-sm" value="검색">
+			                        </div>
+			                        </form><br>
+
+			                        <table class="table table-hover table-bordered">
+			                        <thead>
+			                        <tr align="left">
+			                            <th>#</th>
+			                            <th>번호</th>
+			                            <th>아이디</th>
+			                            <th>이름</th>
+			                            <th>담당</th>
+			                            <th>닉네임</th>
+			                            <th>이메일</th>
+			                            <th>삭제</th>
+			                        </tr>
+			                        </thead>
+			                        <tbody>
+			                        <c:forEach items="${adminList}" var="a">
+			                            <tr>
+			                                <td>${a.rNum}</td>
+			                                <td>${a.admin_num}</td>
+			                                <td>${a.admin_id}</td>
+			                                <td>${a.admin_name}</td>
+			                                <td>${a.admin_power_name}</td>
+			                                <td>${a.admin_nik}</td>
+			                                <td>${a.admin_email}</td>
+			                                <td align="center" class="ud">
+			                                <!-- <a href=""><i class="fas fa-eraser"></i></a> -->
+			                                <a href="admin_delete?admin_id=${a.admin_id}"><i class="fas fa-user-slash"></i></a>			                                
+			                                </td>
+			                            </tr>
+			                        </c:forEach>
+			                        </tbody>
+			                        </table>
 
 
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>번호</th>
-                                            <th>ID</th>
-                                            <th>이름</th>
-                                            <th>담당</th>
-                                            <th>닉네임</th>
-                                            <th>이메일</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>번호</th>
-                                            <th>ID</th>
-                                            <th>이름</th>
-                                            <th>담당</th>
-                                            <th>닉네임</th>
-                                            <th>이메일</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+				                    <ul class="pagination justify-content-center">
+				                    <c:choose>
+				                    	<c:when test="${!empty type && !empty value}">
+					                        <li class="page-item" id=""><a class="page-link" id="pp" href="admin_list?searchType=${type}&searchValue=${value}&currentPage=${prevPage}">prev</a></li>	
+					                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
+					                        	<c:if test="${i le maxPage}">
+					                        	<li class="page-item liPi" id=""><a class="page-link iPi" id="" href="admin_list?searchType=${type}&searchValue=${value}&currentPage=${i}">${i}</a></li>
+					                        	</c:if>
+					                        </c:forEach>
+					                        <li class="page-item" id=""><a class="page-link" id="np" href="admin_list?searchType=${type}&searchValue=${value}&currentPage=${nextPage}">next</a></li>
+				                        </c:when>
+				                        <c:otherwise>
+					                        <li class="page-item" id=""><a class="page-link" id="pp" href="admin_list?currentPage=${prevPage}">prev</a></li>	
+					                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
+					                        	<c:if test="${i le maxPage}">
+					                        	<li class="page-item liPi" id=""><a class="page-link iPi" id="" href="admin_list?currentPage=${i}">${i}</a></li>
+					                        	</c:if>
+					                        </c:forEach>
+					                        <li class="page-item" id=""><a class="page-link" id="np" href="admin_list?currentPage=${nextPage}">next</a></li>
+				                        </c:otherwise>
+				                    </c:choose>
+				                   	</ul>
+								</div>
+                             </div>
                         </div>
                     </div>
                 </main>
 
+    <script type="text/javascript">
+    let liPi = document.getElementsByClassName('liPi');
+    let iPi = document.getElementsByClassName('iPi');
+
+    for (let i = 0; i < iPi.length; i++) {
+        if(window.location.href == iPi[i].href){
+            liPi[i].classList.add('active');
+        }
+    }
+
+	// 새로고침 방지
+	let pp = document.getElementById('pp');
+	let np = document.getElementById('np');
+	if(pp.href == window.location.href){
+		pp.setAttribute("href", "#");
+	}
+	if(np.href ==window.location.href){
+		// np.href = '#;
+		np.setAttribute("href", "#");
+	}
+
+
+    </script>
+
 	<%@ include file="footer_admin.jsp"%>
+
 </body>
 </html>
