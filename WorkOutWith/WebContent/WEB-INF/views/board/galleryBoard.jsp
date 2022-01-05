@@ -46,8 +46,8 @@
 	<div>
 		<div class="sub_title">
 			<ul class="sub_info">
-				<li>루틴공유게시판</li>
-				<li>w.o.w의 회원들과 자신만의 멋진 루틴을 공유해보세요.</li>
+				<li>Gallery</li>
+				<li>w.o.w의 회원들과 멋진 모습을 공유해보세요.</li>
 			</ul>
 		</div>
 	</div>
@@ -78,7 +78,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${R_BoardList}" var="b">
+				<c:forEach items="${G_BoardList}" var="b">
            			<tr class="table-light">
 		               <td>${b.boardNo}</td>
 		               <td>${b.boardTitle}</td>
@@ -88,7 +88,6 @@
 		           </tr>
 		       	</c:forEach>
 			</tbody>
-			
 		</table>
 	</div>
 
@@ -109,7 +108,7 @@
 	        </div>
 	    </c:forEach>
     </div>
-	
+
 </main>
 <!-- 본문 내용 끝 -->
 

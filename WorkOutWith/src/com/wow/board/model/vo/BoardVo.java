@@ -1,23 +1,39 @@
 package com.wow.board.model.vo;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class BoardVo {
-	private String title;
-	private String category_select;
-	private String upload_file;
-	private String boardAvailable;
-	private String text_area;
 	private int boardNo;
+	private String boardCategory;
+	private String boardTitle;
 	private String userId;
-	private Timestamp boardDate;
+	private Date boardDate;
+	private String boardContent;
+	private String boardOpen_YN;
+	private String boardDelete_YN;
+	private int viewCount;
+	private int likeCount;
 	
 	
-	public Timestamp getBoardDate() {
-		return boardDate;
+	
+	public int getBoardNo() {
+		return boardNo;
 	}
-	public void setBoardDate(Timestamp boardDate) {
-		this.boardDate = boardDate;
+	public void setBoardNo(int boardNo) {
+		this.boardNo = boardNo;
+	}
+	public String getBoardCategory() {
+		return boardCategory;
+	}
+	public void setBoardCategory(String boardCategory) {
+		this.boardCategory = boardCategory;
+	}
+	public String getBoardTitle() {
+		return boardTitle;
+	}
+	public void setBoardTitle(String boardTitle) {
+		this.boardTitle = boardTitle;
 	}
 	public String getUserId() {
 		return userId;
@@ -25,41 +41,41 @@ public class BoardVo {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public String getBoardAvailable() {
-		return boardAvailable;
+	public Date getBoardDate() {
+		return boardDate;
 	}
-	public void setBoardAvailable(String boardAvailable) {
-		this.boardAvailable = boardAvailable;
+	public void setBoardDate(Date boardDate) {
+		this.boardDate = boardDate;
 	}
-	public String getTitle() {
-		return title;
+	public String getBoardContent() {
+		return boardContent;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setBoardContent(String boardContent) {
+		this.boardContent = boardContent;
 	}
-	public String getCategory_select() {
-		return category_select;
+	public String getBoardOpen_YN() {
+		return boardOpen_YN;
 	}
-	public void setCategory_select(String category_select) {
-		this.category_select = category_select;
+	public void setBoardOpen_YN(String boardOpen_YN) {
+		this.boardOpen_YN = boardOpen_YN;
 	}
-	public String getUpload_file() {
-		return upload_file;
+	public String getBoardDelete_YN() {
+		return boardDelete_YN;
 	}
-	public void setUpload_file(String upload_file) {
-		this.upload_file = upload_file;
+	public void setBoardDelete_YN(String boardDelete_YN) {
+		this.boardDelete_YN = boardDelete_YN;
 	}
-	public String getText_area() {
-		return text_area;
+	public int getViewCount() {
+		return viewCount;
 	}
-	public void setText_area(String text_area) {
-		this.text_area = text_area;
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
 	}
-	public int getBoardNo() {
-		return boardNo;
+	public int getLikeCount() {
+		return likeCount;
 	}
-	public void setBoardNo(int boardNo) {
-		this.boardNo = boardNo;
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
 	}
 	
 	

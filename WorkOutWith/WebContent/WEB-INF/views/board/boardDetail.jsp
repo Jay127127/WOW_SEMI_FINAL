@@ -7,11 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- -------------- navbar -------------- -->
-	<%@ include file="../common/header_nav.jsp"%>
+<h1>${msg}</h1>
+	<a href="<%request.getContextPath();%>/board.jsp">리스트</a>
 
-	<h1>gallery page</h1>
-	
-	
 </body>
 </html>
