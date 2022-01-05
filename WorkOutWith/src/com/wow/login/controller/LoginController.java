@@ -35,17 +35,24 @@ public class LoginController extends HttpServlet{
 		m.setPwd(pwd); 
 		
 		MemberVo loginUser = new MemberService().login(m);
+		int result = new MemberService().dupCheck(m.getId());
 		
-		if(loginUser != null) {
-			//success
-			req.setAttribute("msg", "로그인 성공");
-			req.getSession().setAttribute("loginUser", loginUser);
-			req.getRequestDispatcher("WEB-INF/views/home.jsp").forward(req, resp);
-		}else {
-			//error
+		if(result <= 0) {
 			req.setAttribute("msg", "로그인 실패");
-			req.setAttribute("ok", "1");
+			req.setAttribute("ok", "2");
 			req.getRequestDispatcher("WEB-INF/views/login/login.jsp").forward(req, resp);
+		} else {
+			if(loginUser != null) {
+				//success
+				req.setAttribute("msg", "로그인 성공");
+				req.getSession().setAttribute("loginUser", loginUser);
+				req.getRequestDispatcher("WEB-INF/views/home.jsp").forward(req, resp);
+			}else {
+				//error
+				req.setAttribute("msg", "로그인 실패");
+				req.setAttribute("ok", "1");
+				req.getRequestDispatcher("WEB-INF/views/login/login.jsp").forward(req, resp);
+			}
 		}
 	}
 }

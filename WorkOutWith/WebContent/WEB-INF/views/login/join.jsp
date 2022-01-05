@@ -38,7 +38,7 @@
                             <tr>
                                 <th><span>비밀번호</span></th>
                                 <td><input type="password" id="login_pwd1" name="pwd1"  placeholder="비밀번호를 입력하세요.">
-                                    <span class="condition">영문 대소문자/숫자, 4~16자</span></td>
+                                    <span class="condition">영문 대소문자/숫자/특수문자, 4~16자</span></td>
                             </tr>
                             <tr>
                                 <th><span>비밀번호 확인</span></th>
@@ -48,20 +48,20 @@
                                 <th><span>비밀번호 확인 질문</span></th>
                                 <td>
                                     <select name="join_question" id="join_question" class="mini">
-                                        <option value="place">기억에 남는 추억의 장소는?</option>
-                                        <option value="treasure">나의 보물 1호는?</option>
-                                        <option value="school">나의 출신 초등학교는?</option>
-                                        <option value="hometown">나의 출신 고향은?</option>
-                                        <option value="mother">어머니 성함은?</option>
-                                        <option value="father">아버님 성함은?</option>
-                                        <option value="color">가장 좋아하는 색깔은?</option>
-                                        <option value="food">가장 좋아하는 음식은?</option>
+                                        <option value="1">기억에 남는 추억의 장소는?</option>
+                                        <option value="2">나의 보물 1호는?</option>
+                                        <option value="3">나의 출신 초등학교는?</option>
+                                        <option value="4">나의 출신 고향은?</option>
+                                        <option value="5">어머니 성함은?</option>
+                                        <option value="6">아버님 성함은?</option>
+                                        <option value="7">가장 좋아하는 색깔은?</option>
+                                        <option value="8">가장 좋아하는 음식은?</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <th><span>비밀번호 확인 답변</span></th>
-                                <td><input type="text" placeholder="질문 답변을 입력하세요."></td>
+                                <td><input type="text" name="join_answer" placeholder="질문 답변을 입력하세요."></td>
                             </tr> 
                             <tr>
                                 <th><span>이름</span></th>
@@ -85,8 +85,8 @@
                             <tr>
                                 <th><span>인증번호 확인</span></th>
                                 <td>
-                                	<input type="text" name="mailAuthNo" id="emailAuthNo" class="send_number" maxlength="6" placeholder="10:00">
-									<input type="button" id="certificationBtn" onkeydown="check_num('emailAuthNo', '1')" onClick="hiddenObj('span_emailAuthNo')" value="인증하기" disabled>                                
+                                	<input type="text" name="mailAuthNo" id="emailAuthNo" class="send_number" maxlength="6" placeholder="10:00" ><!--disabled -->
+									<input type="button" id="certificationBtn" onClick="" value="인증하기" >                                
                                 </td>
                                 <input type="hidden" id="certificationYn" value="false">
                             </tr>
@@ -111,45 +111,45 @@
 						<tr>
                             <th><span>성별</span></th>
                             <td style="word-spacing: 50px;">
-                                <label><input type="radio" name="question1" id="question1_1">남성</label>
-                                <label><input type="radio" name="question1" id="question1_2">여성</label>
+                                <label><input type="radio" name="question1" value="남성">남성</label>
+                                <label><input type="radio" name="question1" value="여성">여성</label>
                             </td>
                         </tr>
                         <tr>
                             <th style="height: 93px; line-height: 75px;"><span>운동 경력</span></th>
                             <td>
-                                <label><input type="radio" name="question3" id="question3_1">입문 - 이제 막 운동을 시작했어요</label><br>
-                                <label><input type="radio" name="question3" id="question3_2">초급 - 운동을 조금은 해봤지만 잘은 몰라요</label><br>
-                                <label><input type="radio" name="question3" id="question3_3">중급 - 1년이상 꾸준히 운동하고 있어요</label><br>
-                                <label><input type="radio" name="question3" id="question3_4">고급 - 2~3년 이상 운동한 실력자에요</label><br>
-                                <label><input type="radio" name="question3" id="question3_5">전문가 - 헬스장 관장님 or 프로 보디빌더에요</label>
+                                <label><input type="radio" name="question2" value="입문">입문 - 이제 막 운동을 시작했어요</label><br>
+                                <label><input type="radio" name="question2" value="초급">초급 - 운동을 조금은 해봤지만 잘은 몰라요</label><br>
+                                <label><input type="radio" name="question2" value="중급">중급 - 1년이상 꾸준히 운동하고 있어요</label><br>
+                                <label><input type="radio" name="question2" value="고급">고급 - 2~3년 이상 운동한 실력자에요</label><br>
+                                <label><input type="radio" name="question2" value="전문가">전문가 - 헬스장 관장님 or 프로 보디빌더에요</label>
                             </td>
                         </tr>
                         <tr>
                             <th><span>일주일 운동횟수</span></th>
                             <td>
-                                <label><input type="radio" name="question4" id="question4_1">1회</label>
-                                <label><input type="radio" name="question4" id="question4_2">2회</label>
-                                <label><input type="radio" name="question4" id="question4_3">3회</label>
-                                <label><input type="radio" name="question4" id="question4_4">4회</label>
-                                <label><input type="radio" name="question4" id="question4_5">5회</label>
-                                <label><input type="radio" name="question4" id="question4_6">6회</label>
-                                <label><input type="radio" name="question4" id="question4_7">7회</label>
+                                <label><input type="radio" name="question3" value="1">1회</label>
+                                <label><input type="radio" name="question3" value="2">2회</label>
+                                <label><input type="radio" name="question3" value="3">3회</label>
+                                <label><input type="radio" name="question3" value="4">4회</label>
+                                <label><input type="radio" name="question3" value="5">5회</label>
+                                <label><input type="radio" name="question3" value="6">6회</label>
+                                <label><input type="radio" name="question3" value="7">매일</label>
                             </td>
                         </tr>
                         <tr>
                             <th><span>선호하는 운동장소</span></th>
                             <td style="word-spacing: 50px;">
-                                <label><input type="radio" name="question2" id="question2_1">헬스장</label>
-                                <label><input type="radio" name="question2" id="question2_2">집</label>
-                                <label><input type="radio" name="question2" id="question2_3">실외</label>
+                                <label><input type="radio" name="question4" value="gym">헬스장</label>
+                                <label><input type="radio" name="question4" value="home">집</label>
+                                <label><input type="radio" name="question4" value="outdoor">실외</label>
                             </td>
                         </tr>
                         <tr>
                             <th class="bb_question1"><span>선호하는 운동인원</span></th>
                             <td class="bb_question2" style="word-spacing: 50px;">
-                                <label><input type="radio" name="question5" id="question2_1">개인</label>
-                                <label><input type="radio" name="question5" id="question2_2">그룹</label>
+                                <label><input type="radio" name="question5" value="solo">개인</label>
+                                <label><input type="radio" name="question5" value="group">그룹</label>
                             </td>
                         </tr>
 					</table>
@@ -365,7 +365,7 @@
 						<label><b>전체선택</b><input type="checkbox" name="chk_all" value="1" id="chk_all"></label>
 					</div>					
 					<div class="btn_wrap" style="margin-top: 0; margin-bottom: 0;">
-						<input type="submit" class="submit" value="가입하기">
+						<input type="submit" class="submit" onclick="return validate();" value="가입하기">
 					</div>
 					<div class="lb_exit">
 						<a href="./login" class="cancle" id="exit">
@@ -383,13 +383,18 @@
 				url : '/wow/memberDupCheck',
 				type : 'get',
 				data : {
-					"key1" : "v1",
-					"key2" : "v2",
 					id : $("#login_id").val()
 				},
 				success : function(data){
-					swal(data);
+					swal("중복확인",data);
 					$('#check').val('t');
+					//아이디 정규표현식
+					let regExp1 = /^[a-z0-9]{4,16}$/g;
+					if(!(regExp1.test(document.join_form.id.value))){ 
+						swal("중복확인 실패", "(영문 소문자/숫자, 4~16자)\n아이디를 정상적으로 입력해주세요.");
+						document.join_form.id.focus();
+						return false;
+					}
 				},
 				error : function(err){
 					swal("중복체크 오류");
@@ -400,74 +405,98 @@
 		
 		function fregister_submit(f)
 	    {
+			let regExp1 = /^[a-z0-9]{4,16}$/g;
+			
 			//아이디 체크
-			if(document.join_form.id.value == "" || document.join_form.id.value.length < 0){ 
-				swal("회원가입 실패", "아이디를 입력해주세요.");
-				// history.back()
+			if(!(regExp1.test(document.join_form.id.value))){ 
+				swal("회원가입 실패", "(영문 소문자/숫자, 4~16자)\n아이디를 정상적으로 입력해주세요.");
 				document.join_form.id.focus();
 				return false;
 			}
 			//아이디 중복 체크
 			if(document.join_form.check.value == "f"){
 				swal("회원가입 실패", "아이디 중복확인을 해주세요.");
-				// history.back()
 				document.join_form.id.focus();
 				return false;
 			}
 			//비밀번호 체크
-			if(document.join_form.pwd1.value == "" || document.join_form.pwd1.value.length < 0){ 
-				swal("회원가입 실패", "비밀번호를 입력해주세요.");
-				// history.back()
+			let userPwd1 = document.join_form.pwd1.value;
+			let userPwd2 = document.join_form.pwd2.value;
+			let regExp2 = /^[\w!@#$%^&*-]{4,16}$/;
+			
+			if(!(regExp2.test(userPwd1))){ 
+				swal("회원가입 실패", "(영문 대소문자/숫자/특수문자, 4~16자)\n비밀번호를 정상적으로 입력해주세요.");
 				document.join_form.pwd1.focus();
 				return false;
+			} else if(userPwd1 !== userPwd2){
+				//비밀번호 확인 체크
+					swal("회원가입 실패", "비밀번호가 일치하지 않습니다.");
+					document.join_form.pwd1.value = '';
+					document.join_form.pwd2.value = '';
+					document.join_form.pwd2.focus();
+					return false;
 			}
-			//비밀번호 확인 체크
-			if(document.join_form.pwd2.value == "" || document.join_form.pwd2.value.length < 0){ 
-				swal("회원가입 실패", "비밀번호 확인을 입력해주세요.");
+			//비밀번호 확인 질문,답변 체크
+			if(document.join_form.join_answer.value == "" || document.join_form.join_answer.value.length < 0){ 
+				swal("회원가입 실패", "비밀번호 확인 답변을 입력해주세요.");
 				// history.back()
-				document.join_form.pwd2.focus();
-				return false;
-			}
-			//비밀번호랑 비밀번호확인이랑 같은지 체크
-			if(document.join_form.pwd1.value != document.join_form.pwd2.value){ 
-				swal("회원가입 실패", "비밀번호가 서로 다릅니다.");
-				// history.back()
-				document.join_form.pwd1.focus();
+				document.join_form.join_answer.focus();
 				return false;
 			}
 			//이름 체크
-			if(document.join_form.name.value == "" || document.join_form.name.value.length < 0){ 
-				swal("회원가입 실패", "이름을 입력해주세요.");
-				// history.back()
+			let userName = document.join_form.name.value;
+			let regExp3 = /^[가-힣]{2,}$/g;
+			
+			if(!(regExp3.test(userName))){ 
+				swal("회원가입 실패", "이름을 정상적으로 입력해주세요.");
 				document.join_form.name.focus();
 				return false;
 			}
 			//주소 체크
 			if(document.join_form.address.value == "" || document.join_form.address.value.length < 0){ 
 				swal("회원가입 실패", "주소를 입력해주세요.");
-				// history.back()
 				document.join_form.address.focus();
 				return false;
 			}
 			//이메일 체크
-			if(document.join_form.email.value == "" || document.join_form.email.value.length < 0){ 
-				swal("회원가입 실패", "이메일을 입력해주세요.");
-				// history.back()
+			let email = document.join_form.email.value;
+			let regExp4 = /^[\w]+@[\w]+\.[a-zA-Z\.]{2,6}$/;
+			if(!(regExp4.test(email))){ 
+				swal("회원가입 실패", "이메일을 정상적으로 입력해주세요.");
 				document.join_form.email.focus();
 				return false;
 			}
 			//이메일 인증번호 체크
-			if(document.join_form.authCode.value == "" || document.join_form.authCode.value.length < 0){ 
+			if(document.join_form.mailAuthNo.value == "" || document.join_form.mailAuthNo.value.length < 0){ 
 				swal("회원가입 실패", "이메일 인증번호를 입력해주세요.");
 				// history.back()
-				document.join_form.authCode.focus();
+				document.join_form.mailAuthNo.focus();
 				return false;
 			}
 			//닉네임 체크
 			if(document.join_form.nickname.value == "" || document.join_form.nickname.value.length < 0){ 
 				swal("회원가입 실패", "닉네임을 입력해주세요.");
-				// history.back()
 				document.join_form.nickname.focus();
+				return false;
+			}
+			if(!$('input:radio[name=question1]').is(":checked")){
+				swal("회원가입 실패", "성별 항목을 선택해주세요.");
+				return false;
+			}
+			if(!$('input:radio[name=question2]').is(":checked")){
+				swal("회원가입 실패", "운동경력 항목을 선택해주세요.");
+				return false;
+			}
+			if(!$('input:radio[name=question3]').is(":checked")){
+				swal("회원가입 실패", "운동횟수 항목을 선택해주세요.");
+				return false;
+			}
+			if(!$('input:radio[name=question4]').is(":checked")){
+				swal("회원가입 실패", "운동장소 항목을 선택해주세요.");
+				return false;
+			}
+			if(!$('input:radio[name=question5]').is(":checked")){
+				swal("회원가입 실패", "운동인원 항목을 선택해주세요.");
 				return false;
 			}
 			
@@ -544,26 +573,6 @@
 	            }
 	        }).open();
 	    }
-	    
-	    // 이메일 인증번호 전송 버튼
-	    function sendAuthNoForEmailAuth(){
-			if(document.getElementById("emailNm").value == ""){
-				alert("이름을 입력해 주세요");
-				lua_do('IDInquiry_CHECK_UI_PCN' , arguments.callee.name,ERROR_FORMAT_NAME, document.fm.token_help.value, true,'');
-				
-				document.getElementById('emailNm').focus();
-				return;
-			}
-				
-			if(!checkEmailValue()){
-				lua_do('IDInquiry_CHECK_UI_PCN' , arguments.callee.name,ERROR_FORMAT_EMAIL, document.fm.token_help.value, true,'');
-			
-				return;
-			}
-			
-			sendEmailAuthNo();
-			return;
-}
 	</script>
 </body>
 </html>

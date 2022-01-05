@@ -25,7 +25,7 @@ body, html {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 1200px;
-	height: 950px;
+	height: 960px;
 	background-color: white; /* #3F444A */
 	text-align: center;
 	margin: auto;
@@ -238,7 +238,7 @@ select:-moz-focusring {
 }
 
 /* 회원가입창 - 이메일 - 인증번호 발송 버튼 */
-.join_left table td input.btn_ct, .join_left table td input#emailAuthNo{
+.join_left table td input.btn_ct, .join_left table td input#certificationBtn{
 	display: inline-block;
 	float: left;
 	width: 110px;

@@ -12,9 +12,44 @@ public class MemberVo {
 	private String nick;
 	private int question_num;
 	private String question_answer;
+	private String qna1;
+	private String qna2;
+	private String qna3;
+	private String qna4;
+	private String qna5;
 	
 	public int getNum() {
 		return num;
+	}
+	public String getQna1() {
+		return qna1;
+	}
+	public void setQna1(String qna1) {
+		this.qna1 = qna1;
+	}
+	public String getQna2() {
+		return qna2;
+	}
+	public void setQna2(String qna2) {
+		this.qna2 = qna2;
+	}
+	public String getQna3() {
+		return qna3;
+	}
+	public void setQna3(String qna3) {
+		this.qna3 = qna3;
+	}
+	public String getQna4() {
+		return qna4;
+	}
+	public void setQna4(String qna4) {
+		this.qna4 = qna4;
+	}
+	public String getQna5() {
+		return qna5;
+	}
+	public void setQna5(String qna5) {
+		this.qna5 = qna5;
 	}
 	public void setNum(int num) {
 		this.num = num;

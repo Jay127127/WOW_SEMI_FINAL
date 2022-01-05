@@ -27,13 +27,5 @@ public class MemberDupCheck extends HttpServlet{
 			resp.setContentType("text/html; charset=UTF-8");
 			resp.getWriter().print("사용 가능한 아이디 입니다.");
 		}
-//		if("admin".equals(id)) {
-//			resp.setContentType("text/html; charset=UTF-8");
-//			resp.getWriter().print("관리자입니다");
-//		}else {
-//			resp.setContentType("text/html; charset=UTF-8");
-//			resp.getWriter().print("관리자가 아닙니다");
-//		}
 	}
-	
 }

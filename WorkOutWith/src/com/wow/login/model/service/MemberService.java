@@ -69,6 +69,11 @@ public class MemberService {
 		
 		close(conn);
 		
+		// 입력한 ID가 DB에 없을시 null 반환
+		if(selectedMember == null) {
+			return null;
+		}
+		
 		if(selectedMember.getPwd().equals(encrypt(m.getPwd()))) {
 			return selectedMember;
 		}else {
@@ -90,20 +95,34 @@ public class MemberService {
 	private int selectMemberById(Connection conn, String id) {
 		return new MemberDao().selectMemberById(conn, id);
 	}
-
-	public MemberVo login(String name) {
+	
+	public MemberVo search(MemberVo m) {
 		// 커넥션 가져오기
 		Connection conn = getConnection();
 		
-		// name 가지고 그 이름의 이메일 조회 // select
-		MemberVo selectedMember = selectMember(conn, name);
+		// email 가지고 조회
+		MemberVo pwdSearch = searchMember(conn, m);
 		
 		close(conn);
-		return selectedMember;
+		
+		// 입력한 이메일이 DB에 없을시 null 반환
+		if(pwdSearch == null) {
+			return null;
+		}
+		
+		// 입력한 질문과 답변이 DB와 맞는지 비교
+		if(pwdSearch.getQuestion_num() == m.getQuestion_num()) {
+			if(pwdSearch.getQuestion_answer().equals(m.getQuestion_answer())) {
+				return pwdSearch;
+			}else {
+				return null;
+			}
+		}else {
+			return null;
+		}
 	}
-
-	private MemberVo selectMember(Connection conn, String name) {
-		return new MemberDao().selectMember(conn, name);
+	
+	public MemberVo searchMember(Connection conn, MemberVo m) {
+		return new MemberDao().searchPwd(conn, m);
 	}
-
 }
