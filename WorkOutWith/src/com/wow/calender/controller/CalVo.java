@@ -2,16 +2,11 @@ package com.wow.calender.controller;
 
 public class CalVo {
 	
-	private int rouNo;
+	
 	private String rouName;
 	private int exerNo;
 	private int interv;
-	public int getRouNo() {
-		return rouNo;
-	}
-	public void setRouNo(int rouNo) {
-		this.rouNo = rouNo;
-	}
+
 	public String getRouName() {
 		return rouName;
 	}
@@ -29,5 +24,10 @@ public class CalVo {
 	}
 	public void setInterv(int interv) {
 		this.interv = interv;
+	}
+	@Override
+	public String toString() {
+		return "CalVo [rouName=" + rouName + ", exerNo=" + exerNo + ", interv=" + interv + "]";
 	}	
+	
 }
