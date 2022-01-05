@@ -85,10 +85,10 @@
                                                 <select class="form-select" name="aPower" id="selectPow" required>
                                                     <%-- <option value="S0">슈퍼 관리자</option> --%>
                                                     <option value="" selected >-----담당을 선택하세요.-----</option>
-                                                    <option value="D0">DB 관리자</option>
-                                                    <option value="C1">CS 부서1</option>
-                                                    <option value="C2">CS 부서2</option>
-                                                    <option value="MR">유지보수 부서</option>
+                                                    <option value="D0">DB 관리</option>
+                                                    <option value="C1">CS1</option>
+                                                    <option value="C2">CS2</option>
+                                                    <option value="MR">유지보수</option>
                                                 </select>
                                                 <%-- <small id="powHelp" class="form-text"></small> --%>
                                             </div>
@@ -152,10 +152,14 @@
             if (
                 check !=
                 "사용가능한 계정입니다.유효한 비밀번호입니다.위의 비밀번호와 일치합니다.유효한 이름입니다.유효한 이름입니다.유효한 이메일입니다."
-                ) {
-                    swal("Nope!", "사용가능한 값을 입력하시오.", "error");
-                    return false;
-                }
+                )
+            {
+                swal("Nope!", "사용가능한 값을 입력하시오.", "error");
+                return false;
+            } else{
+                // swal("Good job!", "계정 생성 성공!!!!", "success");
+                return true;
+            }
         }
     }
 

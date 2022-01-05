@@ -2,6 +2,7 @@ package com.wow.admin.model.vo;
 
 public class AdminVo {
 
+	private int rNum;
 	private int admin_num;
 	private String admin_power_code;
 	private String admin_id;
@@ -13,10 +14,17 @@ public class AdminVo {
 	private int answer_danger_num;
 	private String admin_power_name;
 	
-
+	
+	public int getrNum() {
+		return rNum;
+	}
+	public void setrNum(int rNum) {
+		this.rNum = rNum;
+	}	
 	public int getAdmin_num() {
 		return admin_num;
 	}
+
 	public void setAdmin_num(int admin_num) {
 		this.admin_num = admin_num;
 	}

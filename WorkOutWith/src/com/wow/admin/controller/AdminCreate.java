@@ -1,11 +1,15 @@
 package com.wow.admin.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Response;
 
 import com.wow.admin.model.service.AdminCreateService;
 import com.wow.admin.model.vo.AdminVo;
@@ -28,11 +32,7 @@ public class AdminCreate extends HttpServlet {
 		String aNick = request.getParameter("aNick");
 		String aEmail = request.getParameter("aEmail");
 		String aPower = request.getParameter("aPower");
-		
-		//파일은 따로
-		
-		
-		
+	
 		
 		AdminVo a = new AdminVo();
 		a.setAdmin_id(aId);
@@ -44,15 +44,17 @@ public class AdminCreate extends HttpServlet {
 		
 		int result = new AdminCreateService().create(a);
 		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		//계정 생성 됐으면
 		if(result > 0) {
 			//success
-			request.setAttribute("msg", "관리자 계정 생성 성공");
-			request.getRequestDispatcher("WEB-INF/views/admin/createSuccess.jsp").forward(request, response);
+			out.println("<script>alert('관리자 계정 생성 성공'); location.href='admin_create';</script>");
+//			out.println("<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>");
+//			out.println("<script>swal('Good job!', '관리자 계정 생성 성공!', 'success'); location.href='admin_create'</script>");
 			System.out.println("성공");
 		} else {
 			//error
-//			request.setAttribute("msg", "다시 시도하십시오.");
 			request.getRequestDispatcher("WEB-INF/views/admin/admin_create.jsp").forward(request, response);
 			System.out.println("실패");
 		}

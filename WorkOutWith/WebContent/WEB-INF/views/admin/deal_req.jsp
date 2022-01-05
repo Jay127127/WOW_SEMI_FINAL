@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,21 +11,47 @@
         <meta name="author" content="" />
         <title>AdminWOW</title>
         <!-- 테이블 -->
+<style type="text/css">
+.form-select{
+	display: inline !important;
+}
 
+.pagination *{
+	color: #333 !important;
+}
+
+.pagination> .active *{
+    background-color: rgba(121, 3, 29, 0.8) !important;
+    border-color: rgba(121, 3, 29, 0.8) !important;
+    color: #fff !important;
+}
+
+.bg-custom {
+    background-color: rgba(121, 3, 29, 0.8) !important;
+    border-color: rgba(121, 3, 29, 0.8);
+    color: #fff;
+}
+
+.bg-custom:hover,
+.navbar .bg-custom:focus,
+.pagination> .active *:hover
+{
+    background-color: rgb(121, 3, 29) !important;
+    color: #fff;
+}
+</style>
 </head>
 <body class="sb-nav-fixed">
 	<%@ include file="nav_admin.jsp"%>
-
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">문의 관리</h1>
-                        <ol class="breadcrumb mb-4">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">문의 관리</h1>
+                      	<ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active"> </li>
                         </ol>
                         <div class="row">
                         </div>
-
 
                         <div class="card mb-4">
                             <div class="card-header">
@@ -32,340 +59,143 @@
                                 문의 처리 목록
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th class="w-10" style="width: 10%">번호</th>
-                                            <th style="width: 20%">날짜</th>
-                                            <th style="width: 20%">카테고리</th>
-                                            <th style="width: 10%">ID</th>
-                                            <th style="width: 30%">제목</th>
-                                            <th style="width: 10%">링크</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th style="width: 10%">번호</th>
-                                            <th style="width: 20%">날짜</th>
-                                            <th style="width: 20%">카테고리</th>
-                                            <th style="width: 10%">ID</th>
-                                            <th style="width: 30%">제목</th>
-                                            <th style="width: 10%">링크</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Tokyo</td>
-                                            <td>55</td>
-                                            <td>2010/10/14</td>
-                                            <td>$327,900</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/12/09</td>
-                                            <td>$85,675</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Howard Hatfield</td>
-                                            <td>Office Manager</td>
-                                            <td>San Francisco</td>
-                                            <td>51</td>
-                                            <td>2008/12/16</td>
-                                            <td>$164,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hope Fuentes</td>
-                                            <td>Secretary</td>
-                                            <td>San Francisco</td>
-                                            <td>41</td>
-                                            <td>2010/02/12</td>
-                                            <td>$109,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vivian Harrell</td>
-                                            <td>Financial Controller</td>
-                                            <td>San Francisco</td>
-                                            <td>62</td>
-                                            <td>2009/02/14</td>
-                                            <td>$452,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Timothy Mooney</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>37</td>
-                                            <td>2008/12/11</td>
-                                            <td>$136,200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jackson Bradshaw</td>
-                                            <td>Director</td>
-                                            <td>New York</td>
-                                            <td>65</td>
-                                            <td>2008/09/26</td>
-                                            <td>$645,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Liang</td>
-                                            <td>Support Engineer</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2011/02/03</td>
-                                            <td>$234,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03</td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
 
-                        <div class="card mb-4">
+		                        <div class="container-fluid px-4"><br>
+		
+		                        <form method="get" action="deal_req">
+		                        <div class="">
+		                        <select class="form-select" name="searchType" style="width:150px">
+		                            <option value="admin_id">문의번호</option>
+		                            <option value="admin_id">날짜</option>
+		                            <option value="admin_id">카테고리</option>
+		                            <option value="admin_id">아이디</option>
+		                            <option value="admin_name">제목</option>
+		                            <option value="admin_power_name">담당자</option>
+		                            <option value="admin_nik">처리여부</option>
+		                        </select>
+		
+		                        <input type="text" name="searchValue" id="">
+		                        <input type="submit" class="btn bg-custom btn-sm" value="검색">
+		                        </div>
+		                        </form><br>
+		
+		                        <table class="table table-hover table-bordered">
+		                        <thead>
+		                        <tr align="left">
+		                            <th>#</th>
+		                            <th>문의번호</th>
+		                            <th>카테고리</th>
+		                            <th>아이디</th>
+		                            <th>제목</th>
+		                            <th>링크</th>
+		                            <th>날짜</th>
+		                            <th>담당자</th>
+		                            <th>처리여부(Y/N)</th>
+		                        </tr>
+		                        </thead>
+		                        <tbody>
+		<%--                         <c:forEach items="${adminList}" var="a">
+		                            <tr>
+		                                <td>${a.rNum}</td>
+		                                <td>${a.admin_num}</td>
+		                                <td>${a.admin_id}</td>
+		                                <td>${a.admin_name}</td>
+		                                <td>${a.admin_power_name}</td>
+		                                <td>${a.admin_nik}</td>
+		                                <td>${a.admin_email}</td>
+		                            </tr>
+		                        </c:forEach> --%>
+		                        </tbody>
+		                        </table>
+		
+		
+		  <%--                   <ul class="pagination justify-content-center">
+		                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
+		                        	<li class="page-item liPi" id=""><a class="page-link iPi" id="" href="admin_list?currentPage=${i}">${i}</a></li>
+		                        </c:forEach>
+		                   	</ul> --%>
+		
+		                             </div>
+                        	</div>
+                    	</div>
+                    	                        <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 이전 처리 목록
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple1">
-                                    <thead>
-                                        <tr>
-                                            <th class="w-10" style="width: 10%">번호</th>
-                                            <th style="width: 20%">날짜</th>
-                                            <th style="width: 20%">카테고리</th>
-                                            <th style="width: 10%">ID</th>
-                                            <th style="width: 30%">제목</th>
-                                            <th style="width: 10%">링크</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th style="width: 10%">번호</th>
-                                            <th style="width: 20%">날짜</th>
-                                            <th style="width: 20%">카테고리</th>
-                                            <th style="width: 10%">ID</th>
-                                            <th style="width: 30%">제목</th>
-                                            <th style="width: 10%">링크</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Tokyo</td>
-                                            <td>55</td>
-                                            <td>2010/10/14</td>
-                                            <td>$327,900</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/12/09</td>
-                                            <td>$85,675</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Howard Hatfield</td>
-                                            <td>Office Manager</td>
-                                            <td>San Francisco</td>
-                                            <td>51</td>
-                                            <td>2008/12/16</td>
-                                            <td>$164,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hope Fuentes</td>
-                                            <td>Secretary</td>
-                                            <td>San Francisco</td>
-                                            <td>41</td>
-                                            <td>2010/02/12</td>
-                                            <td>$109,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vivian Harrell</td>
-                                            <td>Financial Controller</td>
-                                            <td>San Francisco</td>
-                                            <td>62</td>
-                                            <td>2009/02/14</td>
-                                            <td>$452,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Timothy Mooney</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>37</td>
-                                            <td>2008/12/11</td>
-                                            <td>$136,200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jackson Bradshaw</td>
-                                            <td>Director</td>
-                                            <td>New York</td>
-                                            <td>65</td>
-                                            <td>2008/09/26</td>
-                                            <td>$645,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Liang</td>
-                                            <td>Support Engineer</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2011/02/03</td>
-                                            <td>$234,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03</td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
 
+		                        <div class="container-fluid px-4"><br>
+		
+		                        <form method="get" action="deal_req">
+		                        <div class="">
+		                        <select class="form-select" name="searchType" style="width:150px">
+		                            <option value="admin_id">문의번호</option>
+		                            <option value="admin_id">카테고리</option>
+		                            <option value="admin_name">제목</option>
+		                            <option value="admin_id">아이디</option>
+		                            <option value="admin_power_name">담당자</option>
+		                            <option value="admin_nik">처리여부</option>
+		                        </select>
+		
+		                        <input type="text" name="searchValue" id="">
+		                        <input type="submit" class="btn bg-custom btn-sm" value="검색">
+		                        </div>
+		                        </form><br>
+		
+		                        <table class="table table-hover table-bordered">
+		                        <thead>
+		                        <tr align="left">
+		                            <th>#</th>
+		                            <th>문의번호</th>
+		                            <th>카테고리</th>
+		                            <th>아이디</th>
+		                            <th>제목</th>
+		                            <th>링크</th>
+		                            <th>날짜</th>
+		                            <th>담당자</th>
+		                            <th>처리여부(Y/N)</th>
+		                        </tr>
+		                        </thead>
+		                        <tbody>
+		<%--                         <c:forEach items="${adminList}" var="a">
+		                            <tr>
+		                                <td>${a.rNum}</td>
+		                                <td>${a.admin_num}</td>
+		                                <td>${a.admin_id}</td>
+		                                <td>${a.admin_name}</td>
+		                                <td>${a.admin_power_name}</td>
+		                                <td>${a.admin_nik}</td>
+		                                <td>${a.admin_email}</td>
+		                            </tr>
+		                        </c:forEach> --%>
+		                        </tbody>
+		                        </table>
+		
+		
+		  <%--                   <ul class="pagination justify-content-center">
+		                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
+		                        	<li class="page-item liPi" id=""><a class="page-link iPi" id="" href="admin_list?currentPage=${i}">${i}</a></li>
+		                        </c:forEach>
+		                   	</ul> --%>
+		
+		                             </div>
+                        	</div>
+                    	</div>
                     </div>
                 </main>
+
+    <script type="text/javascript">
+    let liPi = document.getElementsByClassName('liPi');
+    let iPi = document.getElementsByClassName('iPi');
+
+    for (let i = 0; i < iPi.length; i++) {
+        if(window.location.href == iPi[i].href){
+            liPi[i].classList.add('active');
+        }
+    }
+
+    </script>
 	<%@ include file="footer_admin.jsp"%>  
 </body>
 </html>
