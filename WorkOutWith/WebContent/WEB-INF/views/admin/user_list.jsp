@@ -19,6 +19,11 @@
 	color: #333 !important;
 }
 
+.pagination *:hover{
+	color: #fff !important;
+	background-color: rgba(121, 3, 29, 0.8) !important;
+}
+
 .pagination> .active *{
     background-color: rgba(121, 3, 29, 0.8) !important;
     border-color: rgba(121, 3, 29, 0.8) !important;
@@ -38,6 +43,8 @@
     background-color: rgb(121, 3, 29) !important;
     color: #fff;
 }
+
+
 </style>
 
 </head>
@@ -64,55 +71,81 @@
                             <div class="card-body">
 
 		                        <div class="container-fluid px-4"><br>
-		
+
 			                        <form method="get" action="user_list">
 			                        <div class="">
 			                        <select class="form-select" name="searchType" style="width:150px">
-			                            <option value="admin_id">아이디</option>
-			                            <option value="admin_nik">닉네임</option>
-			                            <option value="admin_name">이름</option>
-			                            <option value="admin_power_name">가입일</option>
-			                            <option value="admin_email">이메일</option>
+			                            <option value="member_id">아이디</option>
+			                            <option value="member_nik">닉네임</option>
+			                            <option value="member_name">이름</option>
+			                            <option value="member_gender">성별</option>
+			                            <option value="member_address">주소</option>
+			                            <option value="member_email">이메일</option>
 			                        </select>
-			
+
 			                        <input type="text" name="searchValue" id="">
 			                        <input type="submit" class="btn bg-custom btn-sm" value="검색">
 			                        </div>
 			                        </form><br>
-			
+
 			                        <table class="table table-hover table-bordered">
 			                        <thead>
 			                        <tr align="left">
 			                            <th>#</th>
+			                            <th>번호</th>
 			                            <th>아이디</th>
 			                            <th>닉네임</th>
 			                            <th>이름</th>
+			                            <th>성별</th>
+			                            <th>주소</th>
 			                            <th>이메일</th>
-			                            <th>가입일</th>
 			                            <th>링크</th>
+			                            <th>삭제</th>
 			                        </tr>
 			                        </thead>
 			                        <tbody>
-			                        <%-- <c:forEach items="${adminList}" var="a">
+			                        <c:forEach items="${userList}" var="a">
 			                            <tr>
-			                                <td>${a.rNum}</td>
-			                                <td>${a.admin_num}</td>
-			                                <td>${a.admin_id}</td>
-			                                <td>${a.admin_name}</td>
-			                                <td>${a.admin_power_name}</td>
-			                                <td>${a.admin_nik}</td>
-			                                <td>${a.admin_email}</td>
+			                                <td align="center">${a.rNum}</td>
+			                                <td align="center">${a.member_num}</td>
+			                                <td class="ad">${a.member_id}</td>
+			                                <td>${a.member_nik}</td>
+			                                <td>${a.member_name}</td>
+			                                <td align="center">${a.member_gender}</td>
+			                                <td>${a.member_address}</td>
+			                                <td>${a.member_email}</td>
+			                                <td align="center"><a class="fas fa-link"></a></td>
+			                                <td align="center" class="ud">
+			                                <a class="delAd"><i class="fas fa-user-slash"></i></a>
+			                                </td>
 			                            </tr>
-			                        </c:forEach> --%>
+			                        </c:forEach>
 			                        </tbody>
 			                        </table>
-			
-			
-				                    <%-- <ul class="pagination justify-content-center">
-				                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
-				                        	<li class="page-item liPi" id=""><a class="page-link iPi" id="" href="admin_list?currentPage=${i}">${i}</a></li>
-				                        </c:forEach>
-				                   	</ul> --%>
+
+
+				                    <ul class="pagination justify-content-center">
+				                    <c:choose>
+				                    	<c:when test="${!empty type && !empty value}">
+					                        <li class="page-item" id=""><a class="page-link" id="pp" href="user_list?searchType=${type}&searchValue=${value}&currentPage=${prevPage}">prev</a></li>
+					                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
+					                        	<c:if test="${i le maxPage}">
+					                        	<li class="page-item liPi" id=""><a class="page-link iPi" id="" href="user_list?searchType=${type}&searchValue=${value}&currentPage=${i}">${i}</a></li>
+					                        	</c:if>
+					                        </c:forEach>
+					                        <li class="page-item" id=""><a class="page-link" id="np" href="user_list?searchType=${type}&searchValue=${value}&currentPage=${nextPage}">next</a></li>
+				                        </c:when>
+				                        <c:otherwise>
+					                        <li class="page-item" id=""><a class="page-link" id="pp" href="user_list?currentPage=${prevPage}">prev</a></li>
+					                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
+					                        	<c:if test="${i le maxPage}">
+					                        	<li class="page-item liPi" id=""><a class="page-link iPi" id="" href="user_list?currentPage=${i}">${i}</a></li>
+					                        	</c:if>
+					                        </c:forEach>
+					                        <li class="page-item" id=""><a class="page-link" id="np" href="user_list?currentPage=${nextPage}">next</a></li>
+				                        </c:otherwise>
+				                    </c:choose>
+				                   	</ul>
 								</div>
                              </div>
                         </div>
@@ -128,6 +161,27 @@
             liPi[i].classList.add('active');
         }
     }
+
+	// 새로고침 방지
+	let pp = document.getElementById('pp');
+	let np = document.getElementById('np');
+	if(pp.href == window.location.href){
+		pp.setAttribute("href", "#");
+	}
+	if(np.href ==window.location.href){
+		// np.href = '#;
+		np.setAttribute("href", "#");
+	}
+
+	//클릭한 것만 삭제하기
+
+	$('.delAd').click(function(){
+		let index = $('.delAd').index(this);
+		let st = 'user_delete?member_id='+$('.ad').eq(index).text()
+		if(confirm("정말로 삭제하시겠습니까?")){
+			$(location).attr('href', st);
+		}
+	})
 
     </script>
 

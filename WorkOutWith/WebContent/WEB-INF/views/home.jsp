@@ -53,7 +53,7 @@ header .overlay {
 /* This will use a fallback image instead of a video for devices that commonly do not support the HTML5 video element */
 
 @media (pointer: coarse) and (hover: none) {
-  
+
   header video {
     display: none;
   }
@@ -85,7 +85,7 @@ header .overlay {
 
 	<!-- -------------- navbar -------------- -->
 
-	<%@ include file="common/header_nav.jsp"%>	
+	<%@ include file="common/header_nav.jsp"%>
 
 	<!-- ------------ The header content ------------ -->
 
@@ -101,11 +101,11 @@ header .overlay {
 
 </header>
 
-<footer>
+<%-- <footer>
 
-	<%@ include file="common/footer_home.jsp"%>	
+	<%@ include file="common/footer_home.jsp"%>
 
-</footer>
+</footer> --%>
 
 <!-- Page section example for content below the video header -->
 <!-- <section class="my-5">

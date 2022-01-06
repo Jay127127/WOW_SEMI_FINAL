@@ -11,35 +11,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wow.admin.model.service.AdminCreateService;
+import com.wow.admin.model.service.AdminBoardService;
+import com.wow.admin.model.service.AdminUserService;
 import com.wow.admin.model.vo.AdminVo;
 
-@WebServlet("/admin_delete")
-public class AdminDelete extends HttpServlet {
+@WebServlet("/update_no_board")
+public class UpdateNoBoard extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		String admin_id = request.getParameter("admin_id");
-		System.out.println(admin_id);
+		int boardNo = Integer.valueOf(request.getParameter("boardNo"));
+		System.out.println("취소보드넘"+boardNo);
 		AdminVo av = (AdminVo) request.getSession().getAttribute("loginAdmin");
-		if(av == null || !"admin1".equals(av.getAdmin_id())) {
+		if(av == null) {
 			response.setContentType("text/html; charset=UTF-8");
-			System.out.println("admin1이 아니야");
-			out.println("<script>alert('접근 권한 밖입니다.'); location.href='admin_list';</script>");
-			request.getRequestDispatcher("/WEB-INF/views/admin/admin_list");
+			System.out.println("관리자가 아니야");
+			out.println("<script>alert('접근 권한 밖입니다.'); location.href='deal_req';</script>");
+			request.getRequestDispatcher("/WEB-INF/views/user/deal_req.jsp");
 		}else {
-			AdminCreateService acs = new AdminCreateService();
-			int result = acs.deleteAdmin(admin_id);
-			System.out.println("------삭제result---"+result);
+			AdminBoardService abs = new AdminBoardService();
+			int result = abs.updateNoBoard(boardNo);
+			System.out.println("------문의처리result---"+result);
 			if(result > 0) {
-				out.println("<script>alert('계정을 성공적으로 삭제하였습니다.'); location.href='admin_list';</script>");
-				System.out.println("삭제 성공");
+				out.println("<script>alert('문의답변처리를 성공적으로 취소하였습니다.'); location.href='deal_req';</script>");
+				System.out.println("문의처리 성공");
 			}else {
-				System.out.println("삭제 실패");
+				System.out.println("문의처리 실패");
 				response.setContentType("text/html; charset=UTF-8");
-				response.getWriter().print("계정 삭제에 실패했습니다.");
+				response.getWriter().print("문의처리에 실패했습니다.");
 			}
 			
 		}
