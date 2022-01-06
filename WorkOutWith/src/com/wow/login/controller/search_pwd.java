@@ -31,13 +31,14 @@ public class search_pwd extends HttpServlet{
 		m.setQuestion_answer(answer);
 		
 		MemberVo searchPwd = new MemberService().search(m);
-		String userPwd = searchPwd.getPwd();
+		
 		if(searchPwd != null) {
 			//success
+			String userPwd = searchPwd.getPwd();
 			req.setAttribute("pwd", userPwd);
 			req.setAttribute("ok", "1");
 			req.getRequestDispatcher("WEB-INF/views/login/search_pwd.jsp").forward(req, resp);
-		} else {
+		}else {
 			//error
 			req.setAttribute("pwd", "비밀번호찾기 실패");
 			req.setAttribute("ok", "2");

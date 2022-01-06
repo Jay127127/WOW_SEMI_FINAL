@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +29,7 @@
 						</colgroup>
 						<tbody>
 							<tr>
+								<!-- 중복체크 여부 확인 -->
 								<input type="hidden" id="check" name="check" value="f">
                                 <th><span>아이디</span></th>
                                 <td><input type="text" id="login_id" name="id" placeholder="아이디를 입력하세요.">
@@ -376,6 +378,14 @@
 		</div> <!-- join_bg -->
 	</form>
 	
+	<!-- 회원가입 실패시 경고창 -->
+	<c:if test="${ok eq '1'}">
+	<script type = "text/javascript">
+		var message = "${msg}";
+		swal(message, "회원정보를 다시 입력해주세요", "warning");
+    </script>
+    </c:if>
+	
 	<script>
 		// 중복체크 버튼
 		$('#dupCheck').on('click', function(){
@@ -516,7 +526,7 @@
 	    }
 	    
 	    jQuery(function($){
-	        // 모두선택
+	        // 약관 동의 모두선택
 	        $("input[name=chk_all]").click(function() {
 	            if ($(this).prop('checked')) {
 	                $("input[name^=agree]").prop('checked', true);
@@ -526,6 +536,7 @@
 	        });
 	    });
 	    
+	    // 주소찾기 API
 	    function DaumPostcode() {
 	        new daum.Postcode({
 	            oncomplete: function(data) {

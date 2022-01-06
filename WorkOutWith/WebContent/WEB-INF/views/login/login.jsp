@@ -59,22 +59,11 @@
 		swal(message, "아이디를 다시 입력해주세요", "warning");
     </script>
     </c:if>
-    
-  	<!-- 
-  	<script>
-  	$('#login').on('click', function(){
-		$.ajax({
-			url : '/wow/login',
-			type : 'get',
-			success : function(data){
-				swal(data, "아이디, 비밀번호를 다시 입력해주세요", "warning");
-			},
-			error : function(err){
-				swal("로그인 오류", "버튼 오류", "warning");
-			}
-		})
-	})
-  	</script>
-  	 -->
+    <c:if test="${ok eq '3'}">
+	<script type = "text/javascript">
+		var message = "${msg}";
+		swal(message, "", "success");
+    </script>
+    </c:if>
 </body>
 </html>
