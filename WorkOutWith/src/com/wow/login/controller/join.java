@@ -66,6 +66,5 @@ public class join extends HttpServlet{
 			req.setAttribute("ok", "1");
 			req.getRequestDispatcher("WEB-INF/views/login/join.jsp").forward(req, resp);
 		}
-		
 	}
 }
