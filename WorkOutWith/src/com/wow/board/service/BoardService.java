@@ -100,7 +100,7 @@ public class BoardService {
 			int endNo = p * boardLimit;
 			int startNo = endNo - boardLimit + 1;
 	
-			List<BoardVo> E_BoardList;
+			List<BoardVo> E_BoardList = null;
 			if (selectType == null) {
 				E_BoardList = selectE_BoardAll(conn, currentPage, startNo, endNo);
 			} else {
@@ -233,4 +233,20 @@ public class BoardService {
 	private int updateViewCount(Connection conn, BoardVo b) {
 		return new BoardDao().boardViewUpdate(conn, b);
 	}
+
+	public List<BoardVo> searchView(String selectType, String currentPage, String boardNo) {
+		System.out.println("boardNo in service : "+boardNo);
+		Connection conn = getConnection();
+		
+		List<BoardVo> V_BoardList = selectBoardByBoardNo(conn, currentPage, boardNo);
+		
+		close(conn);
+		return V_BoardList;
+	}
+
+	private List<BoardVo> selectBoardByBoardNo(Connection conn, String currentPage, String boardNo) {
+		return new BoardDao().selectBoardBoardNo(conn, boardNo);
+	}	
+
+
 }

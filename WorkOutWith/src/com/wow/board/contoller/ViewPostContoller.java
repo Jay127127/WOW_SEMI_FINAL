@@ -17,11 +17,12 @@ public class ViewPostContoller extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("viewPost 요청완료");
-		req.getRequestDispatcher("WEB-INF/views/board/viewPost.jsp").forward(req, resp);
+		String boardNo = req.getParameter("boardNo");
+		
 		String selectType = "0";
 		String currentPage ="0";
 	
-		List<BoardVo> boardList = new BoardService().search(selectType, currentPage);
+		List<BoardVo> boardList = new BoardService().searchView(selectType, currentPage,boardNo);
 		for(BoardVo x : boardList) {
 			System.out.println("x:"+ x);
 		}

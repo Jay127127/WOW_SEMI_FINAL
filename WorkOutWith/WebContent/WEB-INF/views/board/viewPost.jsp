@@ -24,8 +24,8 @@
    <main>
        <div class="sub_title">
            <ul class="sub_info">
-               <li>자유게시판(상세)</li>
-               <li>w.o.w와 함께하는 자유롭고 건강한 lifestyle</li>
+               <li>  </li>
+               <li>w.o.w와 함께 행복한 하루 되세요~!</li>
            </ul>
        </div>
  
@@ -34,14 +34,14 @@
            <div class="body_space">
                <div class="view_head_subject">
                <c:forEach items="${boardList}" var="b">
-                   <p class="view_head_left">${b.boardTitle}</p>
+                   <p class="view_head_left">제목 : ${b.boardTitle}</p>
                    <p class="view_head_right">${b.boardDate}</p>
                </c:forEach>
                </div>
  
                <div class="view_head_attachment">
 	               <c:forEach items="${boardList}" var="b">
-	                   <p class="view_att_left">${b.userId}</p>
+	                   <p class="view_att_left">작성자 : ${b.userId}</p>
 	                   <a href="#" class="view_attachment">
 	                       <span class="attachment">&nbsp;</span>
 	                       <img alt="" src="../board_img/2022.jpeg">
@@ -60,6 +60,24 @@
                        </c:forEach>
                    </div>
                </div>
+               
+               <%-- <div>
+						<c:forEach items="${boardList}" var="b">
+						String BuserId = ${b.userId};
+					<%
+						
+               			String userID1 = (String)session.getAttribute("isLogin");
+						if(userID1!=null && !"".equals(userID1) && userID1.equals('BuserId')){
+	               	 %>
+	               	 	<div class="submitForm">
+	               			<button onclick="location.href='re_newPost';">수정하기</button>
+	               			<button onclick="">삭제하기</button>
+	               		</div>
+	               	<%
+						}
+	               	%>
+	               		</c:forEach>
+	           </div> --%>
               
                <div class="reply_space">
                    <div class="reply_info">

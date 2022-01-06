@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.UUID;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -13,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.wow.board.model.vo.BoardVo;
@@ -46,13 +49,14 @@ public class NewPostController extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		String boardCategory = req.getParameter("boardCategory");
 		String boardTitle = req.getParameter("boardTitle");
-		String userId = req.getSession().getId();
+		String userId = (String)req.getSession().getAttribute("loginUser");
 		String boardContent = req.getParameter("boardContent");
 //		String upload_file = req.getParameter("upload_file");
 		String boardOpen_YN = req.getParameter("boardOpen_YN");
 		String boardDelete_YN = req.getParameter("boardDelete_YN");
 //		int viewCount = req.getParameter("viewCount");
 //		int likeCount = req.getParameter("likeCount");
+		
 		
 		if(boardOpen_YN==null) {
 			boardOpen_YN="Y";
@@ -79,7 +83,8 @@ public class NewPostController extends HttpServlet{
 		byte buf[] = new byte[1024]; int size = 0;
 		while((size = fis.read(buf)) != -1) { fos.write(buf, 0, size); }
 		
-		fis.close(); fos.close(); }
+		fis.close(); fos.close(); 
+		}
 		
         BoardVo b = new BoardVo();
 		b.setBoardCategory(boardCategory);
@@ -97,17 +102,28 @@ public class NewPostController extends HttpServlet{
 		System.out.println("boardContent: " + boardContent);
 		System.out.println("boardOpen_YN: " + boardOpen_YN);
 		System.out.println("boardDelete_YN: " + boardDelete_YN);
+		System.out.println("part: " + part);
 
 		int result = new BoardService().post(b);
-		
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+	
 		if(result>0) {
 			//success
-			req.setAttribute("msg1", "포스팅 성공");
-			req.getRequestDispatcher("WEB-INF/views/board/newPostForm.jsp").forward(req, resp);
+			//req.setAttribute("msg1", "포스팅 성공");
+			//req.getRequestDispatcher("WEB-INF/views/board/newPostForm.jsp").forward(req, resp);
+			
+			out.println("<script>alert('포스팅 성공'); location.href='newPost'; </script>");
+//			resp.getWriter().print("포스팅 성공했습니다.");
+			System.out.println("포스팅 성공");
 		}else {
 			//error
-			req.setAttribute("msg2", "포스팅 실패");
-			req.getRequestDispatcher("WEB-INF/views/board/newPostForm.jsp").forward(req, resp);
+			//req.setAttribute("msg2", "포스팅 실패");
+			//req.getRequestDispatcher("WEB-INF/views/board/newPostForm.jsp").forward(req, resp);
+			
+			out.println("<script>alert('포스팅 실패');</script>");
+//			resp.getWriter().print("포스팅 실패했습니다.");
+			System.out.println("포스팅 실패");
 		}	
 	
 	}

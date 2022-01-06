@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,20 +88,30 @@ public class BoardDao {
 			BoardVo selectedBoard = null;
 			
 			while(rs.next()) {
-				int boardNo = rs.getInt("RNUM");
+				int RNUM = rs.getInt("RNUM");
+				int boardNo = rs.getInt("boardNo");
 				String category = rs.getString("boardCategory");
 				String boardTitle = rs.getString("boardTitle");
 				String userId = rs.getString("userId");
 				Date boardDate = rs.getDate("boardDate");
 				String boardContent = rs.getString("boardContent");
+				String boardOpen_YN = rs.getString("boardOpen_YN");
+				String boardDelete_YN = rs.getString("boardDelete_YN");
+				int viewCount = rs.getInt("viewCount");
+				int likeCount = rs.getInt("likeCount");
 				
 				selectedBoard = new BoardVo();
+				selectedBoard.setRNUM(RNUM);
 				selectedBoard.setBoardNo(boardNo);
 				selectedBoard.setBoardCategory(category);
 				selectedBoard.setBoardTitle(boardTitle);
 				selectedBoard.setUserId(userId);
 				selectedBoard.setBoardDate(boardDate);
 				selectedBoard.setBoardContent(boardContent);
+				selectedBoard.setBoardOpen_YN(boardOpen_YN);
+				selectedBoard.setBoardDelete_YN(boardDelete_YN);
+				selectedBoard.setViewCount(viewCount);
+				selectedBoard.setLikeCount(likeCount);
 				
 				list.add(selectedBoard);
 			}
@@ -118,24 +127,24 @@ public class BoardDao {
 //	=========================(자유게시판) 리스트 순서 찾기============================
 	public List<BoardVo> selectBoardByType(Connection conn, String selectType) {
 		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 		String sql = "SELECT * FROM"
 				+ "(SELECT ROWNUM AS RNUM, b.* FROM BOARD b WHERE boardCategory ='board' and boardOpen_YN = 'Y' order by RNUM desc)"
 				+ "order by nlssort("+ selectType +", 'NLS_SORT=generic_m_ci') desc";
 //		sql = String.format(sql, selectType);
 		System.out.println("SQL :::" + sql);
-		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		List<BoardVo> list = new ArrayList<BoardVo>(); 
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 //			pstmt.setString(1, selectType);
-			
-			BoardVo selectedBoard = null;
 			rs = pstmt.executeQuery();
+			BoardVo selectedBoard = null;
+			
 			while(rs.next()) {
-				int boardNo = rs.getInt("RNUM");
+				int RNUM = rs.getInt("RNUM");
+				int boardNo = rs.getInt("boardNo");
 				String category = rs.getString("boardCategory");
 				String boardTitle = rs.getString("boardTitle");
 				String userId = rs.getString("userId");
@@ -143,16 +152,21 @@ public class BoardDao {
 				String boardContent = rs.getString("boardContent");
 				String boardOpen_YN = rs.getString("boardOpen_YN");
 				String boardDelete_YN = rs.getString("boardDelete_YN");
-				String viewCount = rs.getString("viewCount");
-				String likeCount = rs.getString("likeCount");
-
+				int viewCount = rs.getInt("viewCount");
+				int likeCount = rs.getInt("likeCount");
+				
 				selectedBoard = new BoardVo();
+				selectedBoard.setRNUM(RNUM);
 				selectedBoard.setBoardNo(boardNo);
 				selectedBoard.setBoardCategory(category);
 				selectedBoard.setBoardTitle(boardTitle);
 				selectedBoard.setUserId(userId);
 				selectedBoard.setBoardDate(boardDate);
 				selectedBoard.setBoardContent(boardContent);
+				selectedBoard.setBoardOpen_YN(boardOpen_YN);
+				selectedBoard.setBoardDelete_YN(boardDelete_YN);
+				selectedBoard.setViewCount(viewCount);
+				selectedBoard.setLikeCount(likeCount);
 				
 				list.add(selectedBoard);
 			}
@@ -196,6 +210,8 @@ public class BoardDao {
 		String sql = "SELECT * FROM ("
 				+ "SELECT ROWNUM AS RNUM , b.* FROM BOARD b WHERE boardCategory ='enquiry' and boardOpen_YN = 'Y') ORDER BY RNUM DESC";
 		
+		System.out.println("sql: "+sql);
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<BoardVo> list = new ArrayList<BoardVo>();
@@ -206,20 +222,30 @@ public class BoardDao {
 			BoardVo selectedBoard = null;
 			
 			while(rs.next()) {
-				int boardNo = rs.getInt("RNUM");
+				int RNUM = rs.getInt("RNUM");
+				int boardNo = rs.getInt("boardNo");
 				String category = rs.getString("boardCategory");
 				String boardTitle = rs.getString("boardTitle");
 				String userId = rs.getString("userId");
 				Date boardDate = rs.getDate("boardDate");
 				String boardContent = rs.getString("boardContent");
+				String boardOpen_YN = rs.getString("boardOpen_YN");
+				String boardDelete_YN = rs.getString("boardDelete_YN");
+				int viewCount = rs.getInt("viewCount");
+				int likeCount = rs.getInt("likeCount");
 				
 				selectedBoard = new BoardVo();
+				selectedBoard.setRNUM(RNUM);
 				selectedBoard.setBoardNo(boardNo);
 				selectedBoard.setBoardCategory(category);
 				selectedBoard.setBoardTitle(boardTitle);
 				selectedBoard.setUserId(userId);
 				selectedBoard.setBoardDate(boardDate);
 				selectedBoard.setBoardContent(boardContent);
+				selectedBoard.setBoardOpen_YN(boardOpen_YN);
+				selectedBoard.setBoardDelete_YN(boardDelete_YN);
+				selectedBoard.setViewCount(viewCount);
+				selectedBoard.setLikeCount(likeCount);
 				
 				list.add(selectedBoard);
 			}
@@ -232,7 +258,7 @@ public class BoardDao {
 		return list;
 	}
 
-
+//==========================E_board 순서대로=================================
 	public List<BoardVo> selectE_BoardByType(Connection conn, String selectType) {
 		
 		PreparedStatement pstmt = null;
@@ -252,20 +278,30 @@ public class BoardDao {
 			BoardVo selectedBoard = null;
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int boardNo = rs.getInt("RNUM");
+				int RNUM = rs.getInt("RNUM");
+				int boardNo = rs.getInt("boardNo");
 				String category = rs.getString("boardCategory");
 				String boardTitle = rs.getString("boardTitle");
 				String userId = rs.getString("userId");
 				Date boardDate = rs.getDate("boardDate");
 				String boardContent = rs.getString("boardContent");
+				String boardOpen_YN = rs.getString("boardOpen_YN");
+				String boardDelete_YN = rs.getString("boardDelete_YN");
+				int viewCount = rs.getInt("viewCount");
+				int likeCount = rs.getInt("likeCount");
 				
 				selectedBoard = new BoardVo();
+				selectedBoard.setRNUM(RNUM);
 				selectedBoard.setBoardNo(boardNo);
 				selectedBoard.setBoardCategory(category);
 				selectedBoard.setBoardTitle(boardTitle);
 				selectedBoard.setUserId(userId);
 				selectedBoard.setBoardDate(boardDate);
 				selectedBoard.setBoardContent(boardContent);
+				selectedBoard.setBoardOpen_YN(boardOpen_YN);
+				selectedBoard.setBoardDelete_YN(boardDelete_YN);
+				selectedBoard.setViewCount(viewCount);
+				selectedBoard.setLikeCount(likeCount);
 				
 				list.add(selectedBoard);
 			}
@@ -321,20 +357,30 @@ public class BoardDao {
 			BoardVo selectedBoard = null;
 			
 			while(rs.next()) {
-				int boardNo = rs.getInt("RNUM");
+				int RNUM = rs.getInt("RNUM");
+				int boardNo = rs.getInt("boardNo");
 				String category = rs.getString("boardCategory");
 				String boardTitle = rs.getString("boardTitle");
 				String userId = rs.getString("userId");
 				Date boardDate = rs.getDate("boardDate");
 				String boardContent = rs.getString("boardContent");
+				String boardOpen_YN = rs.getString("boardOpen_YN");
+				String boardDelete_YN = rs.getString("boardDelete_YN");
+				int viewCount = rs.getInt("viewCount");
+				int likeCount = rs.getInt("likeCount");
 				
 				selectedBoard = new BoardVo();
+				selectedBoard.setRNUM(RNUM);
 				selectedBoard.setBoardNo(boardNo);
 				selectedBoard.setBoardCategory(category);
 				selectedBoard.setBoardTitle(boardTitle);
 				selectedBoard.setUserId(userId);
 				selectedBoard.setBoardDate(boardDate);
 				selectedBoard.setBoardContent(boardContent);
+				selectedBoard.setBoardOpen_YN(boardOpen_YN);
+				selectedBoard.setBoardDelete_YN(boardDelete_YN);
+				selectedBoard.setViewCount(viewCount);
+				selectedBoard.setLikeCount(likeCount);
 				
 				list.add(selectedBoard);
 			}
@@ -367,20 +413,30 @@ public class BoardDao {
 			BoardVo selectedBoard = null;
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int boardNo = rs.getInt("RNUM");
+				int RNUM = rs.getInt("RNUM");
+				int boardNo = rs.getInt("boardNo");
 				String category = rs.getString("boardCategory");
 				String boardTitle = rs.getString("boardTitle");
 				String userId = rs.getString("userId");
 				Date boardDate = rs.getDate("boardDate");
 				String boardContent = rs.getString("boardContent");
+				String boardOpen_YN = rs.getString("boardOpen_YN");
+				String boardDelete_YN = rs.getString("boardDelete_YN");
+				int viewCount = rs.getInt("viewCount");
+				int likeCount = rs.getInt("likeCount");
 				
 				selectedBoard = new BoardVo();
+				selectedBoard.setRNUM(RNUM);
 				selectedBoard.setBoardNo(boardNo);
 				selectedBoard.setBoardCategory(category);
 				selectedBoard.setBoardTitle(boardTitle);
 				selectedBoard.setUserId(userId);
 				selectedBoard.setBoardDate(boardDate);
 				selectedBoard.setBoardContent(boardContent);
+				selectedBoard.setBoardOpen_YN(boardOpen_YN);
+				selectedBoard.setBoardDelete_YN(boardDelete_YN);
+				selectedBoard.setViewCount(viewCount);
+				selectedBoard.setLikeCount(likeCount);
 				
 				list.add(selectedBoard);
 			}
@@ -435,20 +491,30 @@ public class BoardDao {
 			BoardVo selectedBoard = null;
 			
 			while(rs.next()) {
-				int boardNo = rs.getInt("RNUM");
+				int RNUM = rs.getInt("RNUM");
+				int boardNo = rs.getInt("boardNo");
 				String category = rs.getString("boardCategory");
 				String boardTitle = rs.getString("boardTitle");
 				String userId = rs.getString("userId");
 				Date boardDate = rs.getDate("boardDate");
 				String boardContent = rs.getString("boardContent");
+				String boardOpen_YN = rs.getString("boardOpen_YN");
+				String boardDelete_YN = rs.getString("boardDelete_YN");
+				int viewCount = rs.getInt("viewCount");
+				int likeCount = rs.getInt("likeCount");
 				
 				selectedBoard = new BoardVo();
+				selectedBoard.setRNUM(RNUM);
 				selectedBoard.setBoardNo(boardNo);
 				selectedBoard.setBoardCategory(category);
 				selectedBoard.setBoardTitle(boardTitle);
 				selectedBoard.setUserId(userId);
 				selectedBoard.setBoardDate(boardDate);
 				selectedBoard.setBoardContent(boardContent);
+				selectedBoard.setBoardOpen_YN(boardOpen_YN);
+				selectedBoard.setBoardDelete_YN(boardDelete_YN);
+				selectedBoard.setViewCount(viewCount);
+				selectedBoard.setLikeCount(likeCount);
 				
 				list.add(selectedBoard);
 			}
@@ -481,20 +547,30 @@ public class BoardDao {
 			BoardVo selectedBoard = null;
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int boardNo = rs.getInt("RNUM");
+				int RNUM = rs.getInt("RNUM");
+				int boardNo = rs.getInt("boardNo");
 				String category = rs.getString("boardCategory");
 				String boardTitle = rs.getString("boardTitle");
 				String userId = rs.getString("userId");
 				Date boardDate = rs.getDate("boardDate");
 				String boardContent = rs.getString("boardContent");
+				String boardOpen_YN = rs.getString("boardOpen_YN");
+				String boardDelete_YN = rs.getString("boardDelete_YN");
+				int viewCount = rs.getInt("viewCount");
+				int likeCount = rs.getInt("likeCount");
 				
 				selectedBoard = new BoardVo();
+				selectedBoard.setRNUM(RNUM);
 				selectedBoard.setBoardNo(boardNo);
 				selectedBoard.setBoardCategory(category);
 				selectedBoard.setBoardTitle(boardTitle);
 				selectedBoard.setUserId(userId);
 				selectedBoard.setBoardDate(boardDate);
 				selectedBoard.setBoardContent(boardContent);
+				selectedBoard.setBoardOpen_YN(boardOpen_YN);
+				selectedBoard.setBoardDelete_YN(boardDelete_YN);
+				selectedBoard.setViewCount(viewCount);
+				selectedBoard.setLikeCount(likeCount);
 				
 				list.add(selectedBoard);
 			}
@@ -533,10 +609,62 @@ public class BoardDao {
 	}
 
 
-	
 
-
+//	===========================(viewDetail)================================
 	
+	public List<BoardVo> selectBoardBoardNo(Connection conn, String boardNo) {
+		
+		String sql = "SELECT * FROM BOARD WHERE boardNo = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<BoardVo> list = new ArrayList<BoardVo>();
+	
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(boardNo));
+			rs = pstmt.executeQuery();
+			BoardVo selectedBoard = null;
+			
+			System.out.println("sql: "+sql);
+			System.out.println("boardNo in dao: "+boardNo);
+			
+			while(rs.next()) {
+//				int RNUM = rs.getInt("RNUM");
+				int boardNo1 = rs.getInt("boardNo");
+				String category = rs.getString("boardCategory");
+				String boardTitle = rs.getString("boardTitle");
+				String userId = rs.getString("userId");
+				Date boardDate = rs.getDate("boardDate");
+				String boardContent = rs.getString("boardContent");
+				String boardOpen_YN = rs.getString("boardOpen_YN");
+				String boardDelete_YN = rs.getString("boardDelete_YN");
+				int viewCount = rs.getInt("viewCount");
+				int likeCount = rs.getInt("likeCount");
+				
+				selectedBoard = new BoardVo();
+//				selectedBoard.setRNUM(RNUM);
+				selectedBoard.setBoardNo(boardNo1);
+				selectedBoard.setBoardCategory(category);
+				selectedBoard.setBoardTitle(boardTitle);
+				selectedBoard.setUserId(userId);
+				selectedBoard.setBoardDate(boardDate);
+				selectedBoard.setBoardContent(boardContent);
+				selectedBoard.setBoardOpen_YN(boardOpen_YN);
+				selectedBoard.setBoardDelete_YN(boardDelete_YN);
+				selectedBoard.setViewCount(viewCount);
+				selectedBoard.setLikeCount(likeCount);
+				
+				list.add(selectedBoard);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		return list;
+	}
 
 }
 

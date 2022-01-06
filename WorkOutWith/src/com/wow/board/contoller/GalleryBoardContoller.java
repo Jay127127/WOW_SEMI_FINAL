@@ -39,7 +39,9 @@ public class GalleryBoardContoller extends HttpServlet{
 		
 		//DB에서 가져온 게시판 정보 리스트 화면으로 보내기
 		List<BoardVo> G_BoardList = new BoardService().searchGallery(selectType, currentPage);
-		
+		for(BoardVo x : G_BoardList) {
+			System.out.println("x:"+ x);
+		}
 		req.setAttribute("G_BoardList", G_BoardList);
 		req.getRequestDispatcher("WEB-INF/views/board/galleryBoard.jsp").forward(req, resp);
 	}

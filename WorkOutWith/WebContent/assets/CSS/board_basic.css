@@ -52,6 +52,12 @@ body {
     color: black;
 }
 
+.btable_board a{
+	text-decoration:none;
+	color: black;
+}
+
+
 /* .pagination_space{
     width: 100%;
     margin: auto;
