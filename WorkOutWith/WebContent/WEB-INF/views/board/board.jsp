@@ -29,6 +29,11 @@
         .board_number{
         	display: inline-block;
         }
+        
+        a{
+        	text-decoration:none;
+        	color:black;
+        }
     </style>
 </head>
 
@@ -56,11 +61,11 @@
 		<div class="board_select">
 			<form action="board" method="get">
 				<select id="select" name="selectType">
-					<option value="''" selected>최신순</option>
-					<option value="boardNo">과거순</option>
-					<option value="boardTitle">a-z순</option>
+					<option value="boardDate" selected>최신순</option>
+					<!-- <option value="boardNo">과거순</option> -->
+					<option value="boardTitle">제목역순</option>
 				</select>
-				<input type="submit" value="찾기">
+				<input type="submit" value="찾기" style="height:26px; line-height:10px;">
 			</form>
 		</div>
 	</div>
@@ -76,17 +81,15 @@
 					<th name="board_view" scope="col" style="width: 8%;">View</th>
 				</tr>
 			</thead>
-			<%
-				int i = 1;
-			%>
+			
 			<tbody>
 				<c:forEach items="${boardList}" var="b">
            			<tr class="table-light">
-		               <td><a href="<%=i++ %>">${b.boardNo}</a></td>
-		               <td><a href="<%request.getContextPath();%>/wow/boardDetail.jsp?boardNo=${b.boardNo}">${b.boardTitle}</a></td>
-		               <td><a href="<%request.getContextPath();%>/wow/boardDetail.jsp?boardNo=${b.boardNo}">${b.userId}</a></td>
-		               <td><a href="<%request.getContextPath();%>/wow/boardDetail.jsp?boardNo=${b.boardNo}">${b.boardDate}</a></td>
-		               <td onclick="location.href="<%request.getContextPath();%>/wow/boardDetail.jsp?boardNo=${b.boardNo}">${b.viewCount}</td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost?boardNo=${b.boardNo}" style="color:black;">${b.RNUM}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost?boardNo=${b.boardNo}" style="color:black;">${b.boardTitle}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost?boardNo=${b.boardNo}" style="color:black;">${b.userId}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost.jsp?boardNo=${b.boardNo}" style="color:black;">${b.boardDate}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost.jsp?boardNo=${b.boardNo}" style="color:black;">${b.viewCount}</a></td>
 		           </tr>
 		       	</c:forEach>
 			</tbody>
@@ -176,7 +179,7 @@
 	<div class="new_roll_space">
 		<a href="newPost" class="new_roll">글 쓰기</a>
 	</div>
-
+ 
 
 <!-- 페이징 -->
 	<div style="text-align:center;">

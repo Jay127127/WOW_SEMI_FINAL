@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class BoardVo {
+	private int RNUM;
 	private int boardNo;
 	private String boardCategory;
 	private String boardTitle;
@@ -76,6 +77,12 @@ public class BoardVo {
 	}
 	public void setLikeCount(int likeCount) {
 		this.likeCount = likeCount;
+	}
+	public int getRNUM() {
+		return RNUM;
+	}
+	public void setRNUM(int rNUM) {
+		RNUM = rNUM;
 	}
 	
 	

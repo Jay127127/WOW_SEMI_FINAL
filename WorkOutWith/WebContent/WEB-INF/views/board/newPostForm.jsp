@@ -41,10 +41,21 @@
 	                    <th style="min-width: 100px; min-height: 60px">카테고리</th>
 	                    <td style="min-width: 1000px;">
 	                        <select name="boardCategory" id="category_select" style="min-height: 30px">
-	                            <option value="board" selected >자유게시판</option>
-	                            <option value="gallery" >갤러리</option>
-	                            <option value="routine">루틴공유</option>
-	                            <option value="enquiry">문의게시판</option>
+	                            <%String userID = (String)session.getAttribute("isLogin");
+									if(userID!=null && !"".equals(userID)){
+	                            %>
+		                            <option value="board" selected >자유게시판</option>
+		                            <option value="gallery" >갤러리</option>
+		                            <option value="routine">루틴공유</option>
+		                            <option value="enquiry">문의게시판</option>
+		                        <%
+									}else{
+		                        %>   
+	                            	<option value="board" selected >자유게시판</option>
+	                            <% 
+	                            	}
+	                            %>
+	                            
 	                        </select>
 	                    </td>
 	                </tr>
@@ -55,8 +66,8 @@
 	                            <input type="file" id="upload_file" name="fileName" multiple 
 	                            style="font-size: 1em;">
 	                            <%-- Using JSP EL to get message attribute value from request scope --%>
-							    <h2>${requestScope.fileName}</h2>
-							    파일명 : <a href = "FileDown?fileName=${requestScope.fileName }">${requestScope.fileName }</a>
+							    <%-- <h2>${requestScope.fileName}</h2>
+							    파일명 : <a href = "FileDown?fileName=${requestScope.fileName }">${requestScope.fileName }</a> --%>
 	                        </div>
 	                    </td>
 	                </tr>
@@ -81,20 +92,19 @@
 	            </tbody>
 	        </table>
 	        
-<!-- ===================버튼===================== -->
-
+<!-- ===================버튼===================== -->>
 	        <div class="submit_form">
 	            <input type="submit" id="postingConfirm" value="게시하기">
-	            
-	        	<input type="button" id="resetConfirm" value="취소하기">
+	            <input type="reset"  id="resetConfirm" value="다시 쓰기">
+	        	<input type="button" id="cancelConfirm" value="취소하기">
 	        </div>
 
         	<script>
 		        $(function(){
-		            $("#resetConfirm").on(
+		            $("#cancelConfirm").on(
 		                {
-		                   "click":function(){confirm("sure?");
-			                   if (window.confirm("Really want to leave?")) {
+		                   "click":function(){
+			                   if (window.confirm("정말 이 페이지를 떠나시겠어요? ㅠㅠ")) {
 						    	  	history.back();
 						    	}
 		                   }

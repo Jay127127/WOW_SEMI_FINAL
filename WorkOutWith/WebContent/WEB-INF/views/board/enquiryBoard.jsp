@@ -36,9 +36,7 @@
 
 
 <!-- -------------- navbar -------------- -->
-
 <%@ include file="../common/header_nav.jsp"%>
-
 
 
 <!-- -------------본문 내용 시작---------------- -->
@@ -82,32 +80,45 @@
 					<th name="board_view" scope="col" style="width: 8%;">View</th>
 				</tr>
 			</thead>
+			
 			<tbody>
 				<c:forEach items="${E_BoardList}" var="b">
            			<tr class="table-light">
-		               <td>${b.boardNo}</td>
-		               <td>${b.boardTitle}</td>
-		               <td>${b.userId}</td>
-		               <td>${b.boardDate}</td>
-		               <td>${b.viewCount}</td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost?boardNo=${b.boardNo}" style="color:black;">${b.RNUM}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost?boardNo=${b.boardNo}" style="color:black;">${b.boardTitle}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost?boardNo=${b.boardNo}" style="color:black;">${b.userId}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost.jsp?boardNo=${b.boardNo}" style="color:black;">${b.boardDate}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost.jsp?boardNo=${b.boardNo}" style="color:black;">${b.viewCount}</a></td>
 		           </tr>
 		       	</c:forEach>
 			</tbody>
 		</table>
 	</div>
 
+<%-- <%
+     Boolean isLogin =  (Boolean)session.getAttribute("isLogin");
+     
+     if(isLogin != null && isLogin){
+           out.println("<h1>로그인 성공!</h1>");
+     }else{
+           out.println("<h1>로그인 실패!</h1>");
+     }
+%> --%>
 
 <!-- -------------글 쓰기---------------- -->
 	<% 
-		String userID = null;
-		if(session.getAttribute("userID")!=null){
-			userID = (String)session.getAttribute("userID");
-		}
-		if(userID != null){
+		String userID = (String)session.getAttribute("isLogin");
+		if(userID!=null && !"".equals(userID)){
 	%>
-		<div class="new_roll_space">
-			<a href="newPost" class="new_roll">글 쓰기</a>
-		</div>
+			<div class="new_roll_space">
+				<a href="newPost" class="new_roll">글 쓰기</a>
+			</div>
+	<%	
+		}else {
+	%>
+			<div class="new_roll_space">
+				<button class="new_roll" onclick="alert('로그인이 필요합니다.'); location.href='login';">글 쓰기</button>
+			</div>
 	<%		
 		}
 	%>

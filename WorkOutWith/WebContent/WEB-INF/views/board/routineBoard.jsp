@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Board</title>
+    <title>Routine Page</title>
     
 	<!-- Bootstap Fluid Container -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -54,14 +54,13 @@
 
 	<div>
 		<div class="board_select">
-			<form action="board" method="get">
+			<form action="routineBoard" method="get">
 				<select id="select" name="selectType">
-					<option value="boardDate" selected >최신순</option>
-					<!-- <option value="bs_view">조회수순</option>
-					<option value="bs_like">좋아요순</option> -->
-					<option value="boardTitle">z-a순</option>
+					<option value=""boardDate"" selected>최신순</option>
+					<!-- <option value="boardNo">과거순</option> -->
+					<option value="boardTitle">제목역순</option>
 				</select>
-				<input type="submit" value="찾기">
+				<input type="submit" value="찾기" style="height:26px; line-height:10px;">
 			</form>
 		</div>
 	</div>
@@ -77,14 +76,15 @@
 					<th name="board_view" scope="col" style="width: 8%;">View</th>
 				</tr>
 			</thead>
+			
 			<tbody>
 				<c:forEach items="${R_BoardList}" var="b">
            			<tr class="table-light">
-		               <td>${b.boardNo}</td>
-		               <td>${b.boardTitle}</td>
-		               <td>${b.userId}</td>
-		               <td>${b.boardDate}</td>
-		               <td>${b.viewCount}</td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost?boardNo=${b.boardNo}" style="color:black;">${b.RNUM}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost?boardNo=${b.boardNo}" style="color:black;">${b.boardTitle}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost?boardNo=${b.boardNo}" style="color:black;">${b.userId}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost.jsp?boardNo=${b.boardNo}" style="color:black;">${b.boardDate}</a></td>
+		               <td class="btable_td"><a href="<%request.getContextPath();%>viewPost.jsp?boardNo=${b.boardNo}" style="color:black;">${b.viewCount}</a></td>
 		           </tr>
 		       	</c:forEach>
 			</tbody>
@@ -94,11 +94,23 @@
 
 
 <!-- 글쓰기 버튼 -->
-	<div class="new_roll_space">
-		<a href="newPost" class="new_roll">글 쓰기</a>
-	</div>
-
-
+	<% 
+		String userID = (String)session.getAttribute("isLogin");
+		if(userID!=null && !"".equals(userID)){
+	%>
+			<div class="new_roll_space">
+				<a href="newPost" class="new_roll">글 쓰기</a>
+			</div>
+	<%	
+		}else {
+	%>
+			<div class="new_roll_space">
+				<button class="new_roll" onclick="alert('로그인이 필요합니다.'); location.href='login';">글 쓰기</button>
+			</div>
+	<%		
+		}
+	%>
+	
 <!-- 페이징 -->
 	<div style="text-align:center;">
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
