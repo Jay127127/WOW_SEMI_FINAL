@@ -152,7 +152,7 @@
 
 		                        <form method="get" action="deal_req">
 		                        <div class="">
-		                        <select class="form-select" name="searchType" style="width:150px">
+		                        <select class="form-select" name="searchTypeY" style="width:150px">
 		                            <option value="boardNo">문의번호</option>
 		                            <option value="boardDate">날짜</option>
 		                            <option value="userId">아이디</option>
@@ -161,7 +161,7 @@
 		                            <option value="dealEnq">처리여부</option>
 		                        </select>
 
-		                        <input type="text" name="searchValue" id="">
+		                        <input type="text" name="searchValueY" id="">
 		                        <input type="submit" class="btn bg-custom btn-sm" value="검색">
 		                        </div>
 		                        </form><br>

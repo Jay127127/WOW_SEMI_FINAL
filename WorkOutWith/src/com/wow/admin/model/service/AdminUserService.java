@@ -85,7 +85,7 @@ public class AdminUserService {
 
 
 	//5-1. countUserAll() 가져오기, 어드민 개수
-	private int countUserAll(Connection conn) {
+	public int countUserAll(Connection conn) {
 		return new UserDao().countUserAll(conn);
 	}
 	
