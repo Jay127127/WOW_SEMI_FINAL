@@ -27,7 +27,7 @@
 	            <li>w.o.w의 회원들과 다양한 이야기를 나눠보세요.</li>
 	        </ul>
 	    </div>
-	
+	            
 	    <form id="text_editor_form" name="text_editor_form" action="newPost" method="post" enctype = "multipart/form-data">
 	        <table id="editing_form">
 	            <tbody>
