@@ -102,10 +102,22 @@ public class AdminCreateService {
 	public List<AdminVo> search(String type, String value, String currentPage){
 		Connection conn = getConnection();
 		
-		
-		
 		//한 페이지 당 게시글 수
 		int boardLimit = 5;
+		//총 게시글 수 : select count (*)~~ (5-1)
+		int totalBoardCount = 0;
+		
+		List<AdminVo> adminList;
+		if(type == null || value == null) {
+			//총 게시글 수 : select count (*)~~ (5-1)
+			totalBoardCount = countAdminAll(conn);
+		} else {
+			//총 게시글 수 : select count (*)~~ (5-4)
+			totalBoardCount = countSearchAll(conn, type, value);
+			System.out.println("type:"+type);
+			System.out.println("value:"+value);
+			System.out.println("total:"+totalBoardCount);
+		}
 		
 		//마지막 페이지 maxPage
 		// maxPage를 담을 함수 (5-4)
@@ -114,38 +126,40 @@ public class AdminCreateService {
 			maxPage++;
 		}
 		System.out.println("maxPage: "+maxPage);
-		
+				
 		int cPage = Integer.parseInt(currentPage);
 		System.out.println("cPage: "+cPage);
-		
+				
 		//이전 페이지 prevPage 설정
 		prevPage = (cPage == 1)? cPage : cPage-1;
 		System.out.println("prevPage: "+prevPage);
-		
+				
 		//다음페이지 nextPage 설정
 		nextPage = (cPage == maxPage)? cPage : cPage+1;
 		System.out.println("nextPage: "+nextPage);
-		
+				
 		//현재 페이지의 마지막 글번호
 		int endNo = cPage * boardLimit;
 		//현재 페이지의 첫번째 글번호
-		int startNo = endNo - boardLimit + 1;
-		
-		List<AdminVo> adminList;
-		if(type == null && value == null) {
-			//총 게시글 수 : select count (*)~~ (5-1)
-			int totalBoardCount = countAdminAll(conn);
-			
+		int startNo = endNo - boardLimit + 1;		
+
+		if(type == null || value == null) {
 			//탐색만 눌렀을 때 null, null이 나오는데, 이땐 전체 멤버 조회로 (5-3)
 			adminList = seletAdminAll(conn, currentPage, startNo, endNo);
 		} else {
 			//type과 value 둘다 값이 있을 경우, 즉 타입적용 (5-2)
 			adminList = selectAdminBySearch(conn, type, value, currentPage, startNo, endNo);
 		}
+		
 		close(conn);
 		
 		return adminList;
 	}
+
+	private int countSearchAll(Connection conn, String type, String value) {
+		return new AdminDao().countSearchAll(conn, type, value);
+	}
+
 
 	//5-2. selectAdminBySearch() 가져오기, 어드민 타입별 검색 결과
 	private List<AdminVo> selectAdminBySearch(Connection conn, String type, String value, String currentPage, int startNo, int endNo) {

@@ -13,8 +13,22 @@
 
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+  />
 	<link rel="stylesheet" href="assets/CSS/index.css">
+<style>
+	.adlo{
+		display: inline-block;
+		padding-top: 5px;
+		padding-right: 5px;
+	}
+
+</style>
+
+
 </head>
 <body>
 
@@ -27,15 +41,16 @@
 
 	<div class="section-header s-h-custom">
 		<div class="loginDiv">
-			<!-- <a href="#"><img src="assets/img/loginBigger.png" alt=""></a>
-			<a href="#"><img src="assets/img/logoutBigger.png" alt=""></a> -->
+			<div class="adlo">
+			<a href="admin_login"><i class="fas fa-user-secret" style="font-size: 22px;color: rgba(245, 247, 247, .6); "></i></a>
+			</div>
 			<% if(request.getSession().getAttribute("loginUser") == null && request.getSession().getAttribute("loginAdmin") == null) { %>
         	<a href="login"><img src="assets/img/loginBigger.png" alt=""></a>
     		<%} else{%>
         	<a href="logout"><img src="assets/img/logoutBigger.png" alt=""></a>
     		<%} %>
 		</div>
-	</div>	
+	</div>
 
 	<div class="container-fluid">
 

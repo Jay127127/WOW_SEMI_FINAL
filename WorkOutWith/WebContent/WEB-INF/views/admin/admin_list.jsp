@@ -42,11 +42,7 @@
     background-color: rgb(121, 3, 29) !important;
     color: #fff;
 }
-.ud>.btn-sm, .btn-group-sm > .btn {
-  padding: 0.125rem 0.25rem;
-  font-size: 0.875rem;
-  border-radius: 0.1rem;
-}
+
 
 
 </style>
@@ -109,14 +105,13 @@
 			                            <tr>
 			                                <td>${a.rNum}</td>
 			                                <td>${a.admin_num}</td>
-			                                <td>${a.admin_id}</td>
+			                                <td class="ad">${a.admin_id}</td>
 			                                <td>${a.admin_name}</td>
 			                                <td>${a.admin_power_name}</td>
 			                                <td>${a.admin_nik}</td>
 			                                <td>${a.admin_email}</td>
 			                                <td align="center" class="ud">
-			                                <!-- <a href=""><i class="fas fa-eraser"></i></a> -->
-			                                <a href="admin_delete?admin_id=${a.admin_id}"><i class="fas fa-user-slash"></i></a>			                                
+			                                <a class="delAd"><i class="fas fa-user-slash"></i></a>
 			                                </td>
 			                            </tr>
 			                        </c:forEach>
@@ -127,7 +122,7 @@
 				                    <ul class="pagination justify-content-center">
 				                    <c:choose>
 				                    	<c:when test="${!empty type && !empty value}">
-					                        <li class="page-item" id=""><a class="page-link" id="pp" href="admin_list?searchType=${type}&searchValue=${value}&currentPage=${prevPage}">prev</a></li>	
+					                        <li class="page-item" id=""><a class="page-link" id="pp" href="admin_list?searchType=${type}&searchValue=${value}&currentPage=${prevPage}">prev</a></li>
 					                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
 					                        	<c:if test="${i le maxPage}">
 					                        	<li class="page-item liPi" id=""><a class="page-link iPi" id="" href="admin_list?searchType=${type}&searchValue=${value}&currentPage=${i}">${i}</a></li>
@@ -136,7 +131,7 @@
 					                        <li class="page-item" id=""><a class="page-link" id="np" href="admin_list?searchType=${type}&searchValue=${value}&currentPage=${nextPage}">next</a></li>
 				                        </c:when>
 				                        <c:otherwise>
-					                        <li class="page-item" id=""><a class="page-link" id="pp" href="admin_list?currentPage=${prevPage}">prev</a></li>	
+					                        <li class="page-item" id=""><a class="page-link" id="pp" href="admin_list?currentPage=${prevPage}">prev</a></li>
 					                        <c:forEach var='i' begin="${startPage}" end="${maxPage}">
 					                        	<c:if test="${i le maxPage}">
 					                        	<li class="page-item liPi" id=""><a class="page-link iPi" id="" href="admin_list?currentPage=${i}">${i}</a></li>
@@ -172,6 +167,17 @@
 		// np.href = '#;
 		np.setAttribute("href", "#");
 	}
+
+
+	//클릭한 것만 삭제하기
+
+	$('.delAd').click(function(){
+		let index = $('.delAd').index(this);
+		let st = 'admin_delete?admin_id='+$('.ad').eq(index).text()
+		if(confirm("정말로 삭제하시겠습니까?")){
+			$(location).attr('href', st);
+		}
+	})
 
 
     </script>

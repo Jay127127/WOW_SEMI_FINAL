@@ -215,17 +215,17 @@ public class AdminDao {
 		String sql = "SELECT * "
 				+ "FROM "
 				+ "("
-				+ "SELECT ROWNUM AS RNUM, admin_num, admin_id, admin_name, admin_power_name, admin_nik, admin_email "
+				+ "SELECT ROWNUM AS RNUM, aa.* "
 				+ "FROM (SELECT * FROM admin a  "
 				+ "LEFT JOIN admin_power ap ON(a.admin_power_code = ap.admin_power_code) "
 				+ "WHERE %s LIKE ? "
-				+ "ORDER BY %s ASC) "
+				+ "ORDER BY %s ASC) aa"
 				+ ") "
 				+ "WHERE RNUM BETWEEN ? AND ?";
 		sql = String.format(sql, type, type);
 		//%s : 타입
 //		type 여러개 넣을 수 있다.
-		System.out.println("sql: "+sql);
+//		System.out.println("sql: "+sql);
 		
 		List<AdminVo> list = null;
 		list = new ArrayList<AdminVo>();
@@ -281,18 +281,19 @@ public class AdminDao {
 		String sql = "SELECT COUNT(*) "
 				+ "FROM "
 				+ "( "
-				+ "SELECT ROWNUM AS RNUM, admin_num, admin_id, admin_name, admin_power_name, admin_nik, admin_email "
-				+ "FROM (SELECT * FROM admin a  "
-				+ "LEFT JOIN %s ON(a.admin_power_code = ap.admin_power_code) "
+				+ "SELECT ROWNUM AS RNUM, aa.* "
+				+ "FROM (SELECT * FROM admin a "
+				+ "LEFT JOIN admin_power ON(a.admin_power_code = ap.admin_power_code) "
 				+ "WHERE %s LIKE ? "
-				+ "ORDER BY %s ASC) "
-				+ ") "
-				+ "WHERE RNUM BETWEEN ? AND ?";
+				+ "ORDER BY %s ASC) aa"
+				+ ") ";
 		sql = String.format(sql, type, type);
 		int result = 0;
+		System.out.println("왜??sql: "+sql);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+value+"%");
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				result = rs.getInt(1);
@@ -303,6 +304,7 @@ public class AdminDao {
 			close(pstmt);
 			close(rs);
 		}		
+		System.out.println("탐색별조회시 총 인원: "+result);
 		return result;
 	}	
 	
