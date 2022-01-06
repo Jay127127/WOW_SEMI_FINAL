@@ -70,7 +70,7 @@
 					<li class="nav-item dropdown nvitem-custom">
 						<a class="nav-link dropdown nv-link-custom" href="#" data-toggle="dropdown">&emsp;운동 루틴&emsp; </a>
 						<ul class="dropdown-menu dp-menu-custom">
-							<li><a class="dropdown-item dd-item" href="#"> 부위별 운동</a></li>
+							<li><a class="dropdown-item dd-item" href="routine"> 부위별 운동</a></li>
 							<li><a class="dropdown-item dd-item" href="#"> 전신 운동 </a></li>
 						</ul>
 					</li>
@@ -83,7 +83,7 @@
 						</ul>
 					</li>
 					<li class="nav-item nvitem-custom">
-						<a class="nav-link nv-link-custom" aria-current="page" href="#">&emsp;운동 장소&emsp;</a>
+						<a class="nav-link nv-link-custom" aria-current="page" href="map">&emsp;운동 장소&emsp;</a>
 					</li>
 					<li class="nav-item dropdown nvitem-custom">
 						<a class="nav-link dropdown nv-link-custom" href="#" data-toggle="dropdown"> &emsp;커뮤니티&emsp;</a>
