@@ -29,7 +29,7 @@
 
   <br><br><br>
   
-<form id="text_editor_form"  action="mapwrite" method="post" enctype = "multipart/form-data">
+<form id="text_editor_form"  action="mapwrite" method="post" >
 		<div>
 				
 	        <table id="editing_form" style="left-margin:100px;">
