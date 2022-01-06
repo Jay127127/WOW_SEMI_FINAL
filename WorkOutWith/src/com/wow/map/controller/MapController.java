@@ -1,6 +1,7 @@
 package com.wow.map.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,28 +22,39 @@ public class MapController extends HttpServlet{
 	}
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
-		String id = req.getParameter("id");
-		String pwd = req.getParameter("pwd");
-		String name = req.getParameter("name");
 		
-		MapModelVo m =new MapModelVo();
-		m.setId(id);
-		m.setPwd(pwd);
-		m.setName(name);
+		String type =req.getParameter("searchType");
+		String value = req.getParameter("searchValue");
+		String currentPage =req.getParameter("currentPage");
 		
-		int result = new MapService().join(m);
 		
-		if(result>0) {
-			//success
-			req.setAttribute("msg", "회원가입 성공");
-			req.getRequestDispatcher("WEB-INF/views/common/successPage.jsp").forward(req, resp);
-		}else {
-			//error
-			req.setAttribute("msg", "회원가입 실패");
-			req.getRequestDispatcher("WEB-INF/views/common/errorPage.jsp").forward(req, resp);
-		}
+		
+	System.out.println(type);
+	System.out.println(value);
+	System.out.println("currentPage :" + currentPage);
+	
+	if(currentPage ==null) currentPage="1";
+	
+	int maxPage=5;
+	req.setAttribute("maxPage", maxPage);
+	
+	int startPage= Integer.parseInt(currentPage)-2;
+	if(startPage<=0) startPage=1;
+	int endPage = startPage+5;//pageLimit
+	req.setAttribute("startPage", startPage);
+	req.setAttribute("endPage", endPage);
+		
+		List<MapModelVo> memberList=  new MapService().search(type,value,currentPage);
+		
+		req.setAttribute("memberList", memberList);
+		
+		req.getRequestDispatcher("/WEB-INF/views/member/map.jsp").forward(req, resp);
 	}
 	
-
+	
+	
+	
 }
+	
+
+

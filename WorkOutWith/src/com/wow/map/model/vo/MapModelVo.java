@@ -4,33 +4,24 @@ import java.sql.Timestamp;
 
 public class MapModelVo {
 	
-	private int memberNo;
-	private String id;
-	private String pwd;
+	private int borardNo;
+	private String title;
 	private String name;
-	private int detail;
+	private String content;
 	private Timestamp enrollDate;
 	private Timestamp modifyDate;
-	private String openYn;
 	
-	
-	public int getMemberNo() {
-		return memberNo;
+	public int getBorardNo() {
+		return borardNo;
 	}
-	public void setMemberNo(int memberNo) {
-		this.memberNo = memberNo;
+	public void setBorardNo(int borardNo) {
+		this.borardNo = borardNo;
 	}
-	public String getId() {
-		return id;
+	public String getTitle() {
+		return title;
 	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPwd() {
-		return pwd;
-	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getName() {
 		return name;
@@ -38,11 +29,11 @@ public class MapModelVo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getDetail() {
-		return detail;
+	public String getContent() {
+		return content;
 	}
-	public void setDetail(int detail) {
-		this.detail = detail;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public Timestamp getEnrollDate() {
 		return enrollDate;
@@ -56,11 +47,9 @@ public class MapModelVo {
 	public void setModifyDate(Timestamp modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-	public String getOpenYn() {
-		return openYn;
-	}
-	public void setOpenYn(String openYn) {
-		this.openYn = openYn;
-	}
-
+	
+	
+	
+	
+	
 }
