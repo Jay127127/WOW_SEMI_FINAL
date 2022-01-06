@@ -58,11 +58,13 @@ public class join extends HttpServlet{
 		if(result > 0) {
 			//success
 			req.setAttribute("msg", "회원가입 성공");
-			req.getRequestDispatcher("WEB-INF/views/common/join_successPage.jsp").forward(req, resp);
+			req.setAttribute("ok", "3");
+			req.getRequestDispatcher("WEB-INF/views/login/login.jsp").forward(req, resp);
 		}else {
 			//error
 			req.setAttribute("msg", "회원가입 실패");
-			req.getRequestDispatcher("WEB-INF/views/common/join_errorPage.jsp").forward(req, resp);
+			req.setAttribute("ok", "1");
+			req.getRequestDispatcher("WEB-INF/views/login/join.jsp").forward(req, resp);
 		}
 		
 	}

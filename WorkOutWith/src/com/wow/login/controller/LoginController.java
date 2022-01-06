@@ -25,6 +25,7 @@ public class LoginController extends HttpServlet{
 		req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
 	}
 	
+	// 로그인 실행
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
@@ -35,6 +36,8 @@ public class LoginController extends HttpServlet{
 		m.setPwd(pwd); 
 		
 		MemberVo loginUser = new MemberService().login(m);
+		
+		// 입력한 아이디가 DB에 있는지 체크
 		int result = new MemberService().dupCheck(m.getId());
 		
 		if(result <= 0) {
